@@ -1,0 +1,44 @@
+
+
+body{
+    font-family: 'Poppins',sans-serif;
+}
+.navbar h1{
+    font-family: 'Merriweather',sans-serif;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(3, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.navbar-links{
+    display: flex;
+    column-gap: 20px;
+}
+
+.navbar-links a{
+    text-decoration: none;
+    color: #1D232C;
+}
+
+.navbar-links a:hover{
+    text-decoration: underline;
+}
+
+.home
+{
+    height: 400px;
+    padding: 20px;
+    text-align: center;
+}
+.footer{
+    margin-top: 20px;
+    padding: 40px;
+    background-color: powderblue;
+    color:white;
+
+}

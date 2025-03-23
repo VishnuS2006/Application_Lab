@@ -1,0 +1,78 @@
+body{
+    background-image:url('https://elearningimages.adobe.com/files/2020/06/AdobeStock_244900189-scaled.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  background-size: cover;
+    background-attachment:fixed;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+#form {
+
+    width: 400px;
+    margin: 13vh auto 0 auto;
+    background-color: black;
+    opacity: 0.9;
+    backdrop-filter: blur(5px);
+    border-radius: 40px ;
+    padding: 30px;
+    margin-top: 40px;
+}
+#form label{
+    font-size: 20px;
+    color: white;
+}
+#form h1{
+    text-align: center;
+    color: white
+}
+
+
+#form button{
+    background-color: #209946;
+    color: white;
+    border: 1px solid #0b0a0b;
+    border-radius:25px;
+    padding: 10px;
+    margin: 20px 0px;
+    cursor: pointer ;
+    font-size: 20px;
+    width: 100%;
+}
+
+.inputgrp{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+
+}
+
+.inputgrp input{
+    border-radius: 5px;
+    font-size: 20px;
+    margin-top: 5px;
+    padding: 10px;
+    border:1px solid rgb(34, 192, 195) ;
+}
+
+.inputgrp input:focus{
+    outline : none;
+
+}
+
+.inputgrp .error{
+    color: red;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+
+.inputgrp.success input{
+    border-color: green;
+}
+
+.inputgrp.error input{
+    border-color: red;
+}
