@@ -1,0 +1,106 @@
+body{
+    background-image: url('https://elearningimages.adobe.com/files/2020/06/AdobeStock_244900189-scaled.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 20;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+#form{
+    width: 400px;
+    margin: 20vh auto 0 auto;
+    margin-top: 50px;
+    background-color:black;
+    opacity : 0.9;
+    border-radius: 20px ;
+    padding: 30px;
+}
+
+h1{
+    text-align: center;
+    color: #2800a0;
+}
+
+#form button{
+    background-color: #01bf3d;
+    color: white;
+    border: 1px solid black;
+    border-radius: 90px;
+    padding: 10px;
+    margin: 20px 0px;
+    margin-bottom: 5px;
+    cursor:pointer;
+    font-size: 20px;
+    width: 100%;
+}
+
+.inputgrp{
+    color : white ;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+
+}
+
+.inputgrp input{
+    border-radius: 5px;
+    font-size: 20px;
+    margin-top: 5px;
+    padding: 10px;
+    border:1px solid rgb(0, 0, 0) ;
+}
+
+.inputgrp input:focus{
+    outline:none;
+    
+}
+
+.inputgrp .error{
+    color: red;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+
+.inputgrp.success input{
+    border-color: green;
+}
+
+.inputgrp.error input{
+    border-color: red;
+}
+button:hover {
+    background-color: lightblue;
+  }
+
+
+  .message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    opacity: 1;
+    animation: floatUp 3s ease-in-out forwards;
+}
+
+@keyframes floatDown {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateX(-50%) translateY(50px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(80px);
+    }
+}
