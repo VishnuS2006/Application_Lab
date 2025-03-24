@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
     <nav class="navbar">
         <h1 style="font-style: italic;">LearnMate</h1>
@@ -16,9 +14,9 @@
             <p class="navbar-link"><a href="home.html">Home</a></p>
             <p> |</p>
             <p class="navbar-link"><a href="#">About</a></p>
-            <div id="signupButton">
-                <p> |</p>
-                <p class="navbar-link"><a href="formvalidation.html">Sign up</a></p>
+            <div id="LoginButton">
+                <p> | </p>
+                <p class="navbar-link"><a href="login.html">Log in</a></p>
             </div>
             <p> |</p>
             <div class="profile-container">
@@ -41,7 +39,7 @@
                                 <td><span>❓</span></td>
                             </tr>
                             <tr>
-                                <td><a href = "LearnHere.html" type = "button"> LearnHere</td>
+                                <td><a id = "learn" href="LearnHere.html">LearnHere</a></td>
                                 <td><button>Notebook</button></td>
                                 <td><button>Quizzes</button></td>
                             </tr>
@@ -72,19 +70,6 @@
         </div>
     </nav>
 
-    <script>
-        function toggleDropdown(event) {
-            event.stopPropagation(); 
-            document.getElementById("dropdown").classList.toggle("show");
-        }
-
-        window.onclick = function (event) {
-            if (!event.target.closest(".profile-container")) {
-                document.getElementById("dropdown").classList.remove("show");
-            }
-        };
-    </script>
-
     <div class="home">
         <h1 style="font-style: italic;">LearnMate</h1>
         <h5>Smart Dashboard for Aptitude Enhancement</h5>
@@ -94,18 +79,31 @@
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const name = urlParams.get('username');
-
         const messageElement1 = document.getElementById('signup-message');
         const messageElement2 = document.getElementById('username-display');
+        const loginButton = document.getElementById('LoginButton'); 
+        const signInButton = document.getElementById('signInButton'); // Reference to sign-in link
 
         if (name) {
             if (messageElement1) {
-                messageElement1.innerText = `Welcome, ${name}! You have successfully signed up.`;
+                messageElement1.innerText = `Welcome, ${name}! You have successfully logged in.`;
             }
             if (messageElement2) {
-                messageElement2.innerText = ` ${name}`;
+                messageElement2.innerText = `${name}`;
             }
-            document.getElementById("signupButton").style.display = "none";
+
+            if (loginButton) {
+                loginButton.style.display = 'none'; 
+            }
+
+            if (signInButton) {
+                signInButton.style.display = 'none'; 
+            }
+        }
+
+        function toggleDropdown(event) {
+            const dropdown = document.getElementById('dropdown');
+            dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
         }
     </script>
 
@@ -128,5 +126,4 @@
     </div>
 
 </body>
-
 </html>

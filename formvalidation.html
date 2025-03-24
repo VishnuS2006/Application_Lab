@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <title>FORM</title>
+    <title>Register</title>
     <link rel="stylesheet" href="formvalidation.css">
     <script src="formvalidation.js" defer></script>
 </head>
 <body>
     
-    <div class = "Head">
+    <div class="Head">
         <center>
         <h1 style="background-color:white;margin-left: 400px;margin-right: 400px;padding: 20px;border-radius: 20px;font-size:40px;opacity: 0.8;margin-bottom: 5px;">
             LearnMate
@@ -26,7 +25,7 @@
 
             <div class="inputgrp">
                 <label for="email">Email</label>
-                <input type="text" id="email" name="pmail" placeholder="Enter your email">
+                <input type="text" id="email" name="email" placeholder="Enter your email">
                 <div class="error"></div>
             </div>
 
@@ -42,16 +41,14 @@
                 <div class="error"></div>
             </div>
 
-            <button style="margin-bottom: 1px;" type="submit"ID='submit'>Submit</button>
+            <button type="submit" id="submit">Submit</button>
             <center>
-                <p style="color:white ;font-size: 15px;margin-top: 10px;">Already have an account / <a style="color:red" href = "login.html" >Login</a></p>
-                
+                <p style="color:white; font-size: 15px; margin-top: 10px;">
+                    Already have an account? 
+                    <a id="signInButton" style="color:red" href="login.html">Login</a>
+                </p>
             </center>
-            
-
         </form>
     </div>
-  
-    
 </body>
 </html>
