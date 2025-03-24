@@ -6,10 +6,9 @@ const password = document.querySelector('#password');
 const cpassword = document.querySelector('#cpassword');
 
 form.addEventListener('submit', async function (e) {
-    e.preventDefault(); // Prevent default form submission
-
+    e.preventDefault(); 
     if (!validateInputs()) {
-        return; // Stop if validation fails
+        return; 
     }
 
     const formData = {
@@ -28,9 +27,8 @@ form.addEventListener('submit', async function (e) {
         if (response.ok) {
             alert('Data submitted successfully!');
             window.location.href = 'home.html';
-            form.reset(); // Clear form after successful submission
+            form.reset(); 
         } else {
-            // Handle server error response properly
             let errorData;
             try {
                 errorData = await response.json();

@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz</title>
+    <link rel="stylesheet" href="Quizes.css">
+</head>
+<body>
+
+    <div class="quiz-container">
+        <center><h1>ONLINE QUIZ</h1></center>
+        <hr>
+
+        <!-- Progress bar -->
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="question" id="question-1">
+            <p>1. What is the capital of France?</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="London"> London</label>
+                <label><input type="radio" name="q1" value="Paris"> Paris</label>
+                <label><input type="radio" name="q1" value="Berlin"> Berlin</label>
+                <label><input type="radio" name="q1" value="Rome"> Rome</label>
+            </div>
+        </div>
+
+        <!-- Additional Questions (2-10) -->
+        <div class="question hidden" id="question-2">
+            <p>2. Which planet is known as the Red Planet?</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="Venus"> Venus</label>
+                <label><input type="radio" name="q2" value="Mars"> Mars</label>
+                <label><input type="radio" name="q2" value="Jupiter"> Jupiter</label>
+                <label><input type="radio" name="q2" value="Saturn"> Saturn</label>
+            </div>
+        </div>
+
+        <div class="question hidden" id="question-3">
+            <p>3. What is 2 + 2?</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="3"> 3</label>
+                <label><input type="radio" name="q3" value="4"> 4</label>
+                <label><input type="radio" name="q3" value="5"> 5</label>
+                <label><input type="radio" name="q3" value="6"> 6</label>
+            </div>
+        </div>
+        
+        <div class="question hidden" id="question-4">
+            <p>4. What is the largest ocean on Earth?</p>
+            <div class="options">
+                <label><input type="radio" name="q4" value="Atlantic"> Atlantic</label>
+                <label><input type="radio" name="q4" value="Pacific"> Pacific</label>
+                <label><input type="radio" name="q4" value="Indian"> Indian</label>
+                <label><input type="radio" name="q4" value="Arctic"> Arctic</label>
+            </div>
+        </div>
+        
+        <div class="question hidden" id="question-5">
+            <p>5. What is the chemical symbol for gold?</p>
+            <div class="options">
+                <label><input type="radio" name="q5" value="Au"> Au</label>
+                <label><input type="radio" name="q5" value="Ag"> Ag</label>
+                <label><input type="radio" name="q5" value="Pb"> Pb</label>
+                <label><input type="radio" name="q5" value="Fe"> Fe</label>
+            </div>
+        </div>
+        
+        <div class="question hidden" id="question-6">
+            <p>6. Who developed the theory of relativity?</p>
+            <div class="options">
+                <label><input type="radio" name="q6" value="Isaac Newton"> Isaac Newton</label>
+                <label><input type="radio" name="q6" value="Albert Einstein"> Albert Einstein</label>
+                <label><input type="radio" name="q6" value="Nikola Tesla"> Nikola Tesla</label>
+                <label><input type="radio" name="q6" value="Galileo Galilei"> Galileo Galilei</label>
+            </div>
+        </div>
+        
+        <div class="question hidden" id="question-7">
+            <p>7. What is the smallest continent?</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="Asia"> Asia</label>
+                <label><input type="radio" name="q7" value="Australia"> Australia</label>
+                <label><input type="radio" name="q7" value="Antarctica"> Antarctica</label>
+                <label><input type="radio" name="q7" value="Europe"> Europe</label>
+            </div>
+        </div>
+        
+        <div class="question hidden" id="question-8">
+            <p>8. Who was the first President of the United States?</p>
+            <div class="options">
+                <label><input type="radio" name="q8" value="Abraham Lincoln"> Abraham Lincoln</label>
+                <label><input type="radio" name="q8" value="George Washington"> George Washington</label>
+                <label><input type="radio" name="q8" value="Thomas Jefferson"> Thomas Jefferson</label>
+                <label><input type="radio" name="q8" value="John Adams"> John Adams</label>
+            </div>
+        </div>
+        
+        <div class="question hidden" id="question-9">
+            <p>9. Which gas do plants absorb from the atmosphere?</p>
+            <div class="options">
+                <label><input type="radio" name="q9" value="Oxygen"> Oxygen</label>
+                <label><input type="radio" name="q9" value="Carbon Dioxide"> Carbon Dioxide</label>
+                <label><input type="radio" name="q9" value="Nitrogen"> Nitrogen</label>
+                <label><input type="radio" name="q9" value="Hydrogen"> Hydrogen</label>
+            </div>
+        </div>
+        
+        <div class="question hidden" id="question-10">
+            <p>10. What is the largest planet in our Solar System?</p>
+            <div class="options">
+                <label><input type="radio" name="q10" value="Earth"> Earth</label>
+                <label><input type="radio" name="q10" value="Jupiter"> Jupiter</label>
+                <label><input type="radio" name="q10" value="Saturn"> Saturn</label>
+                <label><input type="radio" name="q10" value="Mars"> Mars</label>
+            </div>
+        </div>
+        
+
+        <!-- Navigation buttons -->
+        <div class="button-container">
+            <button id="prev-btn" class="hidden">Previous</button>
+            <button id="next-btn">Next</button>
+        </div>
+
+        <center><button id="submit-btn" class="hidden">Submit Quiz</button></center>
+        <div id="result"></div>
+    </div>
+
+    <script src="Quizes.js"></script>
+</body>
+</html>
