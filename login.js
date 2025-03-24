@@ -15,7 +15,7 @@ document.getElementById('login-form').addEventListener('submit', async function 
         const data = await response.json();
         if (response.ok) {
             alert("Login Successful!");
-            window.location.href = 'home2.html';
+            window.location.href = 'home.html';
             console.log(data);
         } else {
             alert(data.message);
@@ -24,4 +24,3 @@ document.getElementById('login-form').addEventListener('submit', async function 
         console.error("Error:", error);
     }
 });
-z
