@@ -11,7 +11,7 @@
     <nav class="navbar">
         <h1 style="font-style: italic;">LearnMate</h1>
         <div class="navbar-links">
-            <p class="navbar-link"><a href="home.html">Home</a></p>
+            <p class="navbar-link"><a href="home2.html">Home</a></p>
             <p> |</p>
             <p class="navbar-link"><a href="About.html">About</a></p>
             <p> |</p>
@@ -37,7 +37,7 @@
                             <tr>
                                 <td><a id = "learn" href="LearnHere.html">LearnHere</a></td>
                                 <td><button>Notebook</button></td>
-                                <td><a id = "Quizes" href="Quizzes.html">Quizes</a></td>
+                                <td><a id = "Quizes" href="Quizzes.html">Quizzes</a></td>
                             </tr>
                             <tr>
                                 <td><span>📊</span></td>
@@ -69,6 +69,7 @@
     <div class="home">
         <h1 style="font-style: italic;">LearnMate</h1>
         <h5>Smart Dashboard for Aptitude Enhancement</h5>
+        <div id="signup-message" style="color: rgb(3, 3, 3); text-align: center; font-size: 18px; margin-top: 10px;"></div>
         <p id="signup-message"></p>
     </div>
 
@@ -86,14 +87,6 @@
             }
             if (messageElement2) {
                 messageElement2.innerText = `${name}`;
-            }
-
-            if (loginButton) {
-                loginButton.style.display = 'none'; 
-            }
-
-            if (signInButton) {
-                signInButton.style.display = 'none'; 
             }
         }
 
