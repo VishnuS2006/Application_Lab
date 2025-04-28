@@ -1,7 +1,7 @@
-/* General styling */
+
 body {
     font-family: 'Arial', sans-serif;
-    background-image: url(''); /* Replace with your image URL */
+    background-image: url(''); 
     background-size: cover;
     background-position: center;
     display: flex;
@@ -15,9 +15,8 @@ body {
     background-color: rgb(146, 186, 186);
 }
 
-/* Quiz container styling */
 .quiz-container {
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    background-color: rgba(255, 255, 255, 0.9); 
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     padding: 30px;
@@ -26,7 +25,6 @@ body {
     text-align: center;
 }
 
-/* Quiz header */
 .quiz-container h1 {
     font-size: 30px;
     color: #0a460c;
@@ -68,7 +66,6 @@ body {
     cursor: pointer;
 }
 
-/* Buttons styling */
 #next-btn, #prev-btn, #submit-btn {
     background-color: #4CAF50;
     color: white;
@@ -85,7 +82,6 @@ body {
     background-color: #45a049;
 }
 
-/* Button container */
 .button-container {
     display: flex;
     justify-content: space-between;
@@ -93,7 +89,6 @@ body {
     margin-top: 20px;
 }
 
-/* Result styling */
 #result {
     font-weight: bold;
     margin-top: 30px;

@@ -5,10 +5,10 @@ const password = document.querySelector("#password");
 const cpassword = document.querySelector("#cpassword");
 
 form.addEventListener("submit", async function (e) {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault(); 
 
     if (!validateInputs()) {
-        return; // Stop if validation fails
+        return; 
     }
 
     const formData = {
@@ -25,12 +25,11 @@ form.addEventListener("submit", async function (e) {
         });
 
         if (response.ok) {
-            // Store username in localStorage for session persistence
             localStorage.setItem("loggedInUser", formData.name);
 
             alert("Signup successful! Redirecting...");
-            window.location.href = "home.html"; // Redirect to home page
-            form.reset(); // Reset form fields
+            window.location.href = "home2.html"; 
+            form.reset(); 
         } else {
             let errorData;
             try {
@@ -135,10 +134,10 @@ document.getElementById("form").addEventListener("submit", async function (event
         const messageElement = document.getElementById("signup-message");
     
         form.addEventListener("submit", async function (e) {
-            e.preventDefault(); // Prevent default form submission
+            e.preventDefault(); 
     
             if (!validateInputs()) {
-                return; // Stop if validation fails
+                return; 
             }
     
             const formData = {
@@ -155,12 +154,11 @@ document.getElementById("form").addEventListener("submit", async function (event
                 });
     
                 if (response.ok) {
-                    // Store username in localStorage for session persistence
                     localStorage.setItem("loggedInUser", formData.name);
     
                     alert("Signup successful! Redirecting...");
                     window.location.href = `home.html?username=${encodeURIComponent(formData.name)}`; // Redirect with username as query param
-                    form.reset(); // Reset form fields
+                    form.reset(); 
                 } else {
                     let errorData;
                     try {
@@ -175,7 +173,6 @@ document.getElementById("form").addEventListener("submit", async function (event
             }
         });
     
-        // Display the welcome message if the user has just signed up
         const urlParams = new URLSearchParams(window.location.search);
         const name = urlParams.get("username");
     
