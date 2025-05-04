@@ -1,3 +1,5 @@
+// server.js
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -5,7 +7,6 @@ const cors = require('cors');
 const app = express();
 app.use(express.json());
 app.use(cors());
-
 
 mongoose.connect("mongodb://localhost:27017/learnmate")
     .then(() => console.log("Connected to MongoDB"))
@@ -42,16 +43,12 @@ app.post('/submit', async (req, res) => {
     }
 });
 
+
 app.post('/login', async (req, res) => {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
     try {
-        const user = await User.findOne({
-            $and: [
-                { $or: [{ name: username }, { email: username }] }, 
-                { password: password } 
-            ]
-        });
+        const user = await User.findOne({ email, password });
 
         if (!user) {
             return res.status(401).json({ message: "Invalid credentials" });
@@ -63,8 +60,6 @@ app.post('/login', async (req, res) => {
         res.status(500).json({ message: "Server error" });
     }
 });
-
-
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

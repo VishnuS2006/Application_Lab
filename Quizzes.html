@@ -1,11 +1,132 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Quiz</title>
-    <link rel="stylesheet" href="Quizzes.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url(''); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+            background-attachment: fixed;
+            filter: brightness(0.8); 
+            background-color: rgb(146, 186, 186);
+        }
+
+        .quiz-container {
+            background-color: rgba(255, 255, 255, 0.9); 
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            width: 600px;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .quiz-container h1 {
+            font-size: 30px;
+            color: #0a460c;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .question {
+            margin-bottom: 30px;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .question p {
+            font-size: 20px;
+            margin: 0;
+            color: #2a00e5;
+        }
+
+        .options {
+            margin-top: 20px;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 18px;
+            color: #000000;
+            transition: all 0.3s ease;
+        }
+
+        .options input {
+            margin-right: 10px;
+            accent-color: #4CAF50;
+        }
+
+        .options label:hover {
+            color: #4CAF50;
+            cursor: pointer;
+        }
+
+        #next-btn, #prev-btn, #submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #next-btn:hover, #prev-btn:hover, #submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #result {
+            font-weight: bold;
+            margin-top: 30px;
+            font-size: 20px;
+            color: #4CAF50;
+        }
+
+        .progress-bar-container {
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            width: 100%;
+            height: 15px;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            background-color: #4CAF50;
+            height: 100%;
+            width: 0;
+            border-radius: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        hr {
+            border-top: 2px solid #4CAF50;
+            width: 100%;
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -46,7 +167,7 @@
                 <label><input type="radio" name="q3" value="6"> 6</label>
             </div>
         </div>
-        
+
         <div class="question hidden" id="question-4">
             <p>4. What is the largest ocean on Earth?</p>
             <div class="options">
@@ -56,7 +177,7 @@
                 <label><input type="radio" name="q4" value="Arctic"> Arctic</label>
             </div>
         </div>
-        
+
         <div class="question hidden" id="question-5">
             <p>5. What is the chemical symbol for gold?</p>
             <div class="options">
@@ -66,7 +187,7 @@
                 <label><input type="radio" name="q5" value="Fe"> Fe</label>
             </div>
         </div>
-        
+
         <div class="question hidden" id="question-6">
             <p>6. Who developed the theory of relativity?</p>
             <div class="options">
@@ -76,7 +197,7 @@
                 <label><input type="radio" name="q6" value="Galileo Galilei"> Galileo Galilei</label>
             </div>
         </div>
-        
+
         <div class="question hidden" id="question-7">
             <p>7. What is the smallest continent?</p>
             <div class="options">
@@ -86,7 +207,7 @@
                 <label><input type="radio" name="q7" value="Europe"> Europe</label>
             </div>
         </div>
-        
+
         <div class="question hidden" id="question-8">
             <p>8. Who was the first President of the United States?</p>
             <div class="options">
@@ -96,7 +217,7 @@
                 <label><input type="radio" name="q8" value="John Adams"> John Adams</label>
             </div>
         </div>
-        
+
         <div class="question hidden" id="question-9">
             <p>9. Which gas do plants absorb from the atmosphere?</p>
             <div class="options">
@@ -106,7 +227,7 @@
                 <label><input type="radio" name="q9" value="Hydrogen"> Hydrogen</label>
             </div>
         </div>
-        
+
         <div class="question hidden" id="question-10">
             <p>10. What is the largest planet in our Solar System?</p>
             <div class="options">
@@ -116,7 +237,6 @@
                 <label><input type="radio" name="q10" value="Mars"> Mars</label>
             </div>
         </div>
-        
 
         <div class="button-container">
             <button id="prev-btn" class="hidden">Previous</button>
@@ -127,6 +247,74 @@
         <div id="result"></div>
     </div>
 
-    <script src="Quizzes.js"></script>
+    <script>
+        let currentQuestion = 1;
+        const totalQuestions = 10;
+
+        const prevBtn = document.getElementById("prev-btn");
+        const nextBtn = document.getElementById("next-btn");
+        const submitBtn = document.getElementById("submit-btn");
+        const progressBar = document.getElementById("progress-bar");
+
+        const correctAnswers = [
+            "Paris", "Mars", "4", "Pacific", "Au", "Albert Einstein", "Australia", 
+            "George Washington", "Carbon Dioxide", "Jupiter"
+        ];
+
+        function showQuestion(questionNumber) {
+            for (let i = 1; i <= totalQuestions; i++) {
+                document.getElementById(`question-${i}`).classList.add("hidden");
+            }
+            document.getElementById(`question-${questionNumber}`).classList.remove("hidden");
+            updateProgressBar();
+            toggleNavigationButtons();
+        }
+
+        function updateProgressBar() {
+            const progress = (currentQuestion / totalQuestions) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        function toggleNavigationButtons() {
+            prevBtn.classList.toggle("hidden", currentQuestion === 1);
+            nextBtn.classList.toggle("hidden", currentQuestion === totalQuestions);
+            submitBtn.classList.toggle("hidden", currentQuestion !== totalQuestions);
+        }
+
+        function calculateScore() {
+            let score = 0;
+            for (let i = 1; i <= totalQuestions; i++) {
+                const question = document.getElementById(`question-${i}`);
+                const selectedAnswer = question.querySelector('input[type="radio"]:checked');
+                if (selectedAnswer && selectedAnswer.value === correctAnswers[i - 1]) {
+                    score++;
+                }
+            }
+            return score;
+        }
+
+        nextBtn.addEventListener("click", () => {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            }
+        });
+
+        prevBtn.addEventListener("click", () => {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        });
+
+        submitBtn.addEventListener("click", () => {
+            const score = calculateScore();
+            const result = document.getElementById("result");
+            result.textContent = `Your score is: ${score} out of ${totalQuestions}`;
+            result.style.color = score === totalQuestions ? "green" : "red";
+        });
+
+        showQuestion(currentQuestion);
+    </script>
 </body>
 </html>

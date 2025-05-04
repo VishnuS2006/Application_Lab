@@ -1,54 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Register</title>
-    <link rel="stylesheet" href="formvalidation.css">
-    <script src="formvalidation.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LearnMate - Register</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #002aff, #ffffff);
+    }
+
+    .container {
+      width: 80%;
+      height: auto;
+      display: flex;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      overflow: hidden;
+      animation: fadeIn 1s ease-in;
+      background: white;
+    }
+
+    .left-panel {
+      flex: 1;
+      background: linear-gradient(to bottom right, #3b82f6, #60a5fa);
+      color: white;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: slideInLeft 1s ease;
+    }
+
+    .left-panel h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .left-panel h1 span {
+      color: #fcd34d;
+    }
+
+    .left-panel p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    #form {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: slideInRight 1s ease;
+      background: white;
+    }
+
+    #form h1 {
+      text-align: center;
+      color: #1e40af;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .inputgrp {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .inputgrp label {
+      display: block;
+      margin-bottom: 6px;
+      color: #374151;
+    }
+
+    .inputgrp input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #000000;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .inputgrp input:focus {
+      border-color: #6c5ce7;
+      outline: none;
+      box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+    }
+
+    #form button {
+      width: 100%;
+      padding: 12px;
+      background-color: #3b82f6;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    #form button:hover {
+      background-color: #2563eb;
+      transform: scale(1.03);
+    }
+
+    .signup-link {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .signup-link a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+
+    .error {
+      color: red;
+      font-size: 13px;
+      position: absolute;
+      top: 66px;
+    }
+
+    .inputgrp.success input {
+      border-color: green;
+    }
+
+    .inputgrp.error input {
+      border-color: red;
+    }
+
+    @keyframes slideInLeft {
+      from { transform: translateX(-100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideInRight {
+      from { transform: translateX(100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
 </head>
 <body>
-    
-    <div class="Head">
-        <center>
-        <h1 style="background-color:white;margin-left: 400px;margin-right: 400px;padding: 20px;border-radius: 20px;font-size:40px;opacity: 0.8;margin-bottom: 5px;">
-            LearnMate
-        </h1>
-    </center>
+  <div class="container">
+    <div class="left-panel">
+      <h1>Welcome to <span>LearnMate</span></h1>
+      <p>Your personalized learning companion. Join us and explore a smarter way to learn!</p>
     </div>
-    <div class="container">
-        <form id="form">
-            <h1>Register</h1>
-            <div class="inputgrp">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter your Name">
-                <div class="error"></div>
-            </div>
+    <form id="form">
+      <h1>Register</h1>
+      <div class="inputgrp">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your Name">
+        <div class="error"></div>
+      </div>
 
-            <div class="inputgrp">
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email" placeholder="Enter your email">
-                <div class="error"></div>
-            </div>
+      <div class="inputgrp">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="Enter your email">
+        <div class="error"></div>
+      </div>
 
-            <div class="inputgrp">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter Password">
-                <div class="error"></div>
-            </div>
+      <div class="inputgrp">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter Password">
+        <div class="error"></div>
+      </div>
 
-            <div class="inputgrp">
-                <label for="cpassword">Confirm Password</label>
-                <input type="password" id="cpassword" name="cpassword" placeholder="Enter Confirm Password">
-                <div class="error"></div>
-            </div>
+      <div class="inputgrp">
+        <label for="cpassword">Confirm Password</label>
+        <input type="password" id="cpassword" name="cpassword" placeholder="Enter Confirm Password">
+        <div class="error"></div>
+      </div>
 
-            <button type="submit" id="submit">Submit</button>
-            <center>
-                <p style="color:white; font-size: 15px; margin-top: 10px;">
-                    Already have an account? 
-                    <a id="signInButton" style="color:red" href="login.html">Login</a>
-                </p>
-            </center>
-        </form>
-    </div>
+      <button type="submit" id="submit">Submit</button>
+
+      <p class="signup-link">
+        Already have an account? <a href="login.html">Login</a>
+      </p>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.querySelector("#form");
+      const username = document.querySelector("#username");
+      const email = document.querySelector("#email");
+      const password = document.querySelector("#password");
+      const cpassword = document.querySelector("#cpassword");
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        if (!validateInputs()) {
+          return;
+        }
+
+        const formData = {
+          name: username.value.trim(),
+          email: email.value.trim(),
+          password: password.value.trim()
+        };
+
+        try {
+          const response = await fetch("http://localhost:3000/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
+          });
+
+          if (response.ok) {
+            localStorage.setItem("loggedInUser", formData.name);
+            localStorage.setItem("loggedInEmail", formData.email);
+            localStorage.setItem("isLoggedIn", "true");
+
+            alert("Signup successful! Redirecting...");
+            window.location.href = `home.html`;
+            form.reset();
+          } else {
+            let errorData;
+            try {
+              errorData = await response.json();
+            } catch {
+              errorData = { message: "Unexpected server error" };
+            }
+            alert(`Error: ${errorData.message}`);
+          }
+        } catch (error) {
+          alert(`Error submitting data: ${error.message}`);
+        }
+      });
+
+      function validateInputs() {
+        const usernameVal = username.value.trim();
+        const emailVal = email.value.trim();
+        const passwordVal = password.value.trim();
+        const cpasswordVal = cpassword.value.trim();
+        let isValid = true;
+
+        if (usernameVal === "") {
+          isValid = false;
+          setError(username, "Username is required");
+        } else {
+          setSuccess(username);
+        }
+
+        if (emailVal === "") {
+          isValid = false;
+          setError(email, "Email is required");
+        } else if (!validateEmail(emailVal)) {
+          isValid = false;
+          setError(email, "Please enter a valid email");
+        } else {
+          setSuccess(email);
+        }
+
+        if (passwordVal === "") {
+          isValid = false;
+          setError(password, "Password is required");
+        } else if (passwordVal.length < 8) {
+          isValid = false;
+          setError(password, "Password must be at least 8 characters long");
+        } else {
+          setSuccess(password);
+        }
+
+        if (cpasswordVal === "") {
+          isValid = false;
+          setError(cpassword, "Confirm password is required");
+        } else if (cpasswordVal !== passwordVal) {
+          isValid = false;
+          setError(cpassword, "Passwords do not match");
+        } else {
+          setSuccess(cpassword);
+        }
+
+        return isValid;
+      }
+
+      function setError(element, message) {
+        const inputGroup = element.parentElement;
+        const errorElement = inputGroup.querySelector(".error");
+        if (errorElement) errorElement.innerText = message;
+        inputGroup.classList.add("error");
+        inputGroup.classList.remove("success");
+      }
+
+      function setSuccess(element) {
+        const inputGroup = element.parentElement;
+        const errorElement = inputGroup.querySelector(".error");
+        if (errorElement) errorElement.innerText = "";
+        inputGroup.classList.add("success");
+        inputGroup.classList.remove("error");
+      }
+
+      function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+    });
+  </script>
 </body>
 </html>

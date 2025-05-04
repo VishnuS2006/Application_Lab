@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LearnMate - Aptitude Mastery</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f7f9fb;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    nav {
+      background: linear-gradient(to right, #00c6ff, #0072ff, #004e92);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    nav h1 {
+      font-size: 2.2rem;
+      background: linear-gradient(to right, #000000, #000000, #000000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0);
+      animation: pulseGlow 3s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0% { transform: scale(1); text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
+      50% { transform: scale(1.05); text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); }
+      100% { transform: scale(1); text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a, .profile-dropdown-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: white;
+      padding: 6px 8px;
+      border-radius: 8px;
+      transition: background 0.3s, transform 0.3s;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-links a i, .profile-dropdown-btn i {
+      font-size: 1.2rem;
+      margin-bottom: 3px;
+    }
+
+    .nav-links a:hover, .profile-dropdown-btn:hover {
+      background: black;
+    }
+
+    .profile-dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 45px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+      min-width: 160px;
+      text-align: left;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 15px;
+      color: #333;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #acdfdf;
+    }
+
+    .show-dropdown {
+      display: block;
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero {
+      background: linear-gradient(to right, #d7e4ea, #88bbc6);
+      color: white;
+      padding-top: 120px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(to right, #e10a0a, #000000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 20px auto;
+      color: #000000;
+      animation: fadeIn 2s ease 0.5s forwards;
+      opacity: 0;
+    }
+
+    .hero button {
+      padding: 12px 25px;
+      background: #ff6f00;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .hero button:hover {
+      background: #ff4500;
+      transform: scale(1.05);
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      background: linear-gradient(to right, #00b894, #00cec9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-card i {
+      font-size: 2.5rem;
+      color: #ff6f00;
+      margin-bottom: 20px;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .course-item {
+      background: linear-gradient(to right, #00cec9, #0984e3);
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .course-item:hover {
+      background: #6c5ce7;
+      transform: scale(1.05);
+    }
+
+    .stat-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
+      margin-top: 30px;
+    }
+
+    .stat-card:hover {
+      transform: scale(1.1);
+    }
+
+    .stat-card h3 {
+      font-size: 3rem;
+      color: #00b894;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: auto;
+      color: #636e72;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input,
+    textarea {
+      padding: 15px;
+      border: 1px solid #dfe6e9;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border 0.3s;
+    }
+
+    input:focus,
+    textarea:focus {
+      border: 1px solid #00cec9;
+      outline: none;
+    }
+
+    button.submit {
+      background: #0984e3;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    button.submit:hover {
+      background: #6c5ce7;
+      transform: scale(1.03);
+    }
+
+    footer {
+      background: #2d3436;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    footer .socials i {
+      font-size: 24px;
+      margin: 0 10px;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+
+    footer .socials i:hover {
+      color: #00cec9;
+    }
+
+    #topBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #6c5ce7;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 15px;
+      font-size: 20px;
+      cursor: pointer;
+      display: none;
+      z-index: 999;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    #topBtn:hover {
+      background: #00cec9;
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .feature-grid,
+      .course-grid,
+      .stat-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .nav-links a,
+      .profile-dropdown-btn {
+        font-size: 0.7rem;
+      }
+
+      .nav-links a i,
+      .profile-dropdown-btn i {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <h1>LearnMate</h1>
+  <div class="nav-links">
+    <a href="home1.html"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="About1.html"><i class="fas fa-info-circle"></i><span>About</span></a>
+    <a href="#features"><i class="fas fa-star"></i><span>Features</span></a>
+    <a href="#courses"><i class="fas fa-book-open"></i><span>Courses</span></a>
+    <a href="#stats"><i class="fas fa-chart-line"></i><span>Stats</span></a>
+    <a href="#contact"><i class="fas fa-envelope"></i><span>Contact</span></a>
+    <div class="profile-dropdown">
+      <button class="profile-dropdown-btn" onclick="toggleDropdown(event)">
+        <i class="fas fa-user-circle"></i><span>Profile</span>
+      </button>
+      <div class="dropdown-content" id="profileDropdown">
+        <div class="profile-header">
+          <img src="https://tse3.mm.bing.net/th?id=OIP.aQ-65cz7Fu_iYjc1G9bVoAHaE8&pid=Api&P=0&h=180" width="50px" height="50px" />
+          
+        </div>
+        <div class="menu-items">
+          <table>
+            <tr>
+              <td>📋</td>
+              <td>📔</td>
+              <td>❓</td>
+            </tr>
+            <tr>
+              <td><a href="LearnHere1.html">LearnHere</a></td>
+              <td><a herf = "#">Notebook</a></td>
+              <td><a href="Quizzes.html">Quizzes</a></td>
+            </tr>
+            <tr>
+              <td>📊</td>
+              <td>💰</td>
+              <td>🧪</td>
+            </tr>
+            <tr>
+              <td><a href = "#">Progress</a></td>
+              <td><a href = "#">Points</a></td>
+              <td><a href = "#">Try New Features</a></td>
+            </tr>
+            <tr>
+              <td>🎮</td>
+              <td>⚙️</td>
+              <td>🚪</td>
+            </tr>
+            <tr>
+              <td><a href = "#">My Playground</a></td>
+              <td><a href = "#">Settings</a></td>
+              <td><a href = "#">Sign out</a></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <h1>Master Aptitude Skills Effortlessly</h1>
+  <p>Prepare for competitive exams with expert techniques, real practice, and a proven system that works.</p>
+  <button>Get Started</button>
+</section>
+
+<section class="about" id="about">
+  <h2>About LearnMate</h2>
+  <p>LearnMate is a specialized platform for aptitude test preparation. We offer logical reasoning drills, quantitative aptitude tutorials, verbal ability modules, and mock tests that simulate real exam conditions to help students and professionals excel.</p>
+</section>
+
+<section class="features" id="features">
+  <h2>Why Choose Us</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <i class="fas fa-brain"></i>
+      <h3>Reasoning</h3>
+      <p>Master logical, analytical, and verbal reasoning efficiently.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-calculator"></i>
+      <h3>Quantitative</h3>
+      <p>Sharpen your math skills with shortcut techniques and quizzes.</p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-poll"></i>
+      <h3>Progress Analytics</h3>
+      <p>Get deep insights into your performance trends and improvements.</p>
+    </div>
+  </div>
+</section>
+
+<section class="courses" id="courses">
+  <h2>Explore Our Courses</h2>
+  <div class="course-grid">
+    <div class="course-item">Logical Reasoning</div>
+    <div class="course-item">Quantitative Aptitude</div>
+    <div class="course-item">Verbal Ability</div>
+    <div class="course-item">Mock Interviews</div>
+  </div>
+</section>
+
+<section class="stats" id="stats">
+  <h2>Our Achievements</h2>
+  <div class="stat-cards">
+    <div class="stat-card"><h3>50K+</h3><p>Students Enrolled</p></div>
+    <div class="stat-card"><h3>95%</h3><p>Success Rate</p></div>
+    <div class="stat-card"><h3>500+</h3><p>Mock Tests Conducted</p></div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <h2>What Our Students Say</h2>
+  <p class="testimonial-text">"LearnMate transformed my preparation journey. I cleared my aptitude rounds effortlessly and landed my dream job!"</p>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <form>
+    <input type="text" placeholder="Name" required />
+    <input type="email" placeholder="Email" required />
+    <textarea rows="5" placeholder="Message" required></textarea>
+    <button type="submit" class="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <h2>LearnMate</h2>
+  <p>Empowering Aptitude Excellence</p>
+  <div class="socials">
+    <i class="fab fa-facebook"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-twitter"></i>
+  </div>
+  <p>&copy; 2025 LearnMate. All rights reserved.</p>
+</footer>
+
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+  const sections = document.querySelectorAll("section");
+  const topBtn = document.getElementById("topBtn");
+
+  function checkScroll() {
+    sections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        sec.classList.add("visible");
+      }
+    });
+    topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+  }
+
+  window.addEventListener("scroll", checkScroll);
+  window.addEventListener("load", checkScroll);
+
+  function toggleDropdown(event) {
+    event.stopPropagation(); 
+    const dropdown = document.getElementById('profileDropdown');
+    dropdown.classList.toggle('show-dropdown');
+  }
+
+  window.addEventListener("click", function (e) {
+    const dropdown = document.getElementById('profileDropdown');
+    if (!e.target.closest('.profile-dropdown')) {
+      dropdown.classList.remove('show-dropdown');
+    }
+  });
+</script>
+
+</body>
+</html>
