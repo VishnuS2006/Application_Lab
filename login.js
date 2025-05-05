@@ -1,34 +1,65 @@
-document.getElementById('login-form').addEventListener('submit', async function (e) {
-    e.preventDefault();
+const express = require('express');
+const bcrypt = require('bcrypt');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const mysql = require('mysql'); // Use if database is MySQL, adjust accordingly
 
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value;
+const app = express();
+app.use(cors());
+app.use(bodyParser.json());
 
-    if (password.length < 8) {
-        alert("Password must be at least 8 characters long.");
+// Database connection
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'yourpassword',
+    database: 'yourdatabase'
+});
+
+db.connect(err => {
+    if (err) {
+        console.error('Database connection failed:', err);
         return;
     }
+    console.log('Connected to the database');
+});
 
-    try {
-        const response = await fetch('http://localhost:3000/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password })
-        });
+// Login endpoint
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
 
-        const data = await response.json();
-        if (response.ok) {
-            if (data.success) {  // Assuming backend returns { success: true } for valid login
-                alert("Login Successful!");
-                window.location.href = 'home2.html';
-            } else {
-                alert("Invalid username or password.");
-            }
-        } else {
-            alert(data.message || "Login failed. Please try again.");
-        }
-    } catch (error) {
-        console.error("Error:", error);
-        alert("An error occurred. Please try again later.");
+    if (!username || !password) {
+        return res.status(400).json({ success: false, message: "Username and password are required" });
     }
+
+    // Check if user exists
+    const sql = "SELECT * FROM users WHERE username = ?";
+    db.query(sql, [username], (err, results) => {
+        if (err) {
+            return res.status(500).json({ success: false, message: "Database error" });
+        }
+
+        if (results.length === 0) {
+            return res.status(401).json({ success: false, message: "User does not exist" });
+        }
+
+        const user = results[0];
+
+        // Verify password
+        bcrypt.compare(password, user.password, (err, isMatch) => {
+            if (err) {
+                return res.status(500).json({ success: false, message: "Error verifying password" });
+            }
+
+            if (!isMatch) {
+                return res.status(401).json({ success: false, message: "Invalid password" });
+            }
+
+            return res.json({ success: true, message: "Login successful" });
+        });
+    });
+});
+
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
 });
