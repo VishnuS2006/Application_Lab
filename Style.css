@@ -1,0 +1,332 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+    overflow-x: hidden;
+    font-size: 16px;
+}
+
+nav {
+    background:linear-gradient(to right, #00c6ff, #0072ff, #004e92);
+    padding: 1rem 2rem;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+@keyframes pulseGlow {
+        0% { transform: scale(1); text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
+        50% { transform: scale(1.05); text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); }
+        100% { transform: scale(1); text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
+}
+
+
+#navbar.scrolled {
+    background-color: #00466d;
+}
+
+nav .logo h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    background: linear-gradient(to right, #000000, #000000, #000000);
+    -webkit-background-clip: text;
+    font-weight: bolder;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0);
+    animation: pulseGlow 3s infinite ease-in-out;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+nav .nav-links li {
+    margin-left: 25px;
+}
+
+nav .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s;
+}
+
+nav .nav-links li a:hover {
+    color: #00aaff;
+    transform: scale(1.1);
+}
+
+nav .menu-icon {
+    display: none;
+}
+
+.courses {
+    padding: 80px 20px;
+    text-align: center;
+    animation: fadeInUp 2s ease-out;
+}
+
+.courses h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.course-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.course-card {
+    background-color: #fff;
+    padding: 30px;
+    width: 30%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    animation: fadeInUp 2.5s forwards;
+}
+
+.course-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.course-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.course-card p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.course-card a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #00aaff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.course-card a:hover {
+    color: #00466d;
+}
+
+.about {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+    opacity: 0;
+    animation: fadeInUp 2s forwards;
+}
+
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+#contact input,
+#contact textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+    border-color: #00b3b3;
+}
+
+#contact button {
+    background: #007bff;
+    color: #fff;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#chatbox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    background: #fff;
+    border: 2px solid #00aaff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+#chat-header {
+    background: #00aaff;
+    color: #fff;
+    padding: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+#chat-body {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #f9f9f9;
+    display: none;
+}
+
+.chat-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.chat-message.user {
+    background-color: #00aaff;
+    color: #fff;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.chat-message.bot {
+    background-color: #e0e0e0;
+    color: #000;
+    align-self: flex-start;
+}
+
+#chat-form {
+    display: flex;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    gap: 5px;
+}
+
+#chat-form input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+#chat-form button {
+    background: #00aaff;
+    border: none;
+    color: white;
+    padding: 0 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#contact button:hover {
+    background: #005fcc;
+}
+
+footer {
+    padding: 20px 0;
+    background-color: #2b3e50;
+    color: #fff;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    nav .menu-icon {
+        display: block;
+    }
+
+    nav .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    nav .menu-icon.active + .nav-links {
+        display: flex;
+    }
+
+    .course-cards {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .course-card {
+        width: 80%;
+        margin: 0 auto;
+    }
+}

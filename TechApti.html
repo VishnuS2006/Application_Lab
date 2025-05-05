@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LearnMate | Technical Aptitude</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        background-color: #f8f8f8;
+        overflow-x: hidden;
+        font-size: 16px;
+    }
+
+    nav {
+        background:linear-gradient(to right, #00c6ff, #0072ff, #004e92);
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    #navbar.scrolled {
+        background-color: #00466d;
+    }
+
+    nav .logo h1 {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2.2rem;
+        background: linear-gradient(to right, #000000, #000000, #000000);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0);
+        animation: pulseGlow 3s infinite ease-in-out;
+    }
+
+    nav .nav-links {
+        list-style: none;
+        display: flex;
+    }
+
+    nav .nav-links li {
+        margin-left: 25px;
+    }
+
+    nav .nav-links li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        transition: color 0.3s ease, transform 0.3s;
+    }
+
+    nav .nav-links li a:hover {
+        color: #00aaff;
+        transform: scale(1.1);
+    }
+
+    .courses {
+        padding: 80px 20px;
+        text-align: center;
+    }
+
+    .courses h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
+        color: #333;
+    }
+
+    .course-cards {
+        display: flex;
+        justify-content: space-around;
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .course-card {
+        background-color: #fff;
+        padding: 30px;
+        width: 30%;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .course-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .course-card h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .course-card p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .course-card a {
+        text-decoration: none;
+        font-size: 16px;
+        color: #00aaff;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .course-card a:hover {
+        color: #00466d;
+    }
+
+    footer {
+        padding: 20px 0;
+        background-color: #2b3e50;
+        color: #fff;
+        text-align: center;
+    }
+
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav id="navbar">
+    <div class="logo">
+      <h1>Technical Aptitude</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="About.html"><i class="fas fa-info-circle"></i><span>About</span></a></li>
+      <li><a href="Course.html"><i class="fas fa-book-open"></i><span>Courses</span></a></li>
+      <li><a href="#contact"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- Technical Aptitude Section -->
+  <section class="courses" id="technical-aptitude">
+    <h2>Technical Aptitude Topics</h2>
+    <div class="course-cards">
+      <div class="course-card">
+        <h3>Quantitative Aptitude</h3>
+        <p>Learn about mathematical reasoning, numerical abilities, and problem-solving techniques.</p>
+        <a href="#">Start Learning →</a>
+      </div>
+      <div class="course-card">
+        <h3>Logical Reasoning</h3>
+        <p>Master the art of logical deductions, pattern recognition, and analytical thinking.</p>
+        <a href="#">Start Learning →</a>
+      </div>
+      <div class="course-card">
+        <h3>Verbal Reasoning</h3>
+        <p>Improve your reading comprehension, vocabulary, and ability to understand and reason with text.</p>
+        <a href="#">Start Learning →</a>
+      </div>
+    </div>
+    <div class="course-cards" style="margin-top: 40px;">
+      <div class="course-card">
+        <h3>Programming Languages</h3>
+        <p>Learn programming languages such as C, C++, Java, Python, and more.</p>
+        <a href="#">Start Learning →</a>
+      </div>
+      <div class="course-card">
+        <h3>Data Structures and Algorithms</h3>
+        <p>Understand the fundamental concepts of data structures and algorithms for problem-solving.</p>
+        <a href="#">Start Learning →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 LearnMate. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
