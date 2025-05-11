@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>About - Aptitude Topics</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
     <style>
         body {
             background-color: #f8f9fa;
         }
-
         .title-box {
             background: linear-gradient(to right, #00c6ff, #0072ff, #004e92);
             color: white;
@@ -17,75 +17,189 @@
             text-align: center;
             margin-bottom: 30px;
         }
-
         .content-box {
             background-color: white;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-
         a {
             color: #3e3a3a;
             text-decoration: none;
         }
-
         a:hover {
             background-color: #000000;
             text-decoration: underline;
-            
+        }
+        .feature-icon {
+            font-size: 2rem;
+            color: #0072ff;
+            margin-bottom: 10px;
+        }
+        .testimonial {
+            background: #f1f8ff;
+            border-left: 5px solid #0072ff;
+            padding: 15px 20px;
+            border-radius: 7px;
+            margin-bottom: 15px;
+        }
+        .team-avatar {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #0072ff;
         }
     </style>
 </head>
 <body>
 
-    <div class="container mt-4">
-        <div class="title-box">
-            <h2>About Us</h2>
-        </div>
+<div class="container mt-4">
+    <div class="title-box">
+        <h2>About Us</h2>
+    </div>
 
-        <div class="mb-4">
-            <a href="home.html" class="btn btn-success" style="background-color: #05417d; color: #ffffff;">← Back to Home</a>
-        </div>
+    <div class="mb-4">
+        <a href="home.html" class="btn btn-success" style="background-color: #05417d; color: #ffffff;">← Back to Home</a>
+    </div>
 
-                <div class="content-box">
-                    <h4>Welcome to Aptitude Topics</h4>
-                    <p>
-                        Our platform is dedicated to helping students, job aspirants, and professionals master the essential aptitude skills 
-                        required for competitive exams, campus placements, and personal development. We believe that strong aptitude skills 
-                        form the foundation of problem-solving and logical thinking, which are vital in both academic and professional life.
-                    </p>
-        
-                    <p>
-                        We provide carefully curated content covering a wide range of topics:
-                        <ul>
-                            <li>Mathematics - Strengthen your quantitative skills with topics like arithmetic, algebra, geometry, and probability.</li>
-                            <li>Logical Reasoning (LR) - Develop analytical thinking with puzzles, series, patterns, and problem-solving questions.</li>
-                            <li>English - Enhance your communication skills through grammar exercises, vocabulary building, and comprehension practice.</li>
-                            <li>Data Interpretation & Data Sufficiency - Improve your ability to analyze charts, graphs, and tables efficiently.</li>
-                            <li>General Knowledge (GK) - Stay updated with current affairs, world facts, and important general knowledge topics.</li>
-                            <li>Technical Aptitude - Sharpen your technical skills in programming, basic engineering, and core subject knowledge.</li>
-                        </ul>
-                    </p>
-        
-                    <p>
-                        Our mission is to make learning easy, engaging, and accessible for everyone. Whether you're preparing for placement drives, 
-                        government exams, or just want to improve your cognitive skills, this is the right place for you. We constantly update our content 
-                        to match the latest exam patterns and industry requirements, ensuring you always stay ahead of the competition.
-                    </p>
-        
-                    <p>
-                        Apart from topic-based learning, we plan to introduce practice quizzes, mock tests, and interactive tutorials to give you a 
-                        hands-on learning experience. Our expert-curated material aims to boost your confidence and problem-solving speed.
-                    </p>
-        
-                    <p>
-                        <strong>Thank you for visiting Aptitude Topics!</strong> We hope you find our platform helpful and enriching. 
-                        Keep practicing, stay curious, and unlock your true potential with us.
-                    </p>
-                </div>
+    <div class="content-box mb-4">
+        <h4>Welcome to Aptitude Topics</h4>
+        <p>
+            Our platform is dedicated to helping students, job aspirants, and professionals master the essential aptitude skills 
+            required for competitive exams, campus placements, and personal development. We believe that strong aptitude skills 
+            form the foundation of problem-solving and logical thinking, which are vital in both academic and professional life.
+        </p>
+
+        <p>
+            We provide carefully curated content covering a wide range of topics:
+        </p>
+        <ul>
+            <li>Mathematics - Strengthen your quantitative skills with topics like arithmetic, algebra, geometry, and probability.</li>
+            <li>Logical Reasoning (LR) - Develop analytical thinking with puzzles, series, patterns, and problem-solving questions.</li>
+            <li>English - Enhance your communication skills through grammar exercises, vocabulary building, and comprehension practice.</li>
+            <li>Data Interpretation & Data Sufficiency - Improve your ability to analyze charts, graphs, and tables efficiently.</li>
+            <li>General Knowledge (GK) - Stay updated with current affairs, world facts, and important general knowledge topics.</li>
+            <li>Technical Aptitude - Sharpen your technical skills in programming, basic engineering, and core subject knowledge.</li>
+        </ul>
+
+        <p>
+            Our mission is to make learning easy, engaging, and accessible for everyone. Whether you're preparing for placement drives, 
+            government exams, or just want to improve your cognitive skills, this is the right place for you. We constantly update our content 
+            to match the latest exam patterns and industry requirements, ensuring you always stay ahead of the competition.
+        </p>
+
+        <p>
+            Apart from topic-based learning, we plan to introduce practice quizzes, mock tests, and interactive tutorials to give you a 
+            hands-on learning experience. Our expert-curated material aims to boost your confidence and problem-solving speed.
+        </p>
+
+        <p>
+            <strong>Thank you for visiting Aptitude Topics!</strong> We hope you find our platform helpful and enriching. 
+            Keep practicing, stay curious, and unlock your true potential with us.
+        </p>
+    </div>
+
+    <div class="content-box mb-4">
+        <h4 class="mb-3">Platform Features</h4>
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="feature-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                <h6>AI-Powered Practice</h6>
+                <p>Personalized quizzes and adaptive tests that match your skill level.</p>
             </div>
-        
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        </body>
-        </html>
+            <div class="col-md-4 mb-4">
+                <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <h6>Performance Analytics</h6>
+                <p>Track your progress with detailed reports and improvement tips.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
+                <h6>Community Support</h6>
+                <p>Join discussions, ask doubts, and learn collaboratively with peers.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                <h6>Mobile Friendly</h6>
+                <p>Access all resources on any device, anytime, anywhere.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-icon"><i class="fa-solid fa-certificate"></i></div>
+                <h6>Certification</h6>
+                <p>Earn certificates for completing modules and top performance in mock tests.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+                <h6>Expert Guidance</h6>
+                <p>Get tips and strategies from experienced mentors and subject experts.</p>
+            </div>
+        </div>
+    </div>
+    <div class="content-box mb-4">
+        <h4 class="mb-3">What Our Users Say</h4>
+        <div class="testimonial">
+            <strong><i class="fa fa-quote-left"></i> Riya S. (Campus Placement)</strong><br>
+            "Aptitude Topics helped me crack my placement tests with ease! The practice quizzes and analytics are fantastic."
+        </div>
+        <div class="testimonial">
+            <strong><i class="fa fa-quote-left"></i> Arjun M. (Bank Exam Aspirant)</strong><br>
+            "The logical reasoning section and daily challenges kept me motivated. Highly recommended for anyone preparing for competitive exams."
+        </div>
+        <div class="testimonial">
+            <strong><i class="fa fa-quote-left"></i> Priya D. (Student)</strong><br>
+            "I loved the interactive tutorials and the supportive community. The content is always updated and relevant."
+        </div>
+    </div>
+
+    <div class="content-box mb-4">
+        <h4 class="mb-3">Meet the Team</h4>
+        <div class="row">
+            <div class="col-md-4 text-center mb-3">
+                <img src="#" class="team-avatar mb-2" alt="Founder">
+                <h6>Srinath M</h6>
+                <p class="text-muted">Founder & Lead Mentor</p>
+            </div>
+            <div class="col-md-4 text-center mb-3">
+                <img src="#" class="team-avatar mb-2" alt="Founder">
+                <h6>Ganesh V</h6>
+                <p class="text-muted">Tech Lead</p>
+            </div>
+            <div class="col-md-4 text-center mb-3">
+                <img src="#" class="team-avatar mb-2" alt="Founder">
+                <h6>Naghulan Sivamani R V</h6>
+                <p class="text-muted">Communication Lead</p>
+            </div>
+
+            <div class="col-md-4 text-center mb-3">
+                <img src="#" class="team-avatar mb-2" alt="Content Head">
+                <h6>Vetri Selvan V</h6>
+                <p class="text-muted">Project Coordinator</p>
+            </div>
+            <div class="col-md-4 text-center mb-3">
+                <img src="#" class="team-avatar mb-2" alt="Tech Lead">
+                <h6>Vishnu S</h6>
+                <p class="text-muted">Project Manager</p>
+            </div>
+            <div class="col-md-4 text-center mb-3">
+                <img src="#" class="team-avatar mb-2" alt="Tech Lead">
+                <h6>Gobiraj D</h6>
+                <p class="text-muted">Course Designer</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW: Call to Action -->
+    <div class="content-box text-center">
+        <h4 class="mb-2">Ready to Start Your Aptitude Journey?</h4>
+        <p>Sign up now and unlock access to all features, quizzes, and expert guidance. <br>
+            <a href="signup.html" class="btn btn-primary mt-2">Get Started</a>
+        </p>
+        <p class="mt-3 text-secondary small">
+            For any queries or support, contact us at <a href="mailto:support@aptitudetopics.com">support@aptitudetopics.com</a>
+        </p>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

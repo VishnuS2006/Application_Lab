@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verbal Reasoning Quiz - LearnMate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="Style1.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">
+            <h1>Verbal Reasoning</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="Course.html">Aptitude</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="courses" id="quiz-container">
+        <h2>Verbal Reasoning Questions</h2>
+    </section>
+
+    <div class="quick-links-container">
+        <h2>Quick Links</h2>
+        <div class="quick-links-grid">
+            <div class="quick-links-column">
+                <h3><i class="fas fa-calculator"></i><a href="/Courses/Maths.html">Maths</a></h3>
+                <ul>
+                    <li><a href="/Courses/Maths.html">Complex Numbers</a></li>
+                    <li><a href="">Mensuration</a></li>
+                    <li><a href="">Number Systems</a></li>
+                    <li><a href="">Simple Interest</a></li>
+                </ul>
+            </div> 
+            <div class="quick-links-column">
+                <h3><i class="fas fa-puzzle-piece"></i><a href="">Logical Reasoning</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Blood Relations</a></li>
+                    <li><a href="">Direction Sense Test</a></li>
+                    <li><a href="">Coding - Decoding</a></li>
+                    <li><a href="">Syllogism</a></li>
+                    <li><a href="">Seating Arrangement</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-book-open"></i><a href="">Verbal (English)</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Synonyms & Antonyms</a></li>
+                    <li><a href="">Reading Comprehension</a></li>
+                    <li><a href="">Error Spotting</a></li>
+                    <li><a href="">Sentence Correction</a></li>
+                    <li><a href="">Para Jumbles</a></li>
+                </ul>
+            </div>
+            
+            <div class="quick-links-column">
+                <h3><i class="fas fa-code"></i><a href="">Data Interpretation & Data Sufficiency</a></h3>
+                <ul class="quick_link">
+                    <li><a href="/Courses/DIDS.html">Data Interpretation</a></li>
+                    <li><a href="/Courses/DIDS.html">Data Sufficiency</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-microphone"></i><a href="">General Knowledge</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Geography</a></li>
+                    <li><a href="">Current Affairs</a></li>
+                    <li><a href="">Indian History</a></li>
+                    <li><a href="">World History</a></li>
+                    <li><a href="">Science and Technology</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-file-alt"></i><a href="">Technical Aptitude</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Quantitative Aptitude</a></li>
+                    <li><a href="">Logical Reasoning</a></li>
+                    <li><a href="">Verbal Reasoning</a></li>
+                    <li><a href="">Programming Languages</a></li>
+                    <li><a href="">Data Structures and Algorithms</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 LearnMate. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        
+        const quizData = [
+            {
+                question: "Choose the word that is most similar in meaning to 'BENEVOLENT':",
+                options: shuffleArray([
+                    "Charitable", 
+                    "Malicious", 
+                    "Hostile", 
+                    "Indifferent"
+                ]),
+                correctAnswer: "Charitable",
+                explanation: "Benevolent means 'well-meaning and kindly'. 'Charitable' is the closest in meaning as it refers to being generous and helpful to those in need. 'Malicious' (having evil intent), 'Hostile' (unfriendly), and 'Indifferent' (not caring) are all opposite or unrelated to the meaning of benevolent."
+            },
+            {
+                question: "Select the word that is the antonym of 'FRUGAL':",
+                options: shuffleArray(["Extravagant", "Economical", "Thrifty", "Prudent"]),
+                correctAnswer: "Extravagant",
+                explanation: "Frugal means 'economical or sparing in use of resources'. 'Extravagant' means spending money or using resources freely and recklessly, which is the opposite of frugal. 'Economical', 'Thrifty', and 'Prudent' are all synonyms or similar in meaning to frugal."
+            },
+            {
+                question: "Identify the error in the following sentence: 'Neither John nor his brothers was at the party.'",
+                options: shuffleArray([
+                    "John", 
+                    "brothers", 
+                    "was", 
+                    "party"
+                ]),
+                correctAnswer: "was",
+                explanation: "The error is the verb 'was'. When 'neither-nor' connects two subjects, the verb agrees with the subject closest to it. In this case, 'brothers' is plural, so the verb should be 'were' instead of 'was'. The correct sentence would be 'Neither John nor his brothers were at the party.'"
+            },
+            {
+                question: "Fill in the blank with the most appropriate word: 'The detective's ________ of the crime scene provided crucial evidence.'",
+                options: shuffleArray(["scrutiny", "surveillance", "inspection", "observation"]),
+                correctAnswer: "scrutiny",
+                explanation: "While all options could technically work in this sentence, 'scrutiny' is the most appropriate as it refers to a careful and thorough examination, which is exactly what a detective would conduct at a crime scene. 'Surveillance' typically implies ongoing watching, 'inspection' is more formal and less intense, and 'observation' is more general and passive than scrutiny."
+            },
+            {
+                question: "Choose the correctly punctuated sentence:",
+                options: shuffleArray([
+                    "John, who is my neighbor, works at the hospital.", 
+                    "John who is my neighbor works at the hospital.", 
+                    "John who is my neighbor, works at the hospital.", 
+                    "John, who is my neighbor works at the hospital."
+                ]),
+                correctAnswer: "John, who is my neighbor, works at the hospital.",
+                explanation: "The correct answer is 'John, who is my neighbor, works at the hospital.' The non-restrictive clause 'who is my neighbor' provides additional information about John but is not essential to identify him. Non-restrictive clauses should be set off with commas on both sides."
+            },
+            {
+                question: "Complete the analogy: Book is to Reading as Fork is to _______",
+                options: shuffleArray(["Kitchen", "Eating", "Cooking", "Plate"]),
+                correctAnswer: "Eating",
+                explanation: "In this analogy, a Book is used for Reading (action). Similarly, a Fork is used for Eating (action). The relationship is object:action in both pairs."
+            },
+            {
+                question: "Arrange the jumbled words to form a meaningful sentence: 'the / writing / I / when / entered / was / room / she / the'",
+                options: shuffleArray([
+                    "I was writing when she entered the room.", 
+                    "When she entered the room I was writing.", 
+                    "She was writing when I entered the room.", 
+                    "The room was entered when she was writing."
+                ]),
+                correctAnswer: "I was writing when she entered the room.",
+                explanation: "Arranging the jumbled words in a logical order: 'I was writing when she entered the room.' This forms a grammatically correct and meaningful sentence with a clear subject (I), action (was writing), and subordinate clause (when she entered the room)."
+            },
+            {
+                question: "Choose the sentence with correct subject-verb agreement:",
+                options: shuffleArray([
+                    "The committee has reached its decision.", 
+                    "The committee have reached their decision.", 
+                    "The committee has reached their decision.", 
+                    "The committee have reached its decision."
+                ]),
+                correctAnswer: "The committee has reached its decision.",
+                explanation: "In American English, collective nouns like 'committee' are usually treated as singular entities and take singular verbs and pronouns. Therefore, 'The committee has (singular verb) reached its (singular pronoun) decision' is correct. In British English, collective nouns can sometimes take plural verbs and pronouns, but consistency is key."
+            },
+            {
+                question: "Identify the part of speech of the underlined word: 'She spoke <u>softly</u> to the child.'",
+                options: shuffleArray([
+                    "Adverb", 
+                    "Adjective", 
+                    "Verb", 
+                    "Noun"
+                ]),
+                correctAnswer: "Adverb",
+                explanation: "The word 'softly' is an adverb because it modifies the verb 'spoke' by describing how the action was performed. Adverbs typically answer the questions: how? when? where? or to what extent?"
+            },
+            {
+                question: "Choose the word that best completes the sentence: 'The new policy was met with ________ from the staff.'",
+                options: shuffleArray(["resistance", "resistance", "resistant", "resistive"]),
+                correctAnswer: "resistance",
+                explanation: "The correct word is 'resistance', which is a noun meaning opposition or refusal to accept something. This fits grammatically and semantically in the sentence. 'Resistant' and 'resistive' are adjectives, which would not be grammatically correct in this context."
+            },
+            {
+                question: "Choose the correctly spelled word:",
+                options: shuffleArray(["Accommodation", "Accomodation", "Acommodation", "Acomodation"]),
+                correctAnswer: "Accommodation",
+                explanation: "The correct spelling is 'Accommodation' with two 'c's and two 'm's. This is a commonly misspelled word in English. 'Accomodation' (one 'c', two 'm's), 'Acommodation' (one 'c', one 'm'), and 'Acomodation' (one 'c', one 'm') are all incorrect spellings."
+            },
+            {
+                question: "Identify the sentence with the correct use of the semicolon:",
+                options: shuffleArray([
+                    "I have a big test tomorrow; I can't go to the party.", 
+                    "I have a big test tomorrow; but I can't go to the party.", 
+                    "I have a big test tomorrow; therefore I can't go to the party.", 
+                    "I have a big test tomorrow; however, I can go to the party."
+                ]),
+                correctAnswer: "I have a big test tomorrow; I can't go to the party.",
+                explanation: "A semicolon is used to join two independent clauses that are closely related but not joined by a coordinating conjunction. 'I have a big test tomorrow; I can't go to the party' correctly uses the semicolon to connect two related independent clauses. The second option incorrectly uses both a semicolon and a coordinating conjunction. The third incorrectly uses a semicolon before 'therefore' without a comma. The fourth uses 'however' without a comma after it."
+            },
+            {
+                question: "In the following sentence, identify what the pronoun 'it' refers to: 'The dog chased the cat until it jumped over the fence.'",
+                options: shuffleArray([
+                    "The cat", 
+                    "The dog", 
+                    "The fence", 
+                    "Cannot be determined from the sentence"
+                ]),
+                correctAnswer: "Cannot be determined from the sentence",
+                explanation: "In this sentence, there is ambiguity about what 'it' refers to. 'It' could refer to either 'the dog' or 'the cat' since either could have jumped over the fence. This is an example of an ambiguous pronoun reference. Without additional context, we cannot determine which animal jumped over the fence."
+            },
+            {
+                question: "Select the appropriate phrasal verb to complete the sentence: 'Please ________ your hand if you know the answer.'",
+                options: shuffleArray(["raise up", "bring up", "put up", "hold up"]),
+                correctAnswer: "put up",
+                explanation: "The correct phrasal verb is 'put up' which means to raise or lift something. In this context, 'put up your hand' means to raise your hand. 'Raise up' is redundant, as 'raise' already implies upward movement. 'Bring up' means to mention or introduce a topic. 'Hold up' typically means to delay or to keep something elevated for a sustained period."
+            },
+            {
+                question: "Choose the word that does NOT belong with the others:",
+                options: shuffleArray(["Symphony", "Concerto", "Ballet", "Quartet"]),
+                correctAnswer: "Ballet",
+                explanation: "Ballet is different from the others because it is a form of dance, whereas Symphony, Concerto, and Quartet are all musical compositions or musical groups. Ballet may be performed to music, but it is primarily a dance form rather than a musical composition."
+            },
+            {
+                question: "Read the passage and answer the question: 'The city council voted yesterday to approve the new budget, which includes substantial cuts to the parks department. However, the mayor has expressed concerns about these cuts and may veto the budget.' Based on the passage, what can be inferred?",
+                options: shuffleArray([
+                    "The mayor has the power to veto the budget.", 
+                    "The parks department will definitely face cuts.", 
+                    "The city council unanimously approved the budget.", 
+                    "The budget will ultimately be rejected."
+                ]),
+                correctAnswer: "The mayor has the power to veto the budget.",
+                explanation: "The passage states that the mayor 'may veto the budget,' which implies that the mayor has the power to do so. We cannot definitely say that the parks department will face cuts because the mayor might veto the budget. There's no mention of whether the city council approval was unanimous. We cannot predict whether the budget will ultimately be rejected or not."
+            },
+            {
+                question: "Choose the most appropriate meaning of the idiom: 'To beat around the bush'",
+                options: shuffleArray([
+                    "To avoid getting to the point", 
+                    "To search thoroughly", 
+                    "To win decisively", 
+                    "To create a disturbance"
+                ]),
+                correctAnswer: "To avoid getting to the point",
+                explanation: "The idiom 'to beat around the bush' means to avoid getting to the point or to speak indirectly about an issue instead of addressing it directly. It does not mean to search thoroughly, to win decisively, or to create a disturbance."
+            },
+            {
+                question: "From the given alternatives, choose the one which best expresses the meaning of the idiom/phrase: 'To take with a grain of salt'",
+                options: shuffleArray([
+                    "To accept with skepticism", 
+                    "To take someone's criticism lightly", 
+                    "To season food properly", 
+                    "To accept something unhappily"
+                ]),
+                correctAnswer: "To accept with skepticism",
+                explanation: "The idiom 'to take something with a grain of salt' means to view something with skepticism or to not take it too seriously. This phrase suggests maintaining a degree of doubt about the truth or accuracy of something."
+            },
+            {
+                question: "Choose the sentence that does NOT contain a grammatical error:",
+                options: shuffleArray([
+                    "Neither of the students were able to solve the problem.", 
+                    "Each of the students were given a certificate.", 
+                    "One of the students who was absent yesterday is here today.", 
+                    "Some of the water were spilled on the floor."
+                ]),
+                correctAnswer: "One of the students who was absent yesterday is here today.",
+                explanation: "The correct sentence is 'One of the students who was absent yesterday is here today.' In this sentence, the subject 'One' is singular and correctly takes the singular verb 'is'. In the other sentences: 'Neither' is singular and should take 'was' not 'were'; 'Each' is singular and should take 'was' not 'were'; and 'water' is uncountable and takes a singular verb 'was' not 'were'."
+            },
+            {
+                question: "Choose the correct meaning of the given proverb: 'Don't count your chickens before they hatch'",
+                options: shuffleArray([
+                    "Don't make plans that depend on something good happening before it's certain", 
+                    "Don't be overconfident about your success", 
+                    "One should always check facts before coming to conclusions", 
+                    "One should be patient in matters of importance"
+                ]),
+                correctAnswer: "Don't make plans that depend on something good happening before it's certain",
+                explanation: "The proverb 'Don't count your chickens before they hatch' means don't make plans that depend on something good happening before you are certain it will happen. It cautions against being too confident about future outcomes that are uncertain. While it does relate to overconfidence, checking facts, and patience, the core meaning is about not assuming future successes are guaranteed."
+            }
+        ];
+        
+        // Create quiz cards
+        const quizContainer = document.getElementById('quiz-container');
+        
+        quizData.forEach((quiz, index) => {
+            const card = document.createElement('div');
+            card.className = 'course-card';
+            
+            const questionNumber = index + 1;
+            
+            // Create question header
+            const questionHeader = document.createElement('h4');
+            questionHeader.innerHTML = 'Q' + questionNumber + ': ' + quiz.question;
+            card.appendChild(questionHeader);
+            
+            // Create options container
+            const optionsContainer = document.createElement('div');
+            optionsContainer.className = 'options-container';
+            
+            // Create result container (initially hidden)
+            const resultContainer = document.createElement('div');
+            resultContainer.className = 'result-container correct-answer';
+            resultContainer.style.display = 'none';
+            resultContainer.innerHTML = '<p><strong>Explanation:</strong> ' + quiz.explanation + '</p>';
+            
+            // Create option buttons
+            quiz.options.forEach((option) => {
+                const optionBtn = document.createElement('button');
+                optionBtn.className = 'option-btn';
+                optionBtn.textContent = option;
+                
+                optionBtn.addEventListener('click', function() {
+                    // Reset all buttons
+                    const allButtons = optionsContainer.querySelectorAll('.option-btn');
+                    allButtons.forEach(btn => {
+                        btn.className = 'option-btn';
+                        btn.disabled = true;
+                    });
+                    
+                    // Mark selected button as correct or wrong
+                    if (option === quiz.correctAnswer) {
+                        this.className = 'option-btn correct';
+                    } else {
+                        this.className = 'option-btn wrong';
+                        // Find and mark the correct answer
+                        allButtons.forEach(btn => {
+                            if (btn.textContent === quiz.correctAnswer) {
+                                btn.className = 'option-btn correct';
+                            }
+                        });
+                    }
+                    
+                    // Show explanation
+                    resultContainer.style.display = 'block';
+                });
+                
+                optionsContainer.appendChild(optionBtn);
+            });
+            
+            card.appendChild(optionsContainer);
+            card.appendChild(resultContainer);
+            quizContainer.appendChild(card);
+        });
+    </script>
+</body>
+</html>

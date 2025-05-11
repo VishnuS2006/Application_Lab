@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logical Reasoning Quiz - LearnMate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="Style1.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">
+            <h1>Logical Reasoning</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href = "Course.html">Courses</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="courses" id="quiz-container">
+        <h2>Logical Reasoning Questions</h2>
+    </section>
+
+    <div class="quick-links-container">
+        <h2>Quick Links</h2>
+        <div class="quick-links-grid">
+            <div class="quick-links-column">
+                <h3><i class="fas fa-calculator"></i><a href="/Courses/Maths.html">Maths</a></h3>
+                <ul>
+                    <li><a href="">Complex Numbers</a></li>
+                    <li><a href="">Probability</a></li>
+                    <li><a href="">Number Systems</a></li>
+                    <li><a href="">Simple Interest</a></li>
+                </ul>
+            </div> 
+            <div class="quick-links-column">
+                <h3><i class="fas fa-puzzle-piece"></i><a href="">Logical Reasoning</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Blood Relations</a></li>
+                    <li><a href="">Direction Sense Test</a></li>
+                    <li><a href="">Coding - Decoding</a></li>
+                    <li><a href="">Syllogism</a></li>
+                    <li><a href="">Seating Arrangement</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-book-open"></i><a href="">Verbal (English)</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Synonyms & Antonyms</a></li>
+                    <li><a href="">Reading Comprehension</a></li>
+                    <li><a href="">Error Spotting</a></li>
+                    <li><a href="">Sentence Correction</a></li>
+                    <li><a href="">Para Jumbles</a></li>
+                </ul>
+            </div>
+            
+            <div class="quick-links-column">
+                <h3><i class="fas fa-code"></i><a href="">Data Interpretation & Data Sufficiency</a></h3>
+                <ul class="quick_link">
+                    <li><a href="/Courses/DIDS.html">Data Interpretation</a></li>
+                    <li><a href="/Courses/DIDS.html">Data Sufficiency</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-microphone"></i><a href="">General Knowledge</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Geography</a></li>
+                    <li><a href="">Current Affairs</a></li>
+                    <li><a href="">Indian History</a></li>
+                    <li><a href="">World History</a></li>
+                    <li><a href="">Science and Technology</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-file-alt"></i><a href="">Technical Aptitude</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Quantitative Aptitude</a></li>
+                    <li><a href="">Logical Reasoning</a></li>
+                    <li><a href="">Verbal Reasoning</a></li>
+                    <li><a href="">Programming Languages</a></li>
+                    <li><a href="">Data Structures and Algorithms</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 LearnMate. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        
+        const quizData = [
+            {
+                question: "All roses are flowers. Some flowers fade quickly. Which of the following conclusions can be logically drawn from these statements?",
+                options: shuffleArray([
+                    "All roses fade quickly", 
+                    "Some roses fade quickly", 
+                    "No rose fades quickly", 
+                    "None of the conclusions can be drawn"
+                ]),
+                correctAnswer: "None of the conclusions can be drawn",
+                explanation: "In syllogisms, we need to analyze the overlap between categories.<br>First statement: All roses are flowers (All R are F)<br>Second statement: Some flowers fade quickly (Some F are Q)<br>From these statements, we cannot conclude whether any roses fade quickly or not, as the 'Some flowers that fade quickly' may or may not include roses."
+            },
+            {
+                question: "In a certain code language, 'TRAVEL' is written as 'USBWFM'. How would 'BORDER' be written in that code?",
+                options: shuffleArray(["CPSEFS", "CPSEHT", "CQTFGT", "CPSEFQ"]),
+                correctAnswer: "CPSEFS",
+                explanation: "In this code, each letter is replaced by the next letter in the English alphabet.<br>T → U, R → S, A → B, V → W, E → F, L → M<br>Similarly for BORDER:<br>B → C, O → P, R → S, D → E, E → F, R → S<br>Therefore, BORDER is coded as CPSEFS."
+            },
+            {
+                question: "If A is the brother of B; B is the sister of C; and C is the father of D, how is D related to A?",
+                options: shuffleArray(["Nephew", "Niece", "Either nephew or niece", "Cannot be determined"]),
+                correctAnswer: "Either nephew or niece",
+                explanation: "A is the brother of B (A is male)<br>B is the sister of C (B is female, C is either male or female)<br>C is the father of D (C is male, D is either male or female)<br>So, A is the uncle of D (brother of D's father)<br>D is either the son (nephew) or daughter (niece) of A<br>Since we don't know the gender of D, the answer is 'Either nephew or niece'."
+            },
+            {
+                question: "If today is Tuesday, what day will it be after 61 days?",
+                options: shuffleArray(["Monday", "Tuesday", "Wednesday", "Thursday"]),
+                correctAnswer: "Wednesday",
+                explanation: "61 ÷ 7 = 8 remainder 5<br>So 61 days means 8 complete weeks and 5 extra days<br>Tuesday + 5 days = Wednesday"
+            },
+            {
+                question: "Complete the series: 3, 6, 11, 18, 27, ?",
+                options: shuffleArray(["36", "38", "40", "42"]),
+                correctAnswer: "38",
+                explanation: "The pattern is: add 3, add 5, add 7, add 9, add 11, ...<br>3 + 3 = 6<br>6 + 5 = 11<br>11 + 7 = 18<br>18 + 9 = 27<br>27 + 11 = 38"
+            },
+            {
+                question: "If ROSE is coded as 6821, and CHAIR is coded as 73456, what is the code for SEARCH?",
+                options: shuffleArray(["214673", "216473", "216573", "214637"]),
+                correctAnswer: "214673",
+                explanation: "Looking at the given codes:<br>R = 6, O = 8, S = 2, E = 1<br>C = 7, H = 3, A = 4, I = 5, R = 6<br>Therefore, for SEARCH:<br>S = 2, E = 1, A = 4, R = 6, C = 7, H = 3<br>So SEARCH is coded as 214673."
+            },
+            {
+                question: "In a row of boys, Arun is 7th from the left and Varun is 9th from the right. If they interchange their positions, Arun becomes 11th from the left. How many boys are there in the row?",
+                options: shuffleArray(["19", "20", "27", "Cannot be determined"]),
+                correctAnswer: "19",
+                explanation: "Initially, Arun is 7th from left and Varun is 9th from right.<br>After interchange, Arun becomes 11th from left.<br>This means the position 9th from right corresponds to 11th from left.<br>If n is the total number of boys, then: (n - 9 + 1) = 11<br>n - 8 = 11<br>n = 19"
+            },
+            {
+                question: "All actors are performers. Some performers are dancers. Based on these two statements, which of the following conclusions is definitely correct?",
+                options: shuffleArray([
+                    "All actors are dancers", 
+                    "Some actors are dancers", 
+                    "No actor is a dancer", 
+                    "None of the above conclusions is definitely correct"
+                ]),
+                correctAnswer: "None of the above conclusions is definitely correct",
+                explanation: "Statement 1: All actors are performers (All A are P)<br>Statement 2: Some performers are dancers (Some P are D)<br>From these, we cannot definitely conclude:<br>1. All actors are dancers (not necessarily true)<br>2. Some actors are dancers (may or may not be true)<br>3. No actor is a dancer (may or may not be true)<br>Since the performers who are dancers may not include any actors, we cannot draw any definite conclusion about the relationship between actors and dancers."
+            },
+            {
+                question: "Find the missing term in the alpha-numeric series: B2D, D5F, F10H, ?",
+                options: shuffleArray(["H15J", "H16J", "H17J", "J17L"]),
+                correctAnswer: "H17J",
+                explanation: "The pattern:<br>B2D: B and D are 1 letter apart, 2 is 1×2<br>D5F: D and F are 1 letter apart, 5 is 2×2+1<br>F10H: F and H are 1 letter apart, 10 is 3×3+1<br>Next: H and J are 1 letter apart, number should be 4×4+1 = 17<br>Therefore, next term is H17J."
+            },
+            {
+                question: "A man starts walking east and walks 5 km, then turns north and walks 3 km, then turns west and walks 2 km, then again turns north and walks 2 km. How far is he from the starting point?",
+                options: shuffleArray(["5 km", "6 km", "7 km", "8 km"]),
+                correctAnswer: "6 km",
+                explanation: "Final position relative to start:<br>- East: 5 - 2 = 3 km<br>- North: 3 + 2 = 5 km<br>Distance = √(3² + 5²) = √(9 + 25) = √34 ≈ 5.83 km ≈ 6 km"
+            }
+        ];
+
+        const quizContainer = document.getElementById('quiz-container');
+
+        function generateQuiz() {
+            quizData.forEach((questionData, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('course-card');
+                questionDiv.id = `question-${index + 1}`;
+
+                const questionTitle = document.createElement('h4');
+                questionTitle.textContent = `${index + 1}. ${questionData.question}`;
+                questionDiv.appendChild(questionTitle);
+
+                const optionsContainer = document.createElement('div');
+                optionsContainer.classList.add('options-container');
+
+                questionData.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.style.color = "white";
+                    button.style.fontWeight = "bolder";
+                    button.classList.add('option-btn');
+                    button.textContent = option;
+                    button.dataset.correct = (option.trim() === questionData.correctAnswer.trim());
+                    button.addEventListener('click', function() {
+                        checkAnswer(this, questionData.explanation, questionDiv);
+                    });
+                    optionsContainer.appendChild(button);
+                });
+                questionDiv.appendChild(optionsContainer);
+
+                const resultContainer = document.createElement('div');
+                resultContainer.classList.add('result-container');
+                resultContainer.id = `explanation-${index + 1}`;
+                resultContainer.style.display = 'none';
+                questionDiv.appendChild(resultContainer);
+
+                quizContainer.appendChild(questionDiv);
+            });
+        }
+
+        function checkAnswer(buttonElement, explanation, questionDiv) {
+            const resultDiv = questionDiv.querySelector('.result-container');
+            const optionButtons = questionDiv.querySelectorAll('.option-btn');
+            const isCorrect = buttonElement.dataset.correct === 'true';
+
+            if (isCorrect) {
+                optionButtons.forEach(btn => btn.disabled = true);
+                buttonElement.classList.add('correct');
+                resultDiv.classList.add('correct-answer');
+                resultDiv.innerHTML = `✅ <strong>Correct Answer!</strong><br><br><em>Explanation:</em> ${explanation}`;
+                resultDiv.style.display = 'block';
+            } else {
+                buttonElement.classList.add('wrong');
+            }
+        }
+
+        // Generate the quiz when the page loads
+        generateQuiz();
+    </script>
+</body>
+</html>

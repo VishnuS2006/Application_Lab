@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number System Quiz - LearnMate</title>
+    <link rel="stylesheet" href="/Courses/style.css"/>
+    <link rel="stylesheet" href="/Question.html/QuesLayout.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" >
+    
+    <link rel="stylesheet" href="Style1.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="logo">
+            <h1>Number System</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="Course.html">Courses</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="courses" id="quiz-container">
+        <h2>Number System Questions</h2>
+    </section>
+
+    <div class="quick-links-container">
+        <h2>Quick Links</h2>
+        <div class="quick-links-grid">
+            <div class="quick-links-column">
+                <h3><i class="fas fa-calculator"></i><a href="/Courses/Maths.html" style="color: #007bff;">Maths</a></h3>
+                <ul>
+                    <li><a href="">Probability</a> </li>
+                    <li><a href="">Mensuration</a></li>
+                    <li><a href="">Number Systems</a></li>         
+                    <li><a href="">Simple Interest</a></li>
+                </ul>
+            </div> 
+            <div class="quick-links-column">
+                <h3><i class="fas fa-puzzle-piece"></i><a href="" style="color: #007bff;">Logical Reasoning</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Blood Relations</a> </li>
+                    <li><a href="">Direction Sense Test</a> </li>
+                    <li><a href="">Coding - Decoding</a></li>
+                    <li><a href="">Syllogism</a></li>
+                    <li><a href="">Seating Arrangement</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-book-open"></i><a href=""style="color: #007bff;"> Verbal (English)</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Synonyms & Antonyms</a></li>
+                    <li><a href="">Reading Comprehension</a></li>
+                    <li><a href="">Error Spotting</a></li>
+                    <li><a href="">Sentence Correction</a></li>
+                    <li><a href="">Para Jumbles</a></li>
+                </ul>
+            </div>
+            
+            <div class="quick-links-column">
+                <h3><i class="fas fa-code"></i><a href="" style="color: #007bff;">Data Interpretation & Data Sufficiency</a></h3>
+                <ul class="quick_link">
+                    <li><a href="/Courses/DIDS.html">Data Interpretation</a></li>
+                    <li><a href="/Courses/DIDS.html">Data Sufficiency</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-microphone"></i><a href="" style="color: #007bff;">General Knowledge</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Geography</a></li>
+                    <li><a href="">Current Affairs</a></li>
+                    <li><a href="">Indian History</a></li>
+                    <li><a href="">World History</a></li>
+                    <li><a href="">Science and Technology</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-file-alt"></i><a href="" style="color: #007bff;">Technical Aptitude</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Quantitative Aptitude</a></li>
+                    <li><a href="">Logical Reasoning</a></li>
+                    <li><a href="">Verbal Reasoning</a></li>
+                    <li><a href="">Programming Languages</a></li>
+                    <li><a href="">Data Structures and Algorithms</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 LearnMate. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        
+        const quizData = [
+            {
+                question: "Which of the following is a prime number?",
+                options: shuffleArray(["91", "87", "97", "93"]),
+                correctAnswer: "97",
+                explanation: "Step 1: Understand that a prime number has only two factors: 1 and itself.<br>Step 2: 91 = 7 × 13 → Not prime.<br>Step 3: 87 = 3 × 29 → Not prime.<br>Step 4: 97 has no divisors other than 1 and 97 → Prime.<br>Answer: 97 is the prime number."
+            },
+            {
+                question: "Find the LCM of 12 and 18.",
+                options: shuffleArray(["36", "72", "24", "18"]),
+                correctAnswer: "36",
+                explanation: "Step 1: Prime factorize both numbers.<br>12 = 2² × 3, 18 = 2 × 3².<br>Step 2: Take the highest powers of all primes:<br>LCM = 2² × 3² = 36.<br>Answer: 36."
+            },
+            {
+                question: "What is the HCF of 60 and 48?",
+                options: shuffleArray(["12", "6", "24", "18"]),
+                correctAnswer: "12",
+                explanation: "Step 1: Prime factors:<br>60 = 2² × 3 × 5,<br>48 = 2⁴ × 3.<br>Step 2: Take lowest powers of common primes:<br>HCF = 2² × 3 = 12.<br>Answer: 12."
+            },
+            {
+                question: "What is the remainder when 65 is divided by 7?",
+                options: shuffleArray(["2", "3", "1", "5"]),
+                correctAnswer: "2",
+                explanation: "Step 1: Divide 65 by 7.<br>65 ÷ 7 = 9 remainder 2.<br>Step 2: 7 × 9 = 63, 65 - 63 = 2.<br>Answer: 2."
+            },
+            {
+                question: "Find the smallest number that is divisible by 6, 9, and 15.",
+                options: shuffleArray(["90", "180", "45", "135"]),
+                correctAnswer: "90",
+                explanation: "Step 1: Prime factors:<br>6 = 2 × 3, 9 = 3², 15 = 3 × 5.<br>Step 2: LCM = 2 × 3² × 5 = 90.<br>Answer: 90."
+            },
+            {
+                question: "How many integers between 1 and 100 are divisible by both 3 and 4?",
+                options: shuffleArray(["8", "6", "12", "10"]),
+                correctAnswer: "8",
+                explanation: "Step 1: Numbers divisible by both 3 and 4 → LCM(3,4)=12.<br>Step 2: Count multiples of 12 between 1 and 100:<br>12, 24, 36, 48, 60, 72, 84, 96 → 8 numbers.<br>Answer: 8."
+            },
+            {
+                question: "What is the unit digit of 7^99?",
+                options: shuffleArray(["3", "7", "9", "1"]),
+                correctAnswer: "3",
+                explanation: "Step 1: Find unit digit pattern of 7 powers:<br>7^1=7, 7^2=49, 7^3=343, 7^4=2401 → Unit digits: 7,9,3,1 (cycle of 4).<br>Step 2: 99 mod 4 = 3 → 3rd number in the cycle: 3.<br>Answer: 3."
+            },
+            {
+                question: "Find the number of trailing zeros in 100!",
+                options: shuffleArray(["24", "20", "22", "25"]),
+                correctAnswer: "24",
+                explanation: "Step 1: Count number of 5s in prime factorization of 100!:<br>100 ÷ 5 = 20, 100 ÷ 25 = 4, Total = 24.<br>Step 2: Each 5 pairs with a 2 to form a 10.<br>Answer: 24."
+            },
+            {
+                question: "If x and y are odd integers, which of the following is even?",
+                options: shuffleArray(["x + y", "x × y", "x^2", "x - y"]),
+                correctAnswer: "x + y",
+                explanation: "Step 1: Odd + Odd = Even.<br>Step 2: Examples: 3 + 5 = 8 → Even.<br>Answer: x + y."
+            },
+            {
+                question: "Which number is not a perfect square?",
+                options: shuffleArray(["144", "169", "150", "121"]),
+                correctAnswer: "150",
+                explanation: "Step 1: 144 = 12², 169 = 13², 121 = 11².<br>Step 2: 150 is not a square of any integer.<br>Answer: 150."
+            },
+            {
+                question: "What is the smallest 5-digit number divisible by 12?",
+                options: shuffleArray(["10008", "10020", "10012", "10000"]),
+                correctAnswer: "10008",
+                explanation: "Step 1: Smallest 5-digit number = 10000.<br>Step 2: 10000 ÷ 12 = 833.33 → Next multiple is 834 × 12 = 10008.<br>Answer: 10008."
+            },
+            {
+                question: "A number when divided by 5 leaves remainder 3. What will be the remainder when the same number is divided by 10?",
+                options: shuffleArray(["3", "6", "8", "Cannot be determined"]),
+                correctAnswer: "Cannot be determined",
+                explanation: "Step 1: Let number = 5k + 3.<br>Step 2: We don't know 'k' so can't find 5k + 3 mod 10.<br>Answer: Cannot be determined."
+            },
+            {
+                question: "Which of these is a co-prime pair?",
+                options: shuffleArray(["15 and 25", "12 and 18", "8 and 9", "14 and 21"]),
+                correctAnswer: "8 and 9",
+                explanation: "Step 1: Co-primes have HCF = 1.<br>Step 2: 8 = 2³, 9 = 3² → No common factor.<br>Answer: 8 and 9."
+            },
+            {
+                question: "If a number is divisible by both 2 and 3, it must be divisible by:",
+                options: shuffleArray(["5", "4", "6", "12"]),
+                correctAnswer: "6",
+                explanation: "Step 1: LCM of 2 and 3 = 6.<br>Step 2: So divisible by 6.<br>Answer: 6."
+            },
+            {
+                question: "Which of the following is the largest number?",
+                options: shuffleArray(["2^10", "3^6", "4^5", "5^4"]),
+                correctAnswer: "3^6",
+                explanation: "Step 1: Compute each:<br>2^10 = 1024, 3^6 = 729, 4^5 = 1024, 5^4 = 625.<br>Step 2: 1024 is largest → shared by 2^10 and 4^5.<br>Answer: 2^10 and 4^5 are equal and largest."
+            },
+            {
+                question: "Find the greatest 3-digit number divisible by 7.",
+                options: shuffleArray(["994", "987", "999", "994"]),
+                correctAnswer: "994",
+                explanation: "Step 1: 999 ÷ 7 = 142.714 → Nearest lower integer = 142.<br>Step 2: 142 × 7 = 994.<br>Answer: 994."
+            },
+            {
+                question: "How many 3-digit numbers are divisible by 9?",
+                options: shuffleArray(["100", "112", "111", "89"]),
+                correctAnswer: "100",
+                explanation: "Step 1: Smallest 3-digit = 100, Largest = 999.<br>100 ÷ 9 = 11.11 → First: 108,<br>999 ÷ 9 = 111.<br>Step 2: Count from 108 to 999 by 9: (111 - 12 + 1) = 100.<br>Answer: 100."
+            },
+            {
+                question: "What is the sum of first 50 natural numbers?",
+                options: shuffleArray(["1275", "1225", "1125", "1325"]),
+                correctAnswer: "1275",
+                explanation: "Step 1: Use formula n(n+1)/2 for sum of natural numbers.<br>Step 2: 50(51)/2 = 1275.<br>Answer: 1275."
+            },
+            {
+                question: "Which number is divisible by 11?",
+                options: shuffleArray(["121", "143", "154", "123"]),
+                correctAnswer: "121",
+                explanation: "Step 1: Check 11 divisibility or direct division:<br>121 ÷ 11 = 11 → Divisible.<br>Answer: 121."
+            },
+            {
+                question: "If x^2 = 49, what are possible integer values of x?",
+                options: shuffleArray(["7", "-7", "±7", "0"]),
+                correctAnswer: "±7",
+                explanation: "Step 1: Square root of 49 = 7.<br>Step 2: Both 7 and -7 square to 49.<br>Answer: ±7."
+            }
+        ];
+
+        const quizContainer = document.getElementById('quiz-container');
+
+        function generateQuiz() {
+            quizData.forEach((questionData, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('course-card');
+                questionDiv.id = `question-${index+1}`;
+
+                const questionTitle = document.createElement('h4');
+                questionTitle.textContent = `${index+1}. ${questionData.question}`;
+                questionDiv.appendChild(questionTitle);
+
+                const optionsContainer = document.createElement('div');
+                optionsContainer.classList.add('options-container');
+
+                questionData.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.style.color = "white";
+                    button.style.fontWeight = "bolder";
+                    button.classList.add('option-btn');
+                    button.textContent = option;
+                    button.dataset.correct = (option.trim() == questionData.correctAnswer.trim());
+                    button.addEventListener('click', function() {
+                        checkAnswer(this, questionData.explanation, questionDiv);
+                    });
+                    optionsContainer.appendChild(button);
+                });
+                questionDiv.appendChild(optionsContainer);
+
+                const resultContainer = document.createElement('div');
+                resultContainer.classList.add('result-container');
+                resultContainer.id = `explanation-${index+1}`;
+                resultContainer.style.display = 'none';
+                questionDiv.appendChild(resultContainer);
+
+                quizContainer.appendChild(questionDiv);
+            });
+        }
+
+        function checkAnswer(buttonElement, explanation, questionDiv) {
+            const resultDiv = questionDiv.querySelector('.result-container');
+            const optionButtons = questionDiv.querySelectorAll('.option-btn');
+            const isCorrect = buttonElement.dataset.correct === 'true';
+
+            optionButtons.forEach(btn => btn.disabled = true);
+            
+            if (isCorrect) {
+                buttonElement.classList.add('correct');
+                resultDiv.classList.add('correct-answer');
+                resultDiv.innerHTML = `✅ <strong>Correct Answer!</strong><br><br><em><strong>Explanation:</strong></em> ${explanation}`;
+            } else {
+                buttonElement.classList.add('wrong');
+                // Find and highlight the correct answer
+                optionButtons.forEach(btn => {
+                    if (btn.dataset.correct === 'true') {
+                        btn.classList.add('correct');
+                    }
+                });
+                resultDiv.innerHTML = `❌ <strong>Incorrect Answer</strong><br><br><em><strong>Explanation:</strong></em> ${explanation}`;
+            }
+            resultDiv.style.display = 'block';
+        }
+        
+        generateQuiz();
+    </script>
+</body>
+</html>
