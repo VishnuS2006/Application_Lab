@@ -277,7 +277,7 @@
                 optionButtons.forEach(btn => btn.disabled = true);
                 buttonElement.classList.add('correct');
                 resultDiv.classList.add('correct-answer');
-                resultDiv.innerHTML = `✅ <strong>Correct Answer!</strong><br><br><em>Explanation:</em> ${explanation}`;
+                resultDiv.innerHTML = `✅ <strong>Correct Answer!</strong><br><br><em><strong>Explanation:</strong></em> ${explanation}`;
                 resultDiv.style.display = 'block';
             } else {
                 buttonElement.classList.add('wrong');
