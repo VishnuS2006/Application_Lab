@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Simple Interest Quiz - LearnMate</title>
+        <link rel="stylesheet" href="/Courses/style.css"/>
+        <link rel="stylesheet" href="/Question.html/QuesLayout.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="Style1.css">
+    </head>
+    
+    
+<body>
+
+    <nav id="navbar">
+        <div class="logo">
+            <h1 style="font-size: xx-large;"> Simple Interest</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href = "Course.html">Courses</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="courses" id="quiz-container">
+        <h2>Simple Interest Questions</h2>
+    </section>
+
+    <div class="quick-links-container">
+        <h2>Quick Links</h2>
+        <div class="quick-links-grid">
+            <div class="quick-links-column">
+                <h3><i class="fas fa-calculator"></i><a href="/Courses/Maths.html" style="color: #007bff;">Maths</a></h3>
+                <ul>
+                    <li><a href="">Complex Numbers</a> </li>
+                    <li><a href="">Probability</a></li>
+                    <li><a href="">Number Systems</a></li>
+                    <li><a href="" >Mensuration</a></li>
+                </ul>
+            </div> 
+            <div class="quick-links-column">
+                <h3><i class="fas fa-puzzle-piece"></i><a href="" style="color: #007bff;">Logical Reasoning</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Blood Relations</a> </li>
+                    <li><a href="">Direction Sense Test</a> </li>
+                    <li><a href="">Coding - Decoding</a></li>
+                    <li><a href="">Syllogism</a></li>
+                    <li><a href="">Seating Arrangement</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-book-open"></i><a href=""style="color: #007bff;"> Verbal (English)</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Synonyms & Antonyms</a></li>
+                    <li><a href="">Reading Comprehension</a></li>
+                    <li><a href="">Error Spotting</a></li>
+                    <li><a href="">Sentence Correction</a></li>
+                    <li><a href="">Para Jumbles</a></li>
+                </ul>
+            </div>
+            
+            <div class="quick-links-column">
+                <h3><i class="fas fa-code"></i><a href="" style="color: #007bff;">Data Interpretation & Data Sufficiency</a></h3>
+                <ul class="quick_link">
+                    <li><a href="/Courses/DIDS.html">Data Interpretation</a></li>
+                    <li><a href="/Courses/DIDS.html">Data Sufficiency</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-microphone"></i><a href="" style="color: #007bff;">General Knowledge</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Geography</a></li>
+                    <li><a href="">Current Affairs</a></li>
+                    <li><a href="">Indian History</a></li>
+                    <li><a href="">World History</a></li>
+                    <li><a href="">Science and Technology</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-file-alt"></i><a href="" style="color: #007bff;">Technical Aptitude</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Quantitative Aptitude</a></li>
+                    <li><a href="">Logical Reasoning</a></li>
+                    <li><a href="">Verbal Reasoning</a></li>
+                    <li><a href="">Programming Languages</a></li>
+                    <li><a href="">Data Structures and Algorithms</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 LearnMate. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1)); 
+                [array[i], array[j]] = [array[j], array[i]];    
+            }
+            return array;
+        }
+        
+        const quizData = [
+            {
+                question: "What is the simple interest on a principal of ₹5000 at 5% per annum for 3 years?",
+                options: shuffleArray(["₹750", "₹500", "₹1000", "₹1500"]),
+                correctAnswer: "₹750",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>P = ₹5000, R = 5%, T = 3 years<br>SI = (5000 × 5 × 3) / 100 = ₹750"
+            },
+            {
+                question: "If the simple interest on a principal of ₹10000 is ₹2000 for 4 years, what is the rate of interest?",
+                options: shuffleArray(["5%", "6%", "8%", "10%"]),
+                correctAnswer: "5%",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>SI = ₹2000, P = ₹10000, T = 4 years<br>2000 = (10000 × R × 4) / 100<br>R = (2000 × 100) / (10000 × 4) = 5%"
+            },
+            {
+                question: "What is the principal amount if the simple interest is ₹1200, the rate is 8% per annum, and the time period is 5 years?",
+                options: shuffleArray(["₹2000", "₹3000", "₹4000", "₹5000"]),
+                correctAnswer: "₹3000",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>SI = ₹1200, R = 8%, T = 5 years<br>1200 = (P × 8 × 5) / 100<br>P = (1200 × 100) / (8 × 5) = ₹3000"
+            },
+            {
+                question: "A sum of ₹2000 earns ₹600 as interest in 2 years. What is the rate of interest?",
+                options: shuffleArray(["10%", "12%", "15%", "20%"]),
+                correctAnswer: "15%",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>SI = ₹600, P = ₹2000, T = 2 years<br>600 = (2000 × R × 2) / 100<br>R = (600 × 100) / (2000 × 2) = 15%"
+            },
+            {
+                question: "A sum of ₹5000 is invested at 10% per annum for 4 years. What is the total amount at the end of 4 years?",
+                options: shuffleArray(["₹6000", "₹6500", "₹7000", "₹7500"]),
+                correctAnswer: "₹7000",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>P = ₹5000, R = 10%, T = 4 years<br>SI = (5000 × 10 × 4) / 100 = ₹2000<br>Total Amount = Principal + SI = 5000 + 2000 = ₹7000"
+            },
+            {
+                question: "What is the time required for a sum of ₹4000 to earn ₹800 as simple interest at 5% per annum?",
+                options: shuffleArray(["3 years", "4 years", "5 years", "6 years"]),
+                correctAnswer: "4 years",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>SI = ₹800, P = ₹4000, R = 5%<br>800 = (4000 × 5 × T) / 100<br>T = (800 × 100) / (4000 × 5) = 4 years"
+            },
+            {
+                question: "If the simple interest is ₹240 on a principal of ₹8000 at the rate of 6% per annum, what is the time period?",
+                options: shuffleArray(["4 years", "5 years", "6 years", "7 years"]),
+                correctAnswer: "5 years",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>SI = ₹240, P = ₹8000, R = 6%<br>240 = (8000 × 6 × T) / 100<br>T = (240 × 100) / (8000 × 6) = 5 years"
+            },
+            {
+                question: "What is the rate of interest if ₹1000 yields ₹200 as simple interest in 4 years?",
+                options: shuffleArray(["5%", "6%", "7%", "8%"]),
+                correctAnswer: "5%",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>SI = ₹200, P = ₹1000, T = 4 years<br>200 = (1000 × R × 4) / 100<br>R = (200 × 100) / (1000 × 4) = 5%"
+            },
+            {
+                question: "A sum of ₹1500 earns ₹225 as interest in 3 years. What is the rate of interest?",
+                options: shuffleArray(["5%", "6%", "7%", "8%"]),
+                correctAnswer: "5%",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>SI = ₹225, P = ₹1500, T = 3 years<br>225 = (1500 × R × 3) / 100<br>R = (225 × 100) / (1500 × 3) = 5%"
+            },
+            {
+                question: "What is the total amount on ₹6000 invested at 4% per annum for 5 years?",
+                options: shuffleArray(["₹7200", "₹7400", "₹7500", "₹7600"]),
+                correctAnswer: "₹7200",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>P = ₹6000, R = 4%, T = 5 years<br>SI = (6000 × 4 × 5) / 100 = ₹1200<br>Total Amount = Principal + SI = 6000 + 1200 = ₹7200"
+            },
+            {
+                question: "What is the principal amount if the simple interest is ₹360, rate of interest is 6% per annum, and time period is 3 years?",
+                options: shuffleArray(["₹2000", "₹3000", "₹4000", "₹5000"]),
+                correctAnswer: "₹2000",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>SI = ₹360, R = 6%, T = 3 years<br>360 = (P × 6 × 3) / 100<br>P = (360 × 100) / (6 × 3) = ₹2000"
+            },
+            {
+                question: "What is the time required for ₹5000 to earn ₹250 as simple interest at a rate of 5% per annum?",
+                options: shuffleArray(["1 year", "2 years", "3 years", "4 years"]),
+                correctAnswer: "1 year",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>SI = ₹250, P = ₹5000, R = 5%<br>250 = (5000 × 5 × T) / 100<br>T = (250 × 100) / (5000 × 5) = 1 year"
+            },
+            {
+                question: "What is the rate of interest if ₹1200 earns ₹240 as interest in 4 years?",
+                options: shuffleArray(["5%", "6%", "7%", "8%"]),
+                correctAnswer: "5%",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>SI = ₹240, P = ₹1200, T = 4 years<br>240 = (1200 × R × 4) / 100<br>R = (240 × 100) / (1200 × 4) = 5%"
+            },
+            {
+                question: "A sum of ₹2500 is invested at 6% per annum. What will be the interest after 2 years?",
+                options: shuffleArray(["₹300", "₹350", "₹400", "₹450"]),
+                correctAnswer: "₹300",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>P = ₹2500, R = 6%, T = 2 years<br>SI = (2500 × 6 × 2) / 100 = ₹300"
+            },
+            {
+                question: "What is the total amount if ₹3000 is invested at 8% for 5 years?",
+                options: shuffleArray(["₹4000", "₹4500", "₹5000", "₹5500"]),
+                correctAnswer: "₹4000",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>P = ₹3000, R = 8%, T = 5 years<br>SI = (3000 × 8 × 5) / 100 = ₹1200<br>Total Amount = Principal + SI = 3000 + 1200 = ₹4000"
+            },
+            {
+                question: "If the principal is ₹1500 and the interest is ₹450 at the rate of 10%, what is the time period?",
+                options: shuffleArray(["3 years", "4 years", "5 years", "6 years"]),
+                correctAnswer: "3 years",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>SI = ₹450, P = ₹1500, R = 10%<br>450 = (1500 × 10 × T) / 100<br>T = (450 × 100) / (1500 × 10) = 3 years"
+            },
+            {
+                question: "A sum of ₹8000 is invested for 5 years at the rate of 6%. What is the total interest earned?",
+                options: shuffleArray(["₹2400", "₹2500", "₹2600", "₹2800"]),
+                correctAnswer: "₹2400",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>P = ₹8000, R = 6%, T = 5 years<br>SI = (8000 × 6 × 5) / 100 = ₹2400"
+            },
+            {
+                question: "A sum of ₹2000 earns ₹100 as interest at the rate of 5% per annum. What is the time period?",
+                options: shuffleArray(["1 year", "2 years", "3 years", "4 years"]),
+                correctAnswer: "1 year",
+                explanation: "Simple Interest (SI) = (P × R × T) / 100<br>SI = ₹100, P = ₹2000, R = 5%<br>100 = (2000 × 5 × T) / 100<br>T = (100 × 100) / (2000 × 5) = 1 year"
+            }
+        ];
+
+        const quizContainer = document.getElementById('quiz-container');
+
+        function generateQuiz() {
+            quizData.forEach((questionData, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('course-card');
+                questionDiv.id = `question-${index + 1}`;
+
+                const questionTitle = document.createElement('h4');
+                questionTitle.textContent = `${index + 1}. ${questionData.question}`;
+                questionDiv.appendChild(questionTitle);
+
+                const optionsContainer = document.createElement('div');
+                optionsContainer.classList.add('options-container');
+
+                questionData.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.style.color = "white";
+                    button.style.fontWeight = "bolder";
+                    button.classList.add('option-btn');
+                    button.textContent = option;
+                    button.dataset.correct = (option.trim() === questionData.correctAnswer.trim());
+                    button.addEventListener('click', function() {
+                        checkAnswer(this, questionData.explanation, questionDiv);
+                    });
+                    optionsContainer.appendChild(button);
+                });
+                questionDiv.appendChild(optionsContainer);
+
+                const resultContainer = document.createElement('div');
+                resultContainer.classList.add('result-container');
+                resultContainer.id = `explanation-${index + 1}`;
+                resultContainer.style.display = 'none';
+                questionDiv.appendChild(resultContainer);
+
+                quizContainer.appendChild(questionDiv);
+            });
+        }
+
+        function checkAnswer(buttonElement, explanation, questionDiv) {
+            const resultDiv = questionDiv.querySelector('.result-container');
+            const optionButtons = questionDiv.querySelectorAll('.option-btn');
+            const isCorrect = buttonElement.dataset.correct === 'true';
+
+            if (isCorrect) {
+                optionButtons.forEach(btn => btn.disabled = true);
+                buttonElement.classList.add('correct');
+                resultDiv.classList.add('correct-answer');
+                resultDiv.innerHTML = `✅ <strong>Correct Answer!</strong><br><br><em>Explanation:</em> ${explanation}`;
+                resultDiv.style.display = 'block';
+            } else {
+                buttonElement.classList.add('wrong');
+            }
+        }
+
+        // Generate the quiz when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            generateQuiz();
+        });
+    </script>
+
+</body>
+</html>

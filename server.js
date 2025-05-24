@@ -58,7 +58,7 @@ app.post('/login', async (req, res) => {
     } catch (error) {
         console.error("Error fetching user:", error);
         res.status(500).json({ message: "Server error" });
-    }
+    }w
 });
 
 const PORT = 3000;

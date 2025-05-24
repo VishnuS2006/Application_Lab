@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try New Features - Learnmate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        /* Navigation bar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #00b2ff;
+            padding: 15px 50px;
+            color: white;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff3b30;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        
+        /* Main content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Features grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #00b2ff;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .feature-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .try-button {
+            display: inline-block;
+            background-color: #00b2ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        .try-button:hover {
+            background-color: #0095d8;
+        }
+        
+        /* Call to action section */
+        .cta-section {
+            background-color: #00b2ff;
+            padding: 60px 30px;
+            text-align: center;
+            border-radius: 10px;
+            color: white;
+            margin-top: 70px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: #00b2ff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 80px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+                gap: 15px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="home.html" class="logo">LearnMate</a>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Contact.html">Contact</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="page-header">
+            <h1>Try Our New Features</h1>
+            <p>Explore the latest innovations in our aptitude learning platform designed to enhance your preparation and boost your performance.</p>
+        </div>
+        
+        <div class="features-grid">
+           
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3>AI-Powered Practice Questions</h3>
+                <p>Our new AI algorithm generates custom questions based on your skill level and learning patterns, ensuring you're always challenged at the right level.</p>
+                <a href="#" class="try-button">Try Now</a>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Advanced Performance Analytics</h3>
+                <p>Track your progress with detailed visual reports that identify your strengths and weaknesses across different aptitude categories.</p>
+                <a href="#" class="try-button">Try Now</a>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <div class="feature-icon">⏱️</div>
+                <h3>Time Management Trainer</h3>
+                <p>Master the art of speed with our specialized timer that adapts to your solving patterns and helps improve your question-solving pace.</p>
+                <a href="#" class="try-button">Try Now</a>
+            </div>
+            
+            <!-- Feature 4 -->
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Personalized Learning Paths</h3>
+                <p>Get a customized study plan based on your target exam and current skill level. Our system adapts as you progress to maximize your improvement.</p>
+                <a href="#" class="try-button">Try Now</a>
+            </div>
+            
+            <!-- Feature 5 -->
+            <div class="feature-card">
+                <div class="feature-icon">👥</div>
+                <h3>Virtual Study Groups</h3>
+                <p>Connect with peers preparing for similar exams. Solve problems together, discuss solution approaches, and motivate each other.</p>
+                <a href="#" class="try-button">Try Now</a>
+            </div>
+            
+            <!-- Feature 6 -->
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile Learning Hub</h3>
+                <p>Practice on the go with our fully optimized mobile experience. Download questions for offline practice and sync your progress when back online.</p>
+                <a href="#" class="try-button">Try Now</a>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>Ready to Elevate Your Aptitude Skills?</h2>
+            <p>Join thousands of successful students who have transformed their logical reasoning and problem-solving abilities with our platform. Get early access to all our upcoming features!</p>
+            <a href="#" class="cta-button">Get Started Free</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 Learnmate - All rights reserved</p>
+        <p>Empowering minds through logical reasoning and aptitude training</p>
+    </footer>
+</body>
+</html>

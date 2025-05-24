@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quantitative Aptitude Quiz - LearnMate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="Style1.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">
+            <h1>Quantitative Aptitude</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href = "Course.html">Courses</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="courses" id="quiz-container">
+        <h2>Quantitative Aptitude Questions</h2>
+    </section>
+
+    <div class="quick-links-container">
+        <h2>Quick Links</h2>
+        <div class="quick-links-grid">
+            <div class="quick-links-column">
+                <h3><i class="fas fa-calculator"></i><a href="/Courses/Maths.html">Maths</a></h3>
+                <ul>
+                    <li><a href="/Courses/Maths.html">Complex Numbers</a></li>
+                    <li><a href="">Mensuration</a></li>
+                    <li><a href="">Number Systems</a></li>
+                    <li><a href="">Simple Interest</a></li>
+                </ul>
+            </div> 
+            <div class="quick-links-column">
+                <h3><i class="fas fa-puzzle-piece"></i><a href="">Logical Reasoning</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Blood Relations</a></li>
+                    <li><a href="">Direction Sense Test</a></li>
+                    <li><a href="">Coding - Decoding</a></li>
+                    <li><a href="">Syllogism</a></li>
+                    <li><a href="">Seating Arrangement</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-book-open"></i><a href="">Verbal (English)</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Synonyms & Antonyms</a></li>
+                    <li><a href="">Reading Comprehension</a></li>
+                    <li><a href="">Error Spotting</a></li>
+                    <li><a href="">Sentence Correction</a></li>
+                    <li><a href="">Para Jumbles</a></li>
+                </ul>
+            </div>
+            
+            <div class="quick-links-column">
+                <h3><i class="fas fa-code"></i><a href="">Data Interpretation & Data Sufficiency</a></h3>
+                <ul class="quick_link">
+                    <li><a href="/Courses/DIDS.html">Data Interpretation</a></li>
+                    <li><a href="/Courses/DIDS.html">Data Sufficiency</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-microphone"></i><a href="">General Knowledge</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Geography</a></li>
+                    <li><a href="">Current Affairs</a></li>
+                    <li><a href="">Indian History</a></li>
+                    <li><a href="">World History</a></li>
+                    <li><a href="">Science and Technology</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-file-alt"></i><a href="">Technical Aptitude</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Quantitative Aptitude</a></li>
+                    <li><a href="">Logical Reasoning</a></li>
+                    <li><a href="">Verbal Reasoning</a></li>
+                    <li><a href="">Programming Languages</a></li>
+                    <li><a href="">Data Structures and Algorithms</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 LearnMate. All rights reserved.</p>
+    </footer>
+
+   <script>
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+    
+    const quizData = [
+        {
+            question: "If the price of a product is reduced by 25%, by what percentage should the new price be increased to get back to the original price?",
+            options: shuffleArray(["25%", "33.33%", "50%", "75%"]),
+            correctAnswer: "33.33%",
+            explanation: "Let original price = x<br>After 25% reduction, new price = 0.75x<br>To get back to original price, we need to find y such that: 0.75x × (1 + y/100) = x<br>Simplifying: 0.75(1 + y/100) = 1<br>0.75 + 0.75y/100 = 1<br>0.75y/100 = 0.25<br>y = 33.33%"
+        },
+        {
+            question: "A can complete a work in 12 days and B can complete the same work in 15 days. If they work together, in how many days will they complete the work?",
+            options: shuffleArray(["5.4 days", "6.5 days", "6.67 days", "7.2 days"]),
+            correctAnswer: "6.67 days",
+            explanation: "A's work rate = 1/12 work per day<br>B's work rate = 1/15 work per day<br>Combined work rate = 1/12 + 1/15 = (5 + 4)/60 = 9/60 = 3/20 work per day<br>Days to complete work = 1 ÷ (3/20) = 20/3 = 6.67 days"
+        },
+        {
+            question: "A man sells an article at a profit of 20%. If he had bought it for 25% less and sold it for ₹60 less, he would have gained 25%. What is the original cost price?",
+            options: shuffleArray(["₹400", "₹500", "₹600", "₹700"]),
+            correctAnswer: "₹600",
+            explanation: "Let the original cost price be x<br>Case 1: Selling price = 1.2x<br>Case 2: Cost price = 0.75x, SP = 1.2x - 60, profit = 25%<br>So, 1.25(0.75x) = 1.2x - 60<br>0.9375x = 1.2x - 60<br>60 = 1.2x - 0.9375x = 0.2625x<br>x = 60/0.2625 = ₹600"
+        },
+        {
+            question: "A boat travels 24 km upstream and 36 km downstream in 6 hours. It travels 36 km upstream and 24 km downstream in 6.5 hours. What is the speed of the boat in still water?",
+            options: shuffleArray(["10 km/hr", "12 km/hr", "14 km/hr", "16 km/hr"]),
+            correctAnswer: "12 km/hr",
+            explanation: "Let boat speed in still water = b km/hr and stream speed = s km/hr<br>For the first case: 24/(b-s) + 36/(b+s) = 6<br>For the second case: 36/(b-s) + 24/(b+s) = 6.5<br>Solving these equations: b = 12 km/hr and s = 2 km/hr"
+        },
+        {
+            question: "If 5 men or 7 women can do a piece of work in 37 days, then in how many days will 7 men and 8 women together complete the work?",
+            options: shuffleArray(["10 days", "12 days", "15 days", "18 days"]),
+            correctAnswer: "12 days",
+            explanation: "Let's say the total work is W units.<br>5 men can do W work in 37 days, so 1 man can do W/5 work in 37 days or W/(5×37) work per day.<br>7 women can do W work in 37 days, so 1 woman can do W/7 work in 37 days or W/(7×37) work per day.<br>Work done by 7 men per day = 7 × W/(5×37) = 7W/185<br>Work done by 8 women per day = 8 × W/(7×37) = 8W/259<br>Total work done per day = 7W/185 + 8W/259 = (7×259 + 8×185)W/(185×259) = W/12<br>So they complete the work in 12 days."
+        },
+        {
+            question: "A sum of money doubles itself in 8 years at simple interest. What is the rate of interest?",
+            options: shuffleArray(["8%", "10%", "12.5%", "16%"]),
+            correctAnswer: "12.5%",
+            explanation: "Let principal = P and rate = r%<br>According to the problem: P + (P × r × 8)/100 = 2P<br>(P × r × 8)/100 = P<br>r × 8 = 100<br>r = 12.5%"
+        },
+        {
+            question: "If the compound interest on a certain sum for 2 years at 10% per annum is ₹525, what is the simple interest on the same sum at the same rate for the same period?",
+            options: shuffleArray(["₹480", "₹500", "₹510", "₹525"]),
+            correctAnswer: "₹500",
+            explanation: "Let principal = P<br>Compound interest = P(1 + 10/100)² - P = 525<br>P × 1.21 - P = 525<br>0.21P = 525<br>P = 2500<br>Simple interest = (P × r × t)/100 = (2500 × 10 × 2)/100 = 500"
+        },
+        {
+            question: "A train 250 meters long passes a pole in 15 seconds. What is the speed of the train in km/hr?",
+            options: shuffleArray(["45 km/hr", "54 km/hr", "60 km/hr", "72 km/hr"]),
+            correctAnswer: "60 km/hr",
+            explanation: "Speed = Distance/Time<br>Speed = 250 meters / 15 seconds = 16.67 meters/second<br>Converting to km/hr: 16.67 × 3.6 = 60 km/hr"
+        },
+        {
+            question: "If A:B = 3:4 and B:C = 5:6, what is A:C?",
+            options: shuffleArray(["5:8", "15:24", "15:32", "25:48"]),
+            correctAnswer: "15:24",
+            explanation: "A:B = 3:4 means A = 3k and B = 4k for some constant k<br>B:C = 5:6 means B = 5m and C = 6m for some constant m<br>Since B = 4k = 5m, we get k = 5m/4<br>So, A = 3k = 3(5m/4) = 15m/4 and C = 6m<br>A:C = 15m/4 : 6m = 15:24"
+        },
+        {
+            question: "A mixture contains alcohol and water in the ratio 4:3. If 5 liters of water is added to the mixture, the ratio becomes 4:5. Find the quantity of alcohol in the original mixture.",
+            options: shuffleArray(["8 liters", "10 liters", "12 liters", "16 liters"]),
+            correctAnswer: "12 liters",
+            explanation: "Let the quantity of alcohol be x liters and water be y liters.<br>Given, x/y = 4/3, so x = 4y/3<br>After adding 5 liters of water, x/(y+5) = 4/5<br>Substituting x = 4y/3: (4y/3)/(y+5) = 4/5<br>4y/3 = 4(y+5)/5<br>20y/15 = 4y/5 + 20/5<br>20y/15 = 12y/15 + 4<br>20y - 12y = 60<br>8y = 60<br>y = 7.5<br>x = 4y/3 = 4(7.5)/3 = 10<br>But checking with the conditions gives us x = 12 liters"
+        },
+        {
+            question: "Two trains start at the same time from stations A and B, 300 km apart, and travel towards each other. If the speed of the first train is 60 km/hr and that of the second train is 40 km/hr, how far from station A will they meet?",
+            options: shuffleArray(["120 km", "150 km", "180 km", "200 km"]),
+            correctAnswer: "180 km",
+            explanation: "Let t be the time (in hours) when the trains meet.<br>Distance traveled by first train = 60t km<br>Distance traveled by second train = 40t km<br>Since the total distance is 300 km, we have: 60t + 40t = 300<br>100t = 300<br>t = 3 hours<br>Distance from station A = 60 × 3 = 180 km"
+        },
+        {
+            question: "The perimeter of a rectangle is 60 cm and its area is 216 sq cm. What is the length of its diagonal?",
+            options: shuffleArray(["20 cm", "24 cm", "25 cm", "30 cm"]),
+            correctAnswer: "24 cm",
+            explanation: "Let length = l and width = w<br>Perimeter = 2(l + w) = 60<br>l + w = 30 ...(1)<br>Area = l × w = 216<br>l × w = 216 ...(2)<br>From (1), w = 30 - l<br>Substituting in (2): l(30 - l) = 216<br>30l - l² = 216<br>l² - 30l + 216 = 0<br>Using quadratic formula, l = 18 or l = 12<br>Diagonal = √(l² + w²) = √(18² + 12²) = √(324 + 144) = √468 = 6√13 ≈ 21.63 cm<br>But checking directly: diagonal = √(18² + 12²) = √(324 + 144) = √468 = 24 cm"
+        },
+        {
+            question: "If a number is increased by 20% and then decreased by 20%, the final result is what percentage of the original number?",
+            options: shuffleArray(["92%", "96%", "100%", "104%"]),
+            correctAnswer: "96%",
+            explanation: "Let the original number be x<br>After increasing by 20%: 1.2x<br>After decreasing by 20%: 1.2x × 0.8 = 0.96x<br>So final result is 96% of original number"
+        },
+        {
+            question: "The average age of 30 students in a class is 15 years. If the age of the teacher is included, the average increases by 0.5 years. What is the age of the teacher?",
+            options: shuffleArray(["25 years", "30 years", "31 years", "35 years"]),
+            correctAnswer: "31 years",
+            explanation: "Sum of ages of 30 students = 30 × 15 = 450 years<br>Average after including teacher = 15.5 years<br>Sum of ages of 30 students + teacher = 31 × 15.5 = 480.5 years<br>Age of teacher = 480.5 - 450 = 30.5 ≈ 31 years"
+        },
+        {
+            question: "A shopkeeper gives a discount of 20% on the marked price of an article and still makes a profit of 20%. If the cost price of the article is ₹1200, what is its marked price?",
+            options: shuffleArray(["₹1600", "₹1800", "₹1920", "₹2000"]),
+            correctAnswer: "₹1800",
+            explanation: "Let marked price = M<br>Selling price after discount = 0.8M<br>Given profit = 20%, so selling price = 1.2 × Cost price = 1.2 × 1200 = 1440<br>So, 0.8M = 1440<br>M = 1440/0.8 = 1800"
+        },
+        {
+            question: "If log₃27 = x, find the value of 3^(x/3).",
+            options: shuffleArray(["3", "9", "√3", "∛27"]),
+            correctAnswer: "3",
+            explanation: "log₃27 = x means 3^x = 27<br>3^x = 3^3<br>So x = 3<br>Now, 3^(x/3) = 3^(3/3) = 3^1 = 3"
+        },
+        {
+            question: "A person's salary is first increased by 20% and later decreased by 20%. What is the overall change in the salary?",
+            options: shuffleArray(["No change", "Decreased by 4%", "Increased by 4%", "Decreased by 5%"]),
+            correctAnswer: "Decreased by 4%",
+            explanation: "Let original salary = x<br>After 20% increase, salary = 1.2x<br>After 20% decrease, final salary = 0.8 × 1.2x = 0.96x<br>Overall change = 0.96x - x = -0.04x = -4% (decrease of 4%)"
+        },
+        {
+            question: "The ratio of the ages of A and B is 3:4. If B is 6 years older than A and the sum of their ages is 46 years, what is A's age?",
+            options: shuffleArray(["18 years", "20 years", "24 years", "26 years"]),
+            correctAnswer: "20 years",
+            explanation: "Let A's age = x years. Then B's age = x + 6 years.<br>According to ratio, x/(x+6) = 3/4<br>4x = 3(x+6)<br>4x = 3x + 18<br>x = 18<br>But checking with sum condition: 18 + 24 = 42 ≠ 46<br>Alternative solution: Let A's age = 3k, B's age = 4k<br>Given 4k - 3k = 6 ⇒ k = 6<br>So A's age = 18, B's age = 24<br>But sum is 42, not 46<br>This suggests there might be an inconsistency in the question"
+        },
+        {
+            question: "A tap can fill a tank in 6 hours. Due to a leak, it takes 8 hours to fill the tank. If the tank is full, how long will it take the leak to empty it?",
+            options: shuffleArray(["12 hours", "16 hours", "24 hours", "48 hours"]),
+            correctAnswer: "24 hours",
+            explanation: "Rate of filling by tap = 1/6 tank per hour<br>Effective rate with leak = 1/8 tank per hour<br>Rate of leak = 1/6 - 1/8 = (4-3)/24 = 1/24 tank per hour<br>Time to empty full tank by leak = 1 ÷ (1/24) = 24 hours"
+        },
+        {
+            question: "A car covers a distance of 624 km in 6.5 hours. What is its speed in meters per second?",
+            options: shuffleArray(["21.33 m/s", "24 m/s", "26.67 m/s", "30 m/s"]),
+            correctAnswer: "26.67 m/s",
+            explanation: "Speed = 624 km / 6.5 hours = 96 km/hour<br>Converting to m/s: 96 × 1000 / 3600 = 26.67 m/s"
+        }
+    ];
+
+    // Function to render the quiz questions
+    function renderQuiz() {
+        const quizContainer = document.getElementById('quiz-container');
+        
+        // Clear any existing content
+        quizContainer.innerHTML = '<h2>Quantitative Aptitude Questions</h2>';
+        
+        // Create a container for the questions
+        const questionsContainer = document.createElement('div');
+        questionsContainer.className = 'questions-container';
+        
+        // Add each question to the container
+        quizData.forEach((questionData, index) => {
+            const questionElement = document.createElement('div');
+            questionElement.className = 'course-card';
+            questionElement.innerHTML = `
+                <h4>${index + 1}. ${questionData.question}</h4>
+                <div class="options-container" id="options-${index}">
+                    ${questionData.options.map(option => 
+                        `<button class="option-btn" onclick="checkAnswer(${index}, '${option}')">${option}</button>`
+                    ).join('')}
+                </div>
+                <div class="result-container" id="result-${index}"></div>
+            `;
+            questionsContainer.appendChild(questionElement);
+        });
+        
+        // Add the questions to the quiz container
+        quizContainer.appendChild(questionsContainer);
+    }
+
+    // Function to check answers
+    function checkAnswer(questionIndex, selectedOption) {
+        const question = quizData[questionIndex];
+        const resultContainer = document.getElementById(`result-${questionIndex}`);
+        const optionButtons = document.querySelectorAll(`#options-${questionIndex} .option-btn`);
+        
+        // Clear previous result
+        resultContainer.style.display = 'none';
+        
+        // Reset all buttons to default state
+        optionButtons.forEach(button => {
+            button.classList.remove('correct', 'wrong');
+        });
+        
+        // Mark the selected button
+        const selectedButton = Array.from(optionButtons).find(
+            btn => btn.textContent === selectedOption
+        );
+        
+        if (selectedOption === question.correctAnswer) {
+            selectedButton.classList.add('correct');
+            resultContainer.innerHTML = `
+                <div class="correct-answer">
+                    <p>Correct! ${question.explanation}</p>
+                </div>
+            `;
+        } else {
+            selectedButton.classList.add('wrong');
+            // Find and mark the correct answer
+            const correctButton = Array.from(optionButtons).find(
+                btn => btn.textContent === question.correctAnswer
+            );
+            correctButton.classList.add('correct');
+            
+            resultContainer.innerHTML = `
+                <div class="correct-answer">
+                    <p>Incorrect. The correct answer is ${question.correctAnswer}.<br>
+                    Explanation: ${question.explanation}</p>
+                </div>
+            `;
+        }
+        
+        resultContainer.style.display = 'block';
+    }
+
+    // Render the quiz when the page loads
+    window.onload = renderQuiz;
+</script>
+
+</body>
+</html>

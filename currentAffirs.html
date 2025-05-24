@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Affairs Quiz - LearnMate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="Style1.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">
+            <h1>Current Affairs</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href = "Course.html">Courses</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="courses" id="quiz-container">
+        <h2>Current Affairs Questions</h2>
+    </section>
+
+    <div class="quick-links-container">
+        <h2>Quick Links</h2>
+        <div class="quick-links-grid">
+            <div class="quick-links-column">
+                <h3><i class="fas fa-newspaper"></i><a href="">Current Affairs</a></h3>
+                <ul>
+                    <li><a href="">Politics</a></li>
+                    <li><a href="">Economics</a></li>
+                    <li><a href="">International Relations</a></li>
+                    <li><a href="">Science & Technology</a></li>
+                </ul>
+            </div> 
+            <div class="quick-links-column">
+                <h3><i class="fas fa-globe-americas"></i><a href="">Geography</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">World Geography</a></li>
+                    <li><a href="">Physical Geography</a></li>
+                    <li><a href="">Human Geography</a></li>
+                    <li><a href="">Political Geography</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-history"></i><a href="">History</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Ancient History</a></li>
+                    <li><a href="">Medieval History</a></li>
+                    <li><a href="">Modern History</a></li>
+                    <li><a href="">World History</a></li>
+                    <li><a href="">Contemporary History</a></li>
+                </ul>
+            </div>
+            
+            <div class="quick-links-column">
+                <h3><i class="fas fa-landmark"></i><a href="">Politics</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Political Systems</a></li>
+                    <li><a href="">International Relations</a></li>
+                    <li><a href="">Government Structures</a></li>
+                    <li><a href="">Political Theories</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-coins"></i><a href="">Economics</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Macroeconomics</a></li>
+                    <li><a href="">Microeconomics</a></li>
+                    <li><a href="">International Trade</a></li>
+                    <li><a href="">Financial Markets</a></li>
+                    <li><a href="">Economic Development</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-calculator"></i><a href="">Aptitude</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Quantitative Aptitude</a></li>
+                    <li><a href="">Logical Reasoning</a></li>
+                    <li><a href="">Verbal Reasoning</a></li>
+                    <li><a href="">Data Interpretation</a></li>
+                    <li><a href="">Probability</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 LearnMate. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        
+        const quizData = [
+            {
+                question: "Who is the current Secretary-General of the United Nations as of 2024?",
+                options: shuffleArray(["António Guterres", "Kofi Annan", "Ban Ki-moon", "Jens Stoltenberg"]),
+                correctAnswer: "António Guterres",
+                explanation: "António Guterres is the ninth Secretary-General of the United Nations. He began his second five-year term on January 1, 2022. Before becoming Secretary-General, he served as UN High Commissioner for Refugees from 2005 to 2015."
+            },
+            {
+                question: "Which country became the first to approve a gene therapy treatment for sickle cell disease in 2023?",
+                options: shuffleArray(["United States", "United Kingdom", "Japan", "Germany"]),
+                correctAnswer: "United States",
+                explanation: "In December 2023, the U.S. Food and Drug Administration (FDA) approved the world's first gene therapies for sickle cell disease, including a CRISPR-based treatment called Casgevy (developed by Vertex Pharmaceuticals and CRISPR Therapeutics) and a treatment called Lyfgenia from Bluebird Bio."
+            },
+            {
+                question: "Which major streaming service announced its entry into live sports broadcasting with a deal to stream NFL games in 2023?",
+                options: shuffleArray(["Disney+", "Netflix", "Apple TV+", "Hulu"]),
+                correctAnswer: "Netflix",
+                explanation: "Netflix entered the live sports broadcasting arena in 2023 with an announcement to stream NFL football games. The company signed a deal to exclusively stream two NFL games on Christmas Day 2024, marking its first significant move into live sports content."
+            },
+            {
+                question: "Which city hosted the 2024 Summer Olympics?",
+                options: shuffleArray(["Los Angeles", "Tokyo", "Paris", "Brisbane"]),
+                correctAnswer: "Paris",
+                explanation: "The 2024 Summer Olympics were hosted by Paris, France. This was the third time Paris hosted the Summer Olympics, having previously hosted in 1900 and 1924. Los Angeles will host in 2028, and Brisbane in 2032."
+            },
+            {
+                question: "Which chipmaker reached a $1 trillion market capitalization in 2023, largely driven by AI technology demand?",
+                options: shuffleArray(["Intel", "AMD", "Nvidia", "Qualcomm"]),
+                correctAnswer: "Nvidia",
+                explanation: "Nvidia reached a $1 trillion market cap in 2023, driven by surge in demand for its GPUs that power AI applications. The company's stock rose dramatically as it became central to the artificial intelligence computing revolution."
+            },
+            {
+                question: "What significant geopolitical crisis began in October 2023?",
+                options: shuffleArray(["Russia-Ukraine War", "Israel-Hamas Conflict", "Taiwan Strait Crisis", "Sudan Civil War"]),
+                correctAnswer: "Israel-Hamas Conflict",
+                explanation: "On October 7, 2023, Hamas launched an attack on Israel, leading to a major military response in Gaza. This initiated a significant escalation in the long-standing conflict, resulting in thousands of casualties and a humanitarian crisis in Gaza."
+            },
+            {
+                question: "Which country declared in 2023 that it had fully exited coal power generation, becoming the first G7 country to do so?",
+                options: shuffleArray(["Germany", "United Kingdom", "France", "Italy"]),
+                correctAnswer: "United Kingdom",
+                explanation: "The United Kingdom became the first G7 country to exit coal power when its last coal-fired power station at Ratcliffe-on-Soar closed in 2023. This marked a significant milestone in the UK's transition to cleaner energy sources."
+            },
+            {
+                question: "Which digital currency reached an all-time high market price in 2024?",
+                options: shuffleArray(["Ethereum", "Bitcoin", "Dogecoin", "Solana"]),
+                correctAnswer: "Bitcoin",
+                explanation: "Bitcoin reached a new all-time high in 2024, surpassing its previous record from 2021. This was largely driven by the approval of spot Bitcoin ETFs by the U.S. Securities and Exchange Commission and increasing institutional adoption."
+            },
+            {
+                question: "What global health emergency was declared over by the WHO in May 2023?",
+                options: shuffleArray(["Ebola", "COVID-19", "Mpox (Monkeypox)", "Avian Influenza"]),
+                correctAnswer: "COVID-19",
+                explanation: "The World Health Organization (WHO) declared an end to COVID-19 as a global health emergency on May 5, 2023, more than three years after it was first declared. However, the WHO noted that the virus remains a threat and continues to be monitored."
+            },
+            {
+                question: "Which international climate agreement saw countries agree to transition away from fossil fuels for the first time in December 2023?",
+                options: shuffleArray(["Kyoto Protocol", "Paris Agreement", "COP28 Agreement", "Glasgow Climate Pact"]),
+                correctAnswer: "COP28 Agreement",
+                explanation: "At the COP28 climate summit in Dubai in December 2023, nearly 200 countries agreed to transition away from fossil fuels in energy systems for the first time in history. The agreement called for a global transition away from fossil fuels in energy systems in a just, orderly and equitable manner."
+            },
+            {
+                question: "Which country became the first to land near the south pole of the Moon in August 2023?",
+                options: shuffleArray(["United States", "China", "Russia", "India"]),
+                correctAnswer: "India",
+                explanation: "India became the first country to successfully land a spacecraft near the lunar south pole when its Chandrayaan-3 mission touched down on August 23, 2023. This made India the fourth country to achieve a soft landing on the Moon after the USSR, US, and China."
+            },
+            {
+                question: "Which major tech company announced mass layoffs of over 10,000 employees in early 2023?",
+                options: shuffleArray(["Apple", "Microsoft", "Google", "Amazon"]),
+                correctAnswer: "Microsoft",
+                explanation: "In January 2023, Microsoft announced it would lay off 10,000 employees, approximately 5% of its workforce. This was part of a larger trend of tech layoffs that continued throughout 2023, with many major companies reducing their workforces after over-hiring during the pandemic."
+            },
+            {
+                question: "Which artist broke the record for most Grammy wins by any artist in history in 2023?",
+                options: shuffleArray(["Taylor Swift", "Beyoncé", "Adele", "Jay-Z"]),
+                correctAnswer: "Beyoncé",
+                explanation: "At the 65th Grammy Awards in February 2023, Beyoncé won her 32nd Grammy, breaking the record for most Grammy wins by any artist in history. The previous record was held by the late classical conductor Georg Solti with 31 wins."
+            },
+            {
+                question: "What major labor strike affected Hollywood in 2023?",
+                options: shuffleArray(["Screenwriters and Actors Strike", "Directors Strike", "Producers Strike", "Stunt Performers Strike"]),
+                correctAnswer: "Screenwriters and Actors Strike",
+                explanation: "In 2023, Hollywood experienced a dual strike with both the Writers Guild of America (WGA) and the Screen Actors Guild (SAG-AFTRA) going on strike simultaneously. The strikes centered around concerns about streaming residuals, working conditions, and the use of AI in the industry. The WGA strike lasted from May to September, while the SAG-AFTRA strike continued until November."
+            },
+            {
+                question: "Which country experienced a military coup in July 2023, overthrowing a democratically elected government?",
+                options: shuffleArray(["Mali", "Myanmar", "Niger", "Sudan"]),
+                correctAnswer: "Niger",
+                explanation: "Niger experienced a military coup on July 26, 2023, when members of the Presidential Guard detained President Mohamed Bazoum and announced the formation of a new government. This led to regional tensions and international condemnation, particularly from ECOWAS (Economic Community of West African States)."
+            },
+            {
+                question: "Which country elected a right-wing libertarian president in November 2023?",
+                options: shuffleArray(["Chile", "Argentina", "Brazil", "Ecuador"]),
+                correctAnswer: "Argentina",
+                explanation: "Argentina elected Javier Milei, a right-wing libertarian, as president in November 2023. He is known for his free-market economic policies and anti-establishment views."
+            },
+            {
+                question: "What technology company released the Vision Pro mixed reality headset in early 2024?",
+                options: shuffleArray(["Meta (Facebook)", "Google", "Microsoft", "Apple"]),
+                correctAnswer: "Apple",
+                explanation: "Apple released its first mixed reality headset, the Vision Pro, in February 2024. This marked Apple's entry into a new product category, with the device costing $3,499 and featuring eye and hand tracking, spatial computing capabilities, and an external display to show the user's eyes."
+            },
+            {
+                question: "Which nation joined NATO as its 31st member in April 2023?",
+                options: shuffleArray(["Ukraine", "Finland", "Sweden", "Georgia"]),
+                correctAnswer: "Finland",
+                explanation: "Finland officially joined NATO on April 4, 2023, becoming the alliance's 31st member. This marked a historic shift in Finland's foreign policy after decades of military non-alignment, prompted by Russia's invasion of Ukraine in 2022. Sweden later became NATO's 32nd member in March 2024."
+            },
+            {
+                question: "Which large language model was released by Anthropic in March 2023, competing with OpenAI's GPT-4?",
+                options: shuffleArray(["Gemini", "BERT", "Claude", "Llama"]),
+                correctAnswer: "Claude",
+                explanation: "Anthropic released Claude, a large language model designed to be helpful, harmless, and honest, in March 2023. It was positioned as a competitor to OpenAI's GPT-4 and was made available to businesses and developers through an API."
+            },
+            {
+                question: "Which historical building in Northern Ireland was severely damaged by fire in May 2023?",
+                options: shuffleArray(["Edinburgh Castle", "Stirling Castle", "Bank Buildings", "Crumlin Road Gaol"]),
+                correctAnswer: "Bank Buildings",
+                explanation: "The historic Bank Buildings in Belfast, Northern Ireland, which houses a Primark store, was severely damaged by fire in May 2023. The building dates back to 1785 and had been recently renovated before the fire."
+            }
+        ];
+
+        const quizContainer = document.getElementById('quiz-container');
+
+        function generateQuiz() {
+            quizData.forEach((questionData, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('course-card');
+                questionDiv.id = `question-${index + 1}`;
+
+                const questionTitle = document.createElement('h4');
+                questionTitle.textContent = `${index + 1}. ${questionData.question}`;
+                questionDiv.appendChild(questionTitle);
+
+                const optionsContainer = document.createElement('div');
+                optionsContainer.classList.add('options-container');
+
+                questionData.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.style.color = "white";
+                    button.style.fontWeight = "bolder";
+                    button.classList.add('option-btn');
+                    button.textContent = option;
+                    button.dataset.correct = (option.trim() === questionData.correctAnswer.trim());
+                    button.addEventListener('click', function() {
+                        checkAnswer(this, questionData.explanation, questionDiv);
+                    });
+                    optionsContainer.appendChild(button);
+                });
+                questionDiv.appendChild(optionsContainer);
+
+                const resultContainer = document.createElement('div');
+                resultContainer.classList.add('result-container');
+                resultContainer.id = `explanation-${index + 1}`;
+                resultContainer.style.display = 'none';
+                questionDiv.appendChild(resultContainer);
+
+                quizContainer.appendChild(questionDiv);
+            });
+        }
+
+        function checkAnswer(buttonElement, explanation, questionDiv) {
+            const resultDiv = questionDiv.querySelector('.result-container');
+            const optionButtons = questionDiv.querySelectorAll('.option-btn');
+            const isCorrect = buttonElement.dataset.correct === 'true';
+
+            if (isCorrect) {
+                optionButtons.forEach(btn => btn.disabled = true);
+                buttonElement.classList.add('correct');
+                resultDiv.classList.add('correct-answer');
+                resultDiv.innerHTML = `✅ <strong>Correct Answer!</strong><br><br><em>Explanation:</em> ${explanation}`;
+                resultDiv.style.display = 'block';
+            } else {
+                buttonElement.classList.add('wrong');
+            }
+        }
+
+        // Generate the quiz when the page loads
+        generateQuiz();
+    </script>
+</body>
+</html>

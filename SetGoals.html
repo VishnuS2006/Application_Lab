@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set Your Learning Goals | MindSync</title>
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --secondary: #10b981;
+      --accent: #f59e0b;
+      --danger: #ef4444;
+      --light: #f3f4f6;
+      --dark: #1f2937;
+      --text: #374151;
+      --text-light: #6b7280;
+    }
+    
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to right, #00c6ff, #0072ff); /* Blue gradient */
+      padding: 20px 40px;
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 36px;
+      font-weight: bold;
+      color: black;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    
+    body {
+      background-color: #f9fafb;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+      background:linear-gradient(to right,rgb(255, 73, 18),black) ;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .inspiration-quote {
+      padding: 1.5rem;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+      text-align: center;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .quote-text {
+      font-style: italic;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .quote-author {
+      font-weight: 600;
+      color: var(--text-light);
+    }
+    
+    .goal-form-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .form-heading {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-icon {
+      background-color: var(--light);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+    }
+    
+    .form-title {
+      font-size: 1.5rem;
+      color: var(--dark);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--dark);
+    }
+    
+    input, select, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.15s ease-in-out;
+    }
+    
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+    
+    .checkbox-group {
+      margin-top: 0.5rem;
+    }
+    
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+    }
+    
+    .checkbox-label input {
+      width: auto;
+      margin-right: 0.5rem;
+    }
+    
+    .goal-card {
+      display: flex;
+      align-items: center;
+      border: 1px solid #e5e7eb;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+    
+    .goal-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    .goal-card.selected {
+      border-color: var(--primary);
+      background-color: rgba(79, 70, 229, 0.05);
+    }
+    
+    .goal-icon {
+      width: 50px;
+      height: 50px;
+      background-color: var(--light);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      color: var(--primary);
+    }
+    
+    .goal-content {
+      flex: 1;
+    }
+    
+    .goal-title {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    
+    .goal-description {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    
+    .timeline-container {
+      margin-top: 2rem;
+    }
+    
+    .timeline-slider {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    
+    .timeline-labels {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+      font-size: 1rem;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+    }
+    
+    .btn-secondary {
+      background-color: white;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+    
+    .btn-secondary:hover {
+      background-color: rgba(79, 70, 229, 0.05);
+    }
+    
+    .form-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2rem;
+    }
+    
+    .goal-templates {
+      margin-top: 2rem;
+    }
+    
+    .goal-template-heading {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      color: var(--dark);
+    }
+    
+    .progress-section {
+      margin-top: 3rem;
+    }
+    
+    .progress-heading {
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+    }
+    
+    .progress-heading svg {
+      margin-right: 0.75rem;
+    }
+    
+    .progress-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .progress-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+      transition: transform 0.2s ease;
+    }
+    
+    .progress-card:hover {
+      transform: translateY(-3px);
+    }
+    
+    .progress-card-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    
+    .progress-bar-container {
+      width: 100%;
+      height: 8px;
+      background-color: var(--light);
+      border-radius: 4px;
+      margin: 1rem 0;
+      overflow: hidden;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      border-radius: 4px;
+      transition: width 0.5s ease;
+    }
+    
+    .progress-details {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    
+    .tag {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .tag-verbal {
+      background-color: rgba(79, 70, 229, 0.1);
+      color: var(--primary);
+    }
+    
+    .tag-quantitative {
+      background-color: rgba(16, 185, 129, 0.1);
+      color: var(--secondary);
+    }
+    
+    .tag-logical {
+      background-color: rgba(245, 158, 11, 0.1);
+      color: var(--accent);
+    }
+    
+    .reminder-section {
+      margin-top: 0.75rem;
+    }
+    
+    .reminder-toggle {
+      display: flex;
+      align-items: center;
+    }
+    
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 24px;
+      margin-right: 0.75rem;
+    }
+    
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #e5e7eb;
+      transition: .4s;
+      border-radius: 24px;
+    }
+    
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    
+    input:checked + .toggle-slider {
+      background-color: var(--primary);
+    }
+    
+    input:checked + .toggle-slider:before {
+      transform: translateX(24px);
+    }
+    
+    .goal-suggestions {
+      margin-top: 2rem;
+    }
+    
+    .suggestion-heading {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      color: var(--dark);
+    }
+    
+    .suggestions-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    
+    .suggestion-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 1rem;
+      border: 1px solid #e5e7eb;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+    
+    .suggestion-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+    
+    .suggestion-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .suggestion-title {
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+    
+    .suggestion-difficulty {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+    
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      display: none;
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .form-footer {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+      
+      .progress-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <h1 style : colour = "balck">LearnMate</h1>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="About.html">About</a>
+      <a href="Contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="container">
+    <header>
+      <h1>Set Your Path to Success</h1>
+      <p class="subtitle">Define your learning objectives, track your progress, and unlock your potential with personalized aptitude goals.</p>
+    </header>
+    
+    <div class="inspiration-quote">
+      <p class="quote-text">"The only limit to the height of your achievements is the reach of your dreams and your willingness to work for them."</p>
+      <p class="quote-author">— Michelle Obama</p>
+    </div>
+    
+    <div class="goal-form-container">
+      <div class="form-heading">
+        <div class="form-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <h2 class="form-title">Create Your Goal</h2>
+      </div>
+      
+      <form id="goal-form">
+        <div class="form-group">
+          <label for="goal-title">Goal Title</label>
+          <input type="text" id="goal-title" placeholder="E.g., Master Logical Reasoning" required>
+        </div>
+        
+        <div class="form-group">
+          <label>Aptitude Areas</label>
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" name="aptitude-area" value="verbal"> Verbal Reasoning
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="aptitude-area" value="quantitative"> Quantitative Aptitude
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="aptitude-area" value="logical"> Logical Reasoning
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="aptitude-area" value="spatial"> Spatial Reasoning
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="aptitude-area" value="data"> Data Interpretation
+            </label>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="proficiency-level">Current Proficiency Level</label>
+          <select id="proficiency-level" required>
+            <option value="">Select your level</option>
+            <option value="beginner">Beginner - Just starting out</option>
+            <option value="intermediate">Intermediate - Familiar with basics</option>
+            <option value="advanced">Advanced - Comfortable with complex problems</option>
+            <option value="expert">Expert - Seeking mastery</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="target-score">Target Score/Percentile</label>
+          <input type="number" id="target-score" placeholder="E.g., 90th percentile">
+        </div>
+        
+        <div class="form-group">
+          <label>Goal Type</label>
+          <div class="goal-templates">
+            <div class="goal-card" onclick="selectGoalCard(this)">
+              <div class="goal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                </svg>
+              </div>
+              <div class="goal-content">
+                <h4 class="goal-title">Exam Preparation</h4>
+                <p class="goal-description">Focus on specific test patterns and strategies</p>
+              </div>
+            </div>
+            <div class="goal-card" onclick="selectGoalCard(this)">
+              <div class="goal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+              <div class="goal-content">
+                <h4 class="goal-title">Skill Improvement</h4>
+                <p class="goal-description">Enhance specific aptitude areas systematically</p>
+              </div>
+            </div>
+            <div class="goal-card" onclick="selectGoalCard(this)">
+              <div class="goal-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <div class="goal-content">
+                <h4 class="goal-title">Career Development</h4>
+                <p class="goal-description">Focus on professional aptitude requirements</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="goal-description">Goal Description</label>
+          <textarea id="goal-description" rows="3" placeholder="Describe what you want to achieve..."></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Timeline</label>
+          <div class="timeline-container">
+            <input type="range" class="timeline-slider" min="1" max="52" value="12" id="timeline-weeks">
+            <div class="timeline-labels">
+              <span>1 week</span>
+              <span id="timeline-value">12 weeks</span>
+              <span>52 weeks</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="study-hours">Weekly Study Hours</label>
+          <input type="number" id="study-hours" min="1" max="40" placeholder="E.g., 10 hours per week">
+        </div>
+        
+        <div class="form-group reminder-section">
+          <label class="reminder-toggle">
+            <span class="toggle-switch">
+              <input type="checkbox" id="reminder-toggle">
+              <span class="toggle-slider"></span>
+            </span>
+            Enable Progress Reminders
+          </label>
+        </div>
+        
+        <div class="form-footer">
+          <button type="button" class="btn btn-secondary" onclick="saveAsDraft()">Save as Draft</button>
+          <button type="submit" class="btn btn-primary">Set Goal</button>
+        </div>
+      </form>
+    </div>
+    
+    <div class="goal-suggestions">
+      <h3 class="suggestion-heading">Suggested Goals Based on Your Profile</h3>
+      <div class="suggestions-container">
+        <div class="suggestion-card" onclick="applyTemplate(1)">
+          <div class="suggestion-icon">📊</div>
+          <h4 class="suggestion-title">GMAT Quantitative Excellence</h4>
+          <div class="suggestion-difficulty">Intermediate</div>
+        </div>
+        <div class="suggestion-card" onclick="applyTemplate(2)">
+          <div class="suggestion-icon">🧩</div>
+          <h4 class="suggestion-title">Critical Reasoning Master</h4>
+          <div class="suggestion-difficulty">Advanced</div>
+        </div>
+        <div class="suggestion-card" onclick="applyTemplate(3)">
+          <div class="suggestion-icon">🔢</div>
+          <h4 class="suggestion-title">Data Interpretation Pro</h4>
+          <div class="suggestion-difficulty">Beginner</div>
+        </div>
+        <div class="suggestion-card" onclick="applyTemplate(4)">
+          <div class="suggestion-icon">📚</div>
+          <h4 class="suggestion-title">Reading Comprehension Speed</h4>
+          <div class="suggestion-difficulty">Intermediate</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="progress-section">
+      <h3 class="progress-heading">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        Your Goal Progress
+      </h3>
+      
+      <div class="progress-cards">
+        <div class="progress-card">
+          <div class="tag tag-verbal">Verbal</div>
+          <h4 class="progress-card-title">Vocabulary Enhancement</h4>
+          <div class="progress-bar-container">
+            <div class="progress-bar" style="width: 65%"></div>
+          </div>
+          <div class="progress-details">
+            <span>65% Complete</span>
+            <span>3 weeks left</span>
+          </div>
+        </div>
+        
+        <div class="progress-card">
+          <div class="tag tag-quantitative">Quantitative</div>
+          <h4 class="progress-card-title">Math Formula Mastery</h4>
+          <div class="progress-bar-container">
+            <div class="progress-bar" style="width: 40%"></div>
+          </div>
+          <div class="progress-details">
+            <span>40% Complete</span>
+            <span>5 weeks left</span>
+          </div>
+        </div>
+        
+        <div class="progress-card">
+          <div class="tag tag-logical">Logical</div>
+          <h4 class="progress-card-title">Deductive Reasoning Skills</h4>
+          <div class="progress-bar-container">
+            <div class="progress-bar" style="width: 80%"></div>
+          </div>
+          <div class="progress-details">
+            <span>80% Complete</span>
+            <span>1 week left</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="confetti" id="confetti-container"></div>
+  
+  <script>
+    // Timeline slider functionality
+    const timelineSlider = document.getElementById('timeline-weeks');
+    const timelineValue = document.getElementById('timeline-value');
+    
+    timelineSlider.addEventListener('input', function() {
+      timelineValue.textContent = this.value + ' weeks';
+    });
+    
+    // Goal card selection
+    function selectGoalCard(card) {
+      // Remove selected class from all cards
+      document.querySelectorAll('.goal-card').forEach(el => {
+        el.classList.remove('selected');
+      });
+      
+      // Add selected class to clicked card
+      card.classList.add('selected');
+    }
+    
+    // Save as draft functionality
+    function saveAsDraft() {
+      alert('Your goal has been saved as a draft!');
+    }
+    
+    // Apply template functionality
+    function applyTemplate(templateId) {
+      const templates = {
+        1: {
+          title: "GMAT Quantitative Excellence",
+          areas: ["quantitative"],
+          level: "intermediate",
+          score: "85",
+          type: "Exam Preparation",
+          description: "Master GMAT quantitative section to achieve a score of 85th percentile or higher.",
+          weeks: 16,
+          hours: 8
+        },
+        2: {
+          title: "Critical Reasoning Master",
+          areas: ["verbal", "logical"],
+          level: "advanced",
+          score: "90",
+          type: "Skill Improvement",
+          description: "Strengthen critical reasoning skills for advanced logical arguments and analytical thinking.",
+          weeks: 12,
+          hours: 6
+        },
+        3: {
+          title: "Data Interpretation Pro",
+          areas: ["data", "quantitative"],
+          level: "beginner",
+          score: "75",
+          type: "Skill Improvement",
+          description: "Learn to interpret and analyze complex data sets, charts, and graphs with accuracy.",
+          weeks: 8,
+          hours: 5
+        },
+        4: {
+          title: "Reading Comprehension Speed",
+          areas: ["verbal"],
+          level: "intermediate",
+          score: "80",
+          type: "Career Development",
+          description: "Improve reading speed and comprehension for professional documentation and research papers.",
+          weeks: 10,
+          hours: 4
+        }
+      };
+      
+      const template = templates[templateId];
+      
+      // Apply template data to form
+      document.getElementById('goal-title').value = template.title;
+      document.getElementById('proficiency-level').value = template.level;
+      document.getElementById('target-score').value = template.score;
+      document.getElementById('goal-description').value = template.description;
+      document.getElementById('timeline-weeks').value = template.weeks;
+      timelineValue.textContent = template.weeks + ' weeks';
+      document.getElementById('study-hours').value = template.hours;
+      
+      // Check appropriate checkboxes
+      document.querySelectorAll('input[name="aptitude-area"]').forEach(checkbox => {
+        checkbox.checked = template.areas.includes(checkbox.value);
+      });
+      
+      // Select appropriate goal card
+      document.querySelectorAll('.goal-card').forEach((card, index) => {
+        if (card.querySelector('.goal-title').textContent === template.type) {
+          selectGoalCard(card);
+        }
+      });
+      
+      // Scroll to form
+      document.querySelector('.goal-form-container').scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // Form submission
+    document.getElementById('goal-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Validate form (basic validation)
+      const title = document.getElementById('goal-title').value;
+      const level = document.getElementById('proficiency-level').value;
+      
+      if (!title || !level) {
+        alert('Please fill in all required fields!');
+        return;
+      }
+      
+      // Show success message
+      
+      setTimeout(() => {
+        alert('Your goal has been set successfully! We\'ve created a personalized learning path for you.');
+        // Here you would typically redirect to a dashboard or next step
+      }, 1000);
+    });
+    
+    // Get random color for confetti
+    function getRandomColor() {
+      const colors = [
+        '#4f46e5', // primary
+        '#10b981', // secondary
+        '#f59e0b', // accent
+        '#ef4444', // danger
+      ];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+    
+    // Initialize components
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if there are ongoing goals and display them
+      // This would typically come from your backend/database
+      
+      // Initialize reminders toggle behavior
+      const reminderToggle = document.getElementById('reminder-toggle');
+      reminderToggle.addEventListener('change', function() {
+        if (this.checked) {
+          // Show reminder settings (could expand with frequency options)
+          console.log('Reminders enabled');
+        } else {
+          console.log('Reminders disabled');
+        }
+      });
+      
+      // Add milestone functionality
+      addMilestoneFeature();
+    });
+    
+    // Add milestone functionality
+    function addMilestoneFeature() {
+      // Create milestone section dynamically
+      const formContainer = document.querySelector('.goal-form-container');
+      const formFooter = document.querySelector('.form-footer');
+      
+      const milestoneSection = document.createElement('div');
+      milestoneSection.className = 'form-group';
+      milestoneSection.innerHTML = `
+        <label>Milestones</label>
+        <div id="milestones-container">
+          <div class="milestone-item">
+            <input type="text" placeholder="Milestone 1" class="milestone-input">
+            <button type="button" class="btn-secondary remove-milestone">✕</button>
+          </div>
+        </div>
+        <button type="button" class="btn btn-secondary" id="add-milestone" style="margin-top: 10px;">
+          + Add Milestone
+        </button>
+      `;
+      
+      formContainer.insertBefore(milestoneSection, formFooter);
+      
+      // Add milestone button functionality
+      document.getElementById('add-milestone').addEventListener('click', function() {
+        const milestonesContainer = document.getElementById('milestones-container');
+        const milestoneCount = milestonesContainer.children.length + 1;
+        
+        const newMilestone = document.createElement('div');
+        newMilestone.className = 'milestone-item';
+        newMilestone.innerHTML = `
+          <input type="text" placeholder="Milestone ${milestoneCount}" class="milestone-input">
+          <button type="button" class="btn-secondary remove-milestone">✕</button>
+        `;
+        
+        milestonesContainer.appendChild(newMilestone);
+        
+        // Add remove functionality to new milestone
+        newMilestone.querySelector('.remove-milestone').addEventListener('click', function() {
+          newMilestone.remove();
+        });
+      });
+      
+      // Style for milestone items
+      const style = document.createElement('style');
+      style.textContent = `
+        .milestone-item {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+        }
+        .milestone-input {
+          flex: 1;
+          margin-right: 10px;
+        }
+        .remove-milestone {
+          padding: 0.5rem;
+          width: 36px;
+          height: 36px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 6px;
+          background-color: #f3f4f6;
+          color: #6b7280;
+          border: 1px solid #e5e7eb;
+          cursor: pointer;
+        }
+        .remove-milestone:hover {
+          background-color: #ef4444;
+          color: white;
+          border-color: #ef4444;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+    
+    // Add achievement badges section
+    function addAchievementBadges() {
+      const container = document.querySelector('.container');
+      const progressSection = document.querySelector('.progress-section');
+      
+      const badgesSection = document.createElement('div');
+      badgesSection.className = 'badges-section';
+      badgesSection.innerHTML = `
+        <h3 class="progress-heading">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+          </svg>
+          Your Achievement Badges
+        </h3>
+        
+        <div class="badges-container">
+          <div class="badge-item">
+            <div class="badge-icon achieved">🔥</div>
+            <div class="badge-title">7-Day Streak</div>
+          </div>
+          <div class="badge-item">
+            <div class="badge-icon achieved">🎯</div>
+            <div class="badge-title">First Goal Complete</div>
+          </div>
+          <div class="badge-item">
+            <div class="badge-icon">🚀</div>
+            <div class="badge-title">Score Improvement</div>
+          </div>
+          <div class="badge-item">
+            <div class="badge-icon">⏱️</div>
+            <div class="badge-title">Speed Master</div>
+          </div>
+          <div class="badge-item">
+            <div class="badge-icon">🧠</div>
+            <div class="badge-title">Aptitude Genius</div>
+          </div>
+        </div>
+      `;
+      
+      container.insertBefore(badgesSection, progressSection.nextSibling);
+      
+      // Add styles for badges
+      const style = document.createElement('style');
+      style.textContent = `
+        .badges-section {
+          margin-top: 3rem;
+        }
+        .badges-container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1.5rem;
+          margin-top: 1rem;
+        }
+        .badge-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 120px;
+        }
+        .badge-icon {
+          font-size: 2rem;
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background-color: #f3f4f6;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 0.5rem;
+          opacity: 0.5;
+          position: relative;
+        }
+        .badge-icon.achieved {
+          background: linear-gradient(45deg, var(--primary), var(--secondary));
+          opacity: 1;
+          box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+        }
+        .badge-icon.achieved:after {
+          content: "✓";
+          position: absolute;
+          bottom: -5px;
+          right: -5px;
+          background-color: var(--accent);
+          color: white;
+          width: 24px;
+          height: 24px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.8rem;
+          font-weight: bold;
+        }
+        .badge-title {
+          font-size: 0.9rem;
+          font-weight: 500;
+          text-align: center;
+          color: var(--text);
+        }
+      `;
+      document.head.appendChild(style);
+    }
+    
+    // Call to add the achievement badges section
+    document.addEventListener('DOMContentLoaded', function() {
+      addAchievementBadges();
+    });
+    // Replace the existing form submission event handler with this enhanced version
+document.getElementById('goal-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Validate form (basic validation)
+  const title = document.getElementById('goal-title').value;
+  const level = document.getElementById('proficiency-level').value;
+  
+  if (!title || !level) {
+    alert('Please fill in all required fields!');
+    return;
+  }
+  
+  // Create confetti effect for celebration
+  showConfetti();
+  
+  // Get all form values
+  const goalData = {
+    title: document.getElementById('goal-title').value,
+    level: document.getElementById('proficiency-level').value,
+    score: document.getElementById('target-score').value,
+    description: document.getElementById('goal-description').value,
+    weeks: document.getElementById('timeline-weeks').value,
+    hours: document.getElementById('study-hours').value,
+    areas: [],
+    type: document.querySelector('.goal-card.selected')?.querySelector('.goal-title').textContent || 'Skill Improvement'
+  };
+  
+  // Get selected aptitude areas
+  document.querySelectorAll('input[name="aptitude-area"]:checked').forEach(checkbox => {
+    goalData.areas.push(checkbox.value);
+  });
+  
+  // Create a new goal card and add it to the progress section
+  createNewGoalCard(goalData);
+  
+  // Show success message
+  setTimeout(() => {
+    alert('Your goal has been set successfully! We\'ve created a personalized learning path for you.');
+    // Reset form if needed
+    // document.getElementById('goal-form').reset();
+  }, 1000);
+});
+
+// Function to create and display a new goal card
+function createNewGoalCard(goalData) {
+  // Create new progress card element
+  const progressCard = document.createElement('div');
+  progressCard.className = 'progress-card new-goal';
+  
+  // Add a highlight animation style
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes highlightNew {
+      0% { transform: scale(1); box-shadow: 0 0 0 rgba(79, 70, 229, 0.4); }
+      50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(79, 70, 229, 0.4); }
+      100% { transform: scale(1); box-shadow: 0 0 0 rgba(79, 70, 229, 0.4); }
+    }
+    
+    .new-goal {
+      animation: highlightNew 2s ease-in-out;
+      border-left: 4px solid var(--primary);
+    }
+    
+    .goal-badge {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      background-color: var(--primary);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+  `;
+  document.head.appendChild(style);
+  
+  // Determine the primary tag based on areas
+  let primaryTag = '';
+  let tagClass = '';
+  
+  if (goalData.areas.length > 0) {
+    primaryTag = goalData.areas[0];
+    switch (primaryTag) {
+      case 'verbal':
+        tagClass = 'tag-verbal';
+        break;
+      case 'quantitative':
+        tagClass = 'tag-quantitative';
+        break;
+      case 'logical':
+        tagClass = 'tag-logical';
+        break;
+      case 'spatial':
+      case 'data':
+      default:
+        tagClass = 'tag-verbal'; // Default styling
+        break;
+    }
+  }
+  
+  // Build HTML for the card
+  progressCard.innerHTML = `
+    <div class="tag ${tagClass}">${primaryTag.charAt(0).toUpperCase() + primaryTag.slice(1)}</div>
+    <span class="goal-badge">NEW</span>
+    <h4 class="progress-card-title">${goalData.title}</h4>
+    <div class="progress-bar-container">
+      <div class="progress-bar" style="width: 0%"></div>
+    </div>
+    <div class="progress-details">
+      <span>0% Complete</span>
+      <span>${goalData.weeks} weeks left</span>
+    </div>
+  `;
+  
+  // Add the card to the beginning of the progress cards container
+  const progressCards = document.querySelector('.progress-cards');
+  progressCards.insertBefore(progressCard, progressCards.firstChild);
+  
+  // Animate the progress bar after insertion
+  setTimeout(() => {
+    const progressBar = progressCard.querySelector('.progress-bar');
+    progressBar.style.transition = 'width 1.5s ease-in-out';
+    progressBar.style.width = '5%';
+  }, 500);
+  
+  // Scroll to the progress section
+  document.querySelector('.progress-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Function to show confetti celebration
+function showConfetti() {
+  const confettiContainer = document.getElementById('confetti-container');
+  confettiContainer.style.display = 'block';
+  
+  // Create confetti elements
+  for (let i = 0; i < 100; i++) {
+    createConfettiPiece(confettiContainer);
+  }
+  
+  // Clear confetti after animation
+  setTimeout(() => {
+    confettiContainer.style.display = 'none';
+    confettiContainer.innerHTML = '';
+  }, 3000);
+}
+
+// Function to create a single confetti piece
+function createConfettiPiece(container) {
+  const confetti = document.createElement('div');
+  const size = Math.random() * 10 + 5;
+  
+  confetti.style.position = 'absolute';
+  confetti.style.width = `${size}px`;
+  confetti.style.height = `${size}px`;
+  confetti.style.backgroundColor = getRandomColor();
+  confetti.style.left = `${Math.random() * 100}%`;
+  confetti.style.top = '-20px';
+  confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+  confetti.style.opacity = Math.random() + 0.5;
+  
+  const animationDuration = Math.random() * 3 + 2;
+  const animationDelay = Math.random() * 2;
+  
+  confetti.style.animation = `fall ${animationDuration}s ease-in ${animationDelay}s forwards`;
+  
+  // Add fall animation if it doesn't exist
+  if (!document.querySelector('#confetti-animation')) {
+    const animationStyle = document.createElement('style');
+    animationStyle.id = 'confetti-animation';
+    animationStyle.textContent = `
+      @keyframes fall {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(animationStyle);
+  }
+  
+  container.appendChild(confetti);
+}
+  </script>
+</body>
+</html>

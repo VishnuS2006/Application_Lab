@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Indian History Quiz - LearnMate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="Style1.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">
+            <h1>Indian History</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href = "Course.html">Courses</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="courses" id="quiz-container">
+        <h2>Indian History Questions</h2>
+    </section>
+
+    <div class="quick-links-container">
+        <h2>Quick Links</h2>
+        <div class="quick-links-grid">
+            <div class="quick-links-column">
+                <h3><i class="fas fa-calculator"></i><a href="/Courses/Maths.html">Maths</a></h3>
+                <ul>
+                    <li><a href="/Courses/Maths.html">Complex Numbers</a></li>
+                    <li><a href="">Probability</a></li>
+                    <li><a href="">Number Systems</a></li>
+                    <li><a href="">Simple Interest</a></li>
+                </ul>
+            </div> 
+            <div class="quick-links-column">
+                <h3><i class="fas fa-puzzle-piece"></i><a href="">Logical Reasoning</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Blood Relations</a></li>
+                    <li><a href="">Direction Sense Test</a></li>
+                    <li><a href="">Coding - Decoding</a></li>
+                    <li><a href="">Syllogism</a></li>
+                    <li><a href="">Seating Arrangement</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-book-open"></i><a href="">Verbal (English)</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Synonyms & Antonyms</a></li>
+                    <li><a href="">Reading Comprehension</a></li>
+                    <li><a href="">Error Spotting</a></li>
+                    <li><a href="">Sentence Correction</a></li>
+                    <li><a href="">Para Jumbles</a></li>
+                </ul>
+            </div>
+            
+            <div class="quick-links-column">
+                <h3><i class="fas fa-code"></i><a href="">Data Interpretation & Data Sufficiency</a></h3>
+                <ul class="quick_link">
+                    <li><a href="/Courses/DIDS.html">Data Interpretation</a></li>
+                    <li><a href="/Courses/DIDS.html">Data Sufficiency</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-microphone"></i><a href="">General Knowledge</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Geography</a></li>
+                    <li><a href="">Current Affairs</a></li>
+                    <li><a href="">Indian History</a></li>
+                    <li><a href="">World History</a></li>
+                    <li><a href="">Science and Technology</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-file-alt"></i><a href="">Technical Aptitude</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Quantitative Aptitude</a></li>
+                    <li><a href="">Logical Reasoning</a></li>
+                    <li><a href="">Verbal Reasoning</a></li>
+                    <li><a href="">Programming Languages</a></li>
+                    <li><a href="">Data Structures and Algorithms</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 LearnMate. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        
+        const quizData = [
+            {
+                question: "Which of the following was the first metal to be used by humans?",
+                options: shuffleArray(["Iron", "Bronze", "Silver", "Copper"]),
+                correctAnswer: "Copper",
+                explanation: "Copper was the first metal to be used by humans, dating back to around 8000 BCE. The Copper Age, or Chalcolithic period, marked the transition from the Stone Age to the Bronze Age, and early civilizations in the Indian subcontinent too began using copper around 3000 BCE."
+            },
+            {
+                question: "The Indus Valley Civilization is also known as the:",
+                options: shuffleArray(["Vedic Civilization", "Harappan Civilization", "Mauryan Civilization", "Mesopotamian Civilization"]),
+                correctAnswer: "Harappan Civilization",
+                explanation: "The Indus Valley Civilization is also known as the Harappan Civilization because Harappa was the first site to be excavated in the 1920s by archaeologists Rai Bahadur Daya Ram Sahni and Madho Sarup Vats."
+            },
+            {
+                question: "Who among the following was known as 'Vikramaditya'?",
+                options: shuffleArray(["Chandragupta I", "Samudragupta", "Chandragupta II", "Skandagupta"]),
+                correctAnswer: "Chandragupta II",
+                explanation: "Chandragupta II of the Gupta Empire (380-415 CE) was known as Vikramaditya ('Sun of Prowess'). His reign is considered the Golden Age of ancient India during which art, science, and literature flourished."
+            },
+            {
+                question: "The Battle of Plassey was fought in which year?",
+                options: shuffleArray(["1757", "1764", "1765", "1773"]),
+                correctAnswer: "1757",
+                explanation: "The Battle of Plassey was fought on June 23, 1757, between the forces of the British East India Company, led by Robert Clive, and the Nawab of Bengal, Siraj-ud-Daulah. This battle marked the beginning of British political influence in India."
+            },
+            {
+                question: "Who was the founder of the Mughal Empire in India?",
+                options: shuffleArray(["Akbar", "Babur", "Humayun", "Jahangir"]),
+                correctAnswer: "Babur",
+                explanation: "Babur (1483-1530) was the founder of the Mughal Empire in India. He was a descendant of both Timur (Tamerlane) and Genghis Khan. Babur defeated Ibrahim Lodi in the First Battle of Panipat in 1526 and established Mughal rule."
+            },
+            {
+                question: "The Bhakti movement in medieval India was led by which of the following saints?",
+                options: shuffleArray(["Only Kabir", "Only Guru Nanak", "Only Mirabai", "All of the above"]),
+                correctAnswer: "All of the above",
+                explanation: "The Bhakti movement included various saints across India, including Kabir, Guru Nanak, Mirabai, Chaitanya Mahaprabhu, Tulsidas, Namdev, Tukaram, and many others. They preached devotion to God and criticized social evils like the caste system."
+            },
+            {
+                question: "Who was the first Indian woman to become the President of the Indian National Congress?",
+                options: shuffleArray(["Sarojini Naidu", "Annie Besant", "Vijaya Lakshmi Pandit", "Aruna Asaf Ali"]),
+                correctAnswer: "Annie Besant",
+                explanation: "Annie Besant, though British by birth, became the first woman President of the Indian National Congress in 1917. She played a crucial role in the Home Rule Movement and the formation of the Banaras Hindu University."
+            },
+            {
+                question: "Who among the following started the Khilafat Movement?",
+                options: shuffleArray(["Mahatma Gandhi", "Muhammad Ali Jinnah", "Ali Brothers", "Sir Syed Ahmad Khan"]),
+                correctAnswer: "Ali Brothers",
+                explanation: "The Khilafat Movement (1919-1924) was started by the Ali Brothers (Maulana Mohammad Ali and Maulana Shaukat Ali) to protest against the harsh treatment of the Ottoman Caliphate by the British after World War I. The movement later merged with the Non-Cooperation Movement led by Mahatma Gandhi."
+            },
+            {
+                question: "Which of the following dynasties ruled over the Vijayanagara Empire?",
+                options: shuffleArray(["Sangama Dynasty", "Tuluva Dynasty", "Saluva Dynasty", "All of the above"]),
+                correctAnswer: "All of the above",
+                explanation: "The Vijayanagara Empire (1336-1646) was ruled by four dynasties: the Sangama Dynasty (1336-1485), the Saluva Dynasty (1485-1505), the Tuluva Dynasty (1505-1570), and the Aravidu Dynasty (1570-1646)."
+            },
+            {
+                question: "The Revolt of 1857 started from which of the following places?",
+                options: shuffleArray(["Meerut", "Delhi", "Kanpur", "Jhansi"]),
+                correctAnswer: "Meerut",
+                explanation: "The Revolt of 1857, also known as the First War of Independence or Sepoy Mutiny, began at Meerut on May 10, 1857. Sepoys from the East India Company's army revolted against the use of greased cartridges, which were rumored to be coated with cow and pig fat."
+            },
+            {
+                question: "Who among the following is known as the 'Father of the Indian Constitution'?",
+                options: shuffleArray(["Dr. B.R. Ambedkar", "Jawaharlal Nehru", "Mahatma Gandhi", "Sardar Vallabhbhai Patel"]),
+                correctAnswer: "Dr. B.R. Ambedkar",
+                explanation: "Dr. B.R. Ambedkar is known as the 'Father of the Indian Constitution' as he was the Chairman of the Drafting Committee of the Constituent Assembly that framed the Constitution of India. The Constitution was adopted on November 26, 1949, and came into effect on January 26, 1950."
+            },
+            {
+                question: "Which of the following was the first Fort built by the British in India?",
+                options: shuffleArray(["Fort William", "Fort St. George", "Fort St. David", "Fort Marlborough"]),
+                correctAnswer: "Fort St. George",
+                explanation: "Fort St. George, built in 1644 at Chennai (then Madras), was the first fort established by the British East India Company in India. It served as the company's administrative headquarters for the southern region."
+            },
+            {
+                question: "The Jallianwala Bagh Massacre took place in which year?",
+                options: shuffleArray(["1917", "1919", "1921", "1925"]),
+                correctAnswer: "1919",
+                explanation: "The Jallianwala Bagh Massacre took place on April 13, 1919, in Amritsar, Punjab. General Dyer ordered troops to fire on a peaceful gathering of people, killing hundreds and wounding thousands. This event intensified the anti-British sentiment and accelerated the Indian independence movement."
+            },
+            {
+                question: "Who started the 'Swaraj Party' in 1923?",
+                options: shuffleArray(["Lala Lajpat Rai and Bal Gangadhar Tilak", "Motilal Nehru and C.R. Das", "Mahatma Gandhi and Jawaharlal Nehru", "Bhagat Singh and Subhas Chandra Bose"]),
+                correctAnswer: "Motilal Nehru and C.R. Das",
+                explanation: "The Swaraj Party was formed in 1923 by Motilal Nehru and Chittaranjan Das (C.R. Das) after they broke away from the Indian National Congress. Their aim was to contest elections and enter legislative councils to obstruct the British government from within."
+            },
+            {
+                question: "Who composed the famous patriotic song 'Vande Mataram'?",
+                options: shuffleArray(["Rabindranath Tagore", "Bankimchandra Chattopadhyay", "Sarojini Naidu", "Subramanya Bharathi"]),
+                correctAnswer: "Bankimchandra Chattopadhyay",
+                explanation: "Vande Mataram was composed by Bankimchandra Chattopadhyay in Sanskrit and Bengali. It first appeared in his novel 'Anandamath', published in 1882. The song played a vital role during the Indian independence movement and was considered a national song of India."
+            },
+            {
+                question: "The Indian National Army (INA) was formed in which country?",
+                options: shuffleArray(["Japan", "Germany", "Singapore", "Burma (Myanmar)"]),
+                correctAnswer: "Singapore",
+                explanation: "The Indian National Army (INA) was formed in Singapore in 1942 with Japanese assistance. Initially led by Captain Mohan Singh, it was later reorganized and led by Subhas Chandra Bose, who had escaped from house arrest in India and made his way to Singapore via Germany and Japan."
+            },
+            {
+                question: "The famous Quit India Movement was launched in which year?",
+                options: shuffleArray(["1940", "1942", "1945", "1947"]),
+                correctAnswer: "1942",
+                explanation: "The Quit India Movement (or August Movement) was launched on August 8, 1942, at the Bombay session of the All India Congress Committee by Mahatma Gandhi. It demanded an immediate end to British rule in India with the slogan 'Do or Die'."
+            },
+            {
+                question: "Who was the first Governor-General of independent India?",
+                options: shuffleArray(["Lord Mountbatten", "C. Rajagopalachari", "Rajendra Prasad", "Lord Wavell"]),
+                correctAnswer: "Lord Mountbatten",
+                explanation: "Lord Louis Mountbatten was the first Governor-General of independent India from August 15, 1947, to June 21, 1948. He was succeeded by C. Rajagopalachari, who became the first and only Indian Governor-General of India."
+            },
+            {
+                question: "Who led the Salt Satyagraha Movement?",
+                options: shuffleArray(["Jawaharlal Nehru", "Mahatma Gandhi", "Sardar Vallabhbhai Patel", "Subhas Chandra Bose"]),
+                correctAnswer: "Mahatma Gandhi",
+                explanation: "The Salt Satyagraha, also known as the Salt March or Dandi March, was led by Mahatma Gandhi in 1930. It was a nonviolent protest against the British salt monopoly and the tax on salt. Gandhi walked from Sabarmati Ashram to Dandi, a coastal village in Gujarat, where he broke the salt law by making salt from seawater."
+            },
+            {
+                question: "Which of the following kingdoms was not annexed by the British under the Doctrine of Lapse?",
+                options: shuffleArray(["Jhansi", "Satara", "Nagpur", "Hyderabad"]),
+                correctAnswer: "Hyderabad",
+                explanation: "Hyderabad was not annexed under the Doctrine of Lapse, which was introduced by Lord Dalhousie in 1848. The Doctrine of Lapse was applied to Satara (1848), Jhansi (1853), Nagpur (1854), and several other princely states. Hyderabad remained a princely state until India's independence in 1947."
+            }
+        ];
+
+        const quizContainer = document.getElementById('quiz-container');
+
+        function generateQuiz() {
+            quizData.forEach((questionData, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('course-card');
+                questionDiv.id = `question-${index + 1}`;
+
+                const questionTitle = document.createElement('h4');
+                questionTitle.textContent = `${index + 1}. ${questionData.question}`;
+                questionDiv.appendChild(questionTitle);
+
+                const optionsContainer = document.createElement('div');
+                optionsContainer.classList.add('options-container');
+
+                questionData.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.style.color = "white";
+                    button.style.fontWeight = "bolder";
+                    button.classList.add('option-btn');
+                    button.textContent = option;
+                    button.dataset.correct = (option.trim() === questionData.correctAnswer.trim());
+                    button.addEventListener('click', function() {
+                        checkAnswer(this, questionData.explanation, questionDiv);
+                    });
+                    optionsContainer.appendChild(button);
+                });
+                questionDiv.appendChild(optionsContainer);
+
+                const resultContainer = document.createElement('div');
+                resultContainer.classList.add('result-container');
+                resultContainer.id = `explanation-${index + 1}`;
+                resultContainer.style.display = 'none';
+                questionDiv.appendChild(resultContainer);
+
+                quizContainer.appendChild(questionDiv);
+            });
+        }
+
+        function checkAnswer(buttonElement, explanation, questionDiv) {
+            const resultDiv = questionDiv.querySelector('.result-container');
+            const optionButtons = questionDiv.querySelectorAll('.option-btn');
+            const isCorrect = buttonElement.dataset.correct === 'true';
+
+            if (isCorrect) {
+                optionButtons.forEach(btn => btn.disabled = true);
+                buttonElement.classList.add('correct');
+                resultDiv.classList.add('correct-answer');
+                resultDiv.innerHTML = `✅ <strong>Correct Answer!</strong><br><br><em>Explanation:</em> ${explanation}`;
+                resultDiv.style.display = 'block';
+            } else {
+                buttonElement.classList.add('wrong');
+            }
+        }
+
+        // Generate the quiz when the page loads
+        generateQuiz();
+    </script>
+</body>
+</html>

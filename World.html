@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>World History Quiz - LearnMate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="Style1.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">
+            <h1>World History</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="Course.html">Courses</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="courses" id="quiz-container">
+        <h2>World History Questions</h2>
+    </section>
+
+    <div class="quick-links-container">
+        <h2>Quick Links</h2>
+        <div class="quick-links-grid">
+            <div class="quick-links-column">
+                <h3><i class="fas fa-calculator"></i><a href="/Courses/Maths.html">Maths</a></h3>
+                <ul>
+                    <li><a href="/Courses/Maths.html">Complex Numbers</a></li>
+                    <li><a href="">Probability</a></li>
+                    <li><a href="">Number Systems</a></li>
+                    <li><a href="">Simple Interest</a></li>
+                </ul>
+            </div> 
+            <div class="quick-links-column">
+                <h3><i class="fas fa-puzzle-piece"></i><a href="">Logical Reasoning</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Blood Relations</a></li>
+                    <li><a href="">Direction Sense Test</a></li>
+                    <li><a href="">Coding - Decoding</a></li>
+                    <li><a href="">Syllogism</a></li>
+                    <li><a href="">Seating Arrangement</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-book-open"></i><a href="">Verbal (English)</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Synonyms & Antonyms</a></li>
+                    <li><a href="">Reading Comprehension</a></li>
+                    <li><a href="">Error Spotting</a></li>
+                    <li><a href="">Sentence Correction</a></li>
+                    <li><a href="">Para Jumbles</a></li>
+                </ul>
+            </div>
+            
+            <div class="quick-links-column">
+                <h3><i class="fas fa-code"></i><a href="">Data Interpretation & Data Sufficiency</a></h3>
+                <ul class="quick_link">
+                    <li><a href="/Courses/DIDS.html">Data Interpretation</a></li>
+                    <li><a href="/Courses/DIDS.html">Data Sufficiency</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-microphone"></i><a href="">General Knowledge</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Geography</a></li>
+                    <li><a href="">Current Affairs</a></li>
+                    <li><a href="">Indian History</a></li>
+                    <li><a href="">World History</a></li>
+                    <li><a href="">Science and Technology</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-file-alt"></i><a href="">Technical Aptitude</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Quantitative Aptitude</a></li>
+                    <li><a href="">Logical Reasoning</a></li>
+                    <li><a href="">Verbal Reasoning</a></li>
+                    <li><a href="">Programming Languages</a></li>
+                    <li><a href="">Data Structures and Algorithms</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 LearnMate. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        
+        const quizData = [
+            {
+                question: "Which ancient civilization built the Great Pyramids of Giza?",
+                options: shuffleArray(["Mesopotamian", "Indus Valley", "Egyptian", "Greek"]),
+                correctAnswer: "Egyptian",
+                explanation: "The Great Pyramids of Giza were built by the ancient Egyptian civilization during the Old and Middle Kingdom periods, approximately 2600-2100 BCE. The largest pyramid, known as the Great Pyramid of Khufu (or Cheops), is the only one of the Seven Wonders of the Ancient World still standing today."
+            },
+            {
+                question: "The Protestant Reformation began in 1517 when who posted the Ninety-Five Theses?",
+                options: shuffleArray(["John Calvin", "Martin Luther", "Henry VIII", "Pope Leo X"]),
+                correctAnswer: "Martin Luther",
+                explanation: "Martin Luther is credited with initiating the Protestant Reformation when he posted his Ninety-Five Theses on the door of the Castle Church in Wittenberg, Germany on October 31, 1517. The theses challenged the Catholic Church's practice of selling indulgences and questioned papal authority."
+            },
+            {
+                question: "Which of the following was NOT one of the original Seven Wonders of the Ancient World?",
+                options: shuffleArray(["The Colosseum", "The Hanging Gardens of Babylon", "The Great Pyramid of Giza", "The Lighthouse of Alexandria"]),
+                correctAnswer: "The Colosseum",
+                explanation: "The Colosseum in Rome was not one of the Seven Wonders of the Ancient World. The original seven were: the Great Pyramid of Giza, the Hanging Gardens of Babylon, the Temple of Artemis at Ephesus, the Statue of Zeus at Olympia, the Mausoleum at Halicarnassus, the Colossus of Rhodes, and the Lighthouse of Alexandria."
+            },
+            {
+                question: "Which empire was ruled by Genghis Khan in the 13th century?",
+                options: shuffleArray(["Ottoman Empire", "Mongol Empire", "Byzantine Empire", "Roman Empire"]),
+                correctAnswer: "Mongol Empire",
+                explanation: "Genghis Khan (c. 1162-1227) founded and ruled the Mongol Empire, which became the largest contiguous land empire in history after his death. At its peak, it covered approximately 16% of the Earth's land surface, stretching from Eastern Europe to the Sea of Japan."
+            },
+            {
+                question: "The Renaissance period primarily began in which country?",
+                options: shuffleArray(["France", "England", "Italy", "Spain"]),
+                correctAnswer: "Italy",
+                explanation: "The Renaissance began in Italy in the 14th century, particularly in cities like Florence, Venice, and Rome. It was characterized by a renewed interest in classical antiquity, humanism, art, and scientific inquiry, and later spread throughout Europe between the 14th and 17th centuries."
+            },
+            {
+                question: "Who was the first Roman Emperor?",
+                options: shuffleArray(["Julius Caesar", "Augustus", "Nero", "Constantine"]),
+                correctAnswer: "Augustus",
+                explanation: "Augustus (born Octavian, 63 BCE-14 CE) became the first Roman Emperor in 27 BCE after the assassination of Julius Caesar, his great-uncle and adoptive father. Julius Caesar was never officially an emperor but held the position of dictator perpetuo (dictator for life)."
+            },
+            {
+                question: "The French Revolution began in what year?",
+                options: shuffleArray(["1789", "1776", "1804", "1815"]),
+                correctAnswer: "1789",
+                explanation: "The French Revolution began in 1789 with the storming of the Bastille on July 14, triggered by financial crisis, social inequality, and political conflicts. It led to the overthrow of the monarchy, radical social change, and eventually to the rise of Napoleon Bonaparte."
+            },
+            {
+                question: "Which treaty ended World War I?",
+                options: shuffleArray(["Treaty of Paris", "Treaty of Versailles", "Treaty of Tordesillas", "Treaty of Westphalia"]),
+                correctAnswer: "Treaty of Versailles",
+                explanation: "The Treaty of Versailles was signed on June 28, 1919, and officially ended World War I. It was signed between Germany and the Allied Powers (primarily France, Great Britain, and the United States) and imposed harsh penalties on Germany, including territorial losses, military restrictions, and war reparations."
+            },
+            {
+                question: "Which European explorer is credited with the first voyage to circumnavigate the globe?",
+                options: shuffleArray(["Christopher Columbus", "Ferdinand Magellan", "Vasco da Gama", "James Cook"]),
+                correctAnswer: "Ferdinand Magellan",
+                explanation: "Ferdinand Magellan organized and initiated the first expedition to circumnavigate the globe in 1519. Though Magellan himself was killed in the Philippines in 1521 and did not complete the journey, his expedition under the command of Juan Sebastián Elcano returned to Spain in 1522, completing the first recorded circumnavigation of the Earth."
+            },
+            {
+                question: "The Industrial Revolution began in which country?",
+                options: shuffleArray(["United States", "France", "Germany", "Great Britain"]),
+                correctAnswer: "Great Britain",
+                explanation: "The Industrial Revolution began in Great Britain in the mid-18th century (around 1760) and was characterized by the transition from agricultural and handicraft economies to machine-based manufacturing. It spread to other parts of Europe and North America throughout the 19th century."
+            },
+            {
+                question: "Which ancient civilization developed the concept of democracy?",
+                options: shuffleArray(["Roman", "Persian", "Athenian", "Egyptian"]),
+                correctAnswer: "Athenian",
+                explanation: "The Athenians of ancient Greece developed the first known democracy in the world around 508-507 BCE under the leadership of Cleisthenes. Although limited to free male citizens and excluding women, slaves, and foreigners, it laid the foundation for modern democratic systems."
+            },
+            {
+                question: "The Berlin Wall fell in which year?",
+                options: shuffleArray(["1985", "1989", "1991", "1993"]),
+                correctAnswer: "1989",
+                explanation: "The Berlin Wall, which had divided East and West Berlin since 1961, fell on November 9, 1989. This event marked a crucial turning point in the Cold War and led to the reunification of Germany in 1990 and eventually to the collapse of the Soviet Union in 1991."
+            },
+            {
+                question: "Which of the following was NOT one of the Allied Powers during World War II?",
+                options: shuffleArray(["United States", "Soviet Union", "Italy", "Great Britain"]),
+                correctAnswer: "Italy",
+                explanation: "Italy was not one of the Allied Powers during World War II. Instead, it was part of the Axis Powers along with Nazi Germany and Imperial Japan. Italy joined the war on Germany's side in June 1940 under the leadership of fascist dictator Benito Mussolini."
+            },
+            {
+                question: "Who wrote 'The Communist Manifesto' with Friedrich Engels?",
+                options: shuffleArray(["Vladimir Lenin", "Karl Marx", "Joseph Stalin", "Leon Trotsky"]),
+                correctAnswer: "Karl Marx",
+                explanation: "Karl Marx co-authored 'The Communist Manifesto' with Friedrich Engels in 1848. This political pamphlet outlined the theory of historical materialism and advocated class struggle, laying the theoretical groundwork for communism and having a profound impact on world politics in the 19th and 20th centuries."
+            },
+            {
+                question: "The Magna Carta, signed in 1215, limited the power of which country's monarch?",
+                options: shuffleArray(["France", "England", "Spain", "Holy Roman Empire"]),
+                correctAnswer: "England",
+                explanation: "The Magna Carta (Great Charter) was signed by King John of England in June 1215 at Runnymede. It established the principle that everyone, including the king, was subject to the law and is considered one of the most important documents in the development of constitutional government."
+            },
+            {
+                question: "Which civilization developed the first known writing system called cuneiform?",
+                options: shuffleArray(["Egyptian", "Chinese", "Sumerian", "Indus Valley"]),
+                correctAnswer: "Sumerian",
+                explanation: "The Sumerians of ancient Mesopotamia (modern-day Iraq) developed cuneiform, the earliest known writing system, around 3400-3200 BCE. It began as pictographs and evolved into a more abstract system of wedge-shaped marks pressed into clay tablets using a reed stylus."
+            },
+            {
+                question: "The Bolshevik Revolution led by Vladimir Lenin occurred in which year?",
+                options: shuffleArray(["1905", "1917", "1921", "1933"]),
+                correctAnswer: "1917",
+                explanation: "The Bolshevik Revolution (also known as the October Revolution) occurred in November 1917 (October in the Julian calendar then used in Russia). Led by Vladimir Lenin and the Bolshevik Party, it overthrew the provisional government established after the abdication of Tsar Nicholas II and led to the formation of the Soviet Union."
+            },
+            {
+                question: "Which of these locations was NOT a center of the ancient Maya civilization?",
+                options: shuffleArray(["Teotihuacan", "Tikal", "Chichen Itza", "Palenque"]),
+                correctAnswer: "Teotihuacan",
+                explanation: "Teotihuacan was not a Maya city but was instead the center of a distinct Mesoamerican civilization in central Mexico. The major centers of Maya civilization were located in Southern Mexico, Guatemala, Belize, Honduras, and El Salvador, and included cities like Tikal, Chichen Itza, and Palenque."
+            },
+            {
+                question: "The Ottoman Empire captured Constantinople (now Istanbul) in which year?",
+                options: shuffleArray(["1204", "1453", "1516", "1683"]),
+                correctAnswer: "1453",
+                explanation: "The Ottoman Empire, under the leadership of Sultan Mehmed II (the Conqueror), captured Constantinople on May 29, 1453, following a 53-day siege. This event marked the end of the Byzantine Empire and the Roman imperial tradition that had continued for nearly 1,500 years, and is often considered the end of the European Middle Ages."
+            },
+            {
+                question: "Who was the primary author of the American Declaration of Independence?",
+                options: shuffleArray(["George Washington", "Benjamin Franklin", "Thomas Jefferson", "John Adams"]),
+                correctAnswer: "Thomas Jefferson",
+                explanation: "Thomas Jefferson was the principal author of the Declaration of Independence, which was adopted by the Continental Congress on July 4, 1776. While the document had input from others including Benjamin Franklin and John Adams, Jefferson is credited with drafting the majority of the text."
+            }
+        ];
+
+        const quizContainer = document.getElementById('quiz-container');
+
+        function generateQuiz() {
+            quizData.forEach((questionData, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('course-card');
+                questionDiv.id = `question-${index + 1}`;
+
+                const questionTitle = document.createElement('h4');
+                questionTitle.textContent = `${index + 1}. ${questionData.question}`;
+                questionDiv.appendChild(questionTitle);
+
+                const optionsContainer = document.createElement('div');
+                optionsContainer.classList.add('options-container');
+
+                questionData.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.style.color = "white";
+                    button.style.fontWeight = "bolder";
+                    button.classList.add('option-btn');
+                    button.textContent = option;
+                    button.dataset.correct = (option.trim() === questionData.correctAnswer.trim());
+                    button.addEventListener('click', function() {
+                        checkAnswer(this, questionData.explanation, questionDiv);
+                    });
+                    optionsContainer.appendChild(button);
+                });
+                questionDiv.appendChild(optionsContainer);
+
+                const resultContainer = document.createElement('div');
+                resultContainer.classList.add('result-container');
+                resultContainer.id = `explanation-${index + 1}`;
+                resultContainer.style.display = 'none';
+                questionDiv.appendChild(resultContainer);
+
+                quizContainer.appendChild(questionDiv);
+            });
+        }
+
+        function checkAnswer(buttonElement, explanation, questionDiv) {
+            const resultDiv = questionDiv.querySelector('.result-container');
+            const optionButtons = questionDiv.querySelectorAll('.option-btn');
+            const isCorrect = buttonElement.dataset.correct === 'true';
+
+            if (isCorrect) {
+                optionButtons.forEach(btn => btn.disabled = true);
+                buttonElement.classList.add('correct');
+                resultDiv.classList.add('correct-answer');
+                resultDiv.innerHTML = `✅ <strong>Correct Answer!</strong><br><br><em>Explanation:</em> ${explanation}`;
+                resultDiv.style.display = 'block';
+            } else {
+                buttonElement.classList.add('wrong');
+            }
+        }
+
+        // Generate the quiz when the page loads
+        generateQuiz();
+    </script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Mensuration Quiz - LearnMate</title>
+        <link rel="stylesheet" href="/Courses/style.css"/>
+        <link rel="stylesheet" href="/Question.html/QuesLayout.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="Style1.css">
+    </head>
+    
+<body>
+
+    <nav id="navbar">
+        <div class="logo">
+            <h1> Mensuration</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="Course.html">Courses</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="courses" id="quiz-container">
+        <h2>Mensuration Questions</h2>
+    </section>
+
+    <div class="quick-links-container">
+        <h2>Quick Links</h2>
+        <div class="quick-links-grid">
+            <div class="quick-links-column">
+                <h3><i class="fas fa-calculator"></i><a href="/Courses/Maths.html" style="color: #007bff;">Maths</a></h3>
+                <ul>
+                    <li><a href="" style="color:black">Complex Numbers</a></li>
+                    <li><a href="" style="color:black">Probability</a></li>
+                    <li><a href="" style="color:black">Number Systems</a></li>
+                    <li><a href="">Simple Interest</a></li>
+                </ul>
+            </div> 
+            <div class="quick-links-column">
+                <h3><i class="fas fa-puzzle-piece"></i><a href="" style="color: #007bff;">Logical Reasoning</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Blood Relations</a></li>
+                    <li><a href="">Direction Sense Test</a></li>
+                    <li><a href="">Coding - Decoding</a></li>
+                    <li><a href="">Syllogism</a></li>
+                    <li><a href="">Seating Arrangement</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-book-open"></i><a href="" style="color: #007bff;">Verbal (English)</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Synonyms & Antonyms</a></li>
+                    <li><a href="">Reading Comprehension</a></li>
+                    <li><a href="">Error Spotting</a></li>
+                    <li><a href="">Sentence Correction</a></li>
+                    <li><a href="">Para Jumbles</a></li>
+                </ul>
+            </div>
+            
+            <div class="quick-links-column">
+                <h3><i class="fas fa-code"></i><a href="" style="color: #007bff;">Data Interpretation & Data Sufficiency</a></h3>
+                <ul class="quick_link">
+                    <li><a href="/Courses/DIDS.html">Data Interpretation</a></li>
+                    <li><a href="/Courses/DIDS.html">Data Sufficiency</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-microphone"></i><a href="" style="color: #007bff;">General Knowledge</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Geography</a></li>
+                    <li><a href="">Current Affairs</a></li>
+                    <li><a href="">Indian History</a></li>
+                    <li><a href="">World History</a></li>
+                    <li><a href="">Science and Technology</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-file-alt"></i><a href="" style="color: #007bff;">Technical Aptitude</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Quantitative Aptitude</a></li>
+                    <li><a href="">Logical Reasoning</a></li>
+                    <li><a href="">Verbal Reasoning</a></li>
+                    <li><a href="">Programming Languages</a></li>
+                    <li><a href="">Data Structures and Algorithms</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 LearnMate. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1)); 
+                [array[i], array[j]] = [array[j], array[i]];    
+            }
+            return array;
+        }
+
+        const quizData = [
+            {
+                question: "A cylinder has a radius of 7 cm and height of 10 cm. What is its curved surface area?",
+                options: shuffleArray(["440 cm²", "420 cm²", "440π cm²", "154 cm²"]),
+                correctAnswer: "440 cm²",
+                explanation: "Curved Surface Area (CSA) of a cylinder = 2πrh<br>Given r = 7 cm, h = 10 cm<br>Step 1: Multiply radius and height → 7 × 10 = 70<br>Step 2: Multiply with 2π → 2 × 22/7 × 70 = 440<br>Final Answer: 440 cm²<br>"
+            },
+            {
+                question: "Find the surface area of a cuboid with length 10 cm, breadth 4 cm, and height 5 cm.",
+                options: shuffleArray(["220 cm²", "200 cm²", "240 cm²", "180 cm²"]),
+                correctAnswer: "220 cm²",
+                explanation: "Step 1: Use formula SA = 2(lb + bh + hl)<br>Step 2: Compute lb = 10 × 4 = 40<br>Step 3: Compute bh = 4 × 5 = 20<br>Step 4: Compute hl = 5 × 10 = 50<br>Step 5: Add → 40 + 20 + 50 = 110<br>Step 6: Multiply by 2 → 2 × 110 = 220 cm²"
+            },
+            {
+                question: "Volume of a cylinder with diameter 14 cm and height 10 cm?",
+                options: shuffleArray(["1540 cm³", "1600 cm³", "1400 cm³", "1700 cm³"]),
+                correctAnswer: "1540 cm³",
+                explanation: "Step 1: Radius = diameter / 2 = 14 / 2 = 7 cm<br>Step 2: Use formula V = πr²h<br>Step 3: r² = 7 × 7 = 49<br>Step 4: Multiply → 3.14 × 49 × 10 = 1540 cm³"
+            },
+            {
+                question: "Area of a circle with circumference 44 cm?",
+                options: shuffleArray(["154 cm²", "140 cm²", "120 cm²", "100 cm²"]),
+                correctAnswer: "154 cm²",
+                explanation: "Step 1: Use formula C = 2πr ⇒ 44 = 2 × 3.14 × r<br>Step 2: Solve for r ⇒ r = 44 / (2 × 3.14) ≈ 7<br>Step 3: Use formula A = πr²<br>Step 4: r² = 7 × 7 = 49<br>Step 5: Multiply → 3.14 × 49 = 154 cm²"
+            },
+            {
+                question: "Height of a cylinder with volume 616 cm³ and radius 7 cm?",
+                options: shuffleArray(["4 cm", "6 cm", "8 cm", "10 cm"]),
+                correctAnswer: "4 cm",
+                explanation: "Step 1: Use formula V = πr²h ⇒ 616 = 3.14 × 7 × 7 × h<br>Step 2: Compute 3.14 × 49 = 153.86<br>Step 3: Solve for h ⇒ h = 616 / 153.86 ≈ 4 cm"
+            },
+            {
+                question: "Find the volume of a cuboid tank with length 12 m, breadth 6 m, and depth 5 m.",
+                options: shuffleArray(["360 m³", "400 m³", "500 m³", "300 m³"]),
+                correctAnswer: "360 m³",
+                explanation: "Step 1: Use formula V = l × b × h<br>Step 2: Multiply → 12 × 6 = 72<br>Step 3: Multiply → 72 × 5 = 360 m³"
+            },
+            {
+                question: "Find the surface area of a hemisphere with radius 5 cm.",
+                options: shuffleArray(["235.5 cm²", "157 cm²", "314 cm²", "200 cm²"]),
+                correctAnswer: "235.5 cm²",
+                explanation: "Step 1: Surface area of hemisphere = 3πr²<br>Step 2: r = 5 cm ⇒ r² = 25<br>Step 3: Multiply → 3 × 3.14 × 25 = 235.5 cm²"
+            },
+            {
+                question: "What is the height of a cone with volume 314 cm³ and radius 7 cm?",
+                options: shuffleArray(["6 cm", "4 cm", "5 cm", "3 cm"]),
+                correctAnswer: "6 cm",
+                explanation: "Step 1: Use formula V = (1/3)πr²h ⇒ 314 = (1/3) × 3.14 × 7² × h<br>Step 2: 7² = 49 ⇒ (1/3) × 3.14 × 49 = 51.23<br>Step 3: Solve h = 314 / 51.23 ≈ 6 cm"
+            },
+            {
+                question: "Find the area of a sector with radius 6 cm and angle 60°.",
+                options: shuffleArray(["18.84 cm²", "12.56 cm²", "6.28 cm²", "10 cm²"]),
+                correctAnswer: "18.84 cm²",
+                explanation: "Step 1: Area of sector = (θ/360) × πr²<br>Step 2: θ = 60°, r = 6 ⇒ r² = 36<br>Step 3: (60/360) × 3.14 × 36 = (1/6) × 113.04 = 18.84 cm²"
+            },
+            {
+                question: "Find the length of the diagonal of a rectangle with sides 9 cm and 12 cm.",
+                options: shuffleArray(["15 cm", "14.5 cm", "13.5 cm", "12.5 cm"]),
+                correctAnswer: "15 cm",
+                explanation: "Step 1: Diagonal = √(l² + b²)<br>Step 2: l² = 81, b² = 144<br>Step 3: √(81 + 144) = √225 = 15 cm"
+            },
+            {
+                question: "What is the area of a semicircle with radius 14 cm?",
+                options: shuffleArray(["308 cm²", "154 cm²", "100 cm²", "200 cm²"]),
+                correctAnswer: "308 cm²",
+                explanation: "Step 1: Area of semicircle = (1/2)πr²<br>Step 2: r = 14 ⇒ r² = 196<br>Step 3: (1/2) × 3.14 × 196 = 308 cm²"
+            },
+            {
+                question: "Find the side of a square whose area is 121 cm².",
+                options: shuffleArray(["11 cm", "10 cm", "12 cm", "13 cm"]),
+                correctAnswer: "11 cm",
+                explanation: "Step 1: Area = a² ⇒ 121 = a²<br>Step 2: a = √121 = 11 cm"
+            },
+            {
+                question: "Volume of a cube is 512 cm³. Find its edge length.",
+                options: shuffleArray(["8 cm", "9 cm", "7 cm", "10 cm"]),
+                correctAnswer: "8 cm",
+                explanation: "Step 1: Volume of cube = a³ ⇒ a³ = 512<br>Step 2: a = ∛512 = 8 cm"
+            },
+            {
+                question: "Find the surface area of a cone with radius 3 cm and slant height 5 cm.",
+                options: shuffleArray(["75.4 cm²", "47.1 cm²", "62.8 cm²", "85.6 cm²"]),
+                correctAnswer: "75.4 cm²",
+                explanation: "Step 1: SA = πr(l + r)<br>Step 2: r = 3, l = 5 ⇒ l + r = 8<br>Step 3: 3.14 × 3 × 8 = 75.4 cm²"
+            },
+            {
+                question: "Area of a parallelogram with sides 12 cm and height 7 cm?",
+                options: shuffleArray(["84 cm²", "72 cm²", "60 cm²", "90 cm²"]),
+                correctAnswer: "84 cm²",
+                explanation: "Step 1: Area = base × height<br>Step 2: 12 × 7 = 84 cm²"
+            },
+            {
+                question: "Find the total surface area of a cuboid with dimensions 5 cm × 4 cm × 3 cm.",
+                options: shuffleArray(["94 cm²", "100 cm²", "110 cm²", "120 cm²"]),
+                correctAnswer: "94 cm²",
+                explanation: "Step 1: SA = 2(lb + bh + hl)<br>Step 2: lb = 5×4 = 20, bh = 4×3 = 12, hl = 5×3 = 15<br>Step 3: Sum = 20 + 12 + 15 = 47<br>Step 4: Multiply → 2 × 47 = 94 cm²"
+            }
+        ];
+
+        const quizContainer = document.getElementById('quiz-container');
+
+        function generateQuiz() {
+            quizData.forEach((questionData, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('course-card');
+                questionDiv.id = `question-${index + 1}`;
+
+                const questionTitle = document.createElement('h4');
+                questionTitle.textContent = `${index + 1}. ${questionData.question}`;
+                questionDiv.appendChild(questionTitle);
+
+                const optionsContainer = document.createElement('div');
+                optionsContainer.classList.add('options-container');
+
+                questionData.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.style.color = "white";
+                    button.style.fontWeight = "bolder";
+                    button.classList.add('option-btn');
+                    button.textContent = option;
+                    button.dataset.correct = (option.trim() === questionData.correctAnswer.trim());
+                    button.addEventListener('click', function() {
+                        checkAnswer(this, questionData.explanation, questionDiv);
+                    });
+                    optionsContainer.appendChild(button);
+                });
+                questionDiv.appendChild(optionsContainer);
+
+                const resultContainer = document.createElement('div');
+                resultContainer.classList.add('result-container');
+                resultContainer.id = `explanation-${index + 1}`;
+                resultContainer.style.display = 'none';
+                questionDiv.appendChild(resultContainer);
+
+                quizContainer.appendChild(questionDiv);
+            });
+        }
+
+        function checkAnswer(buttonElement, explanation, questionDiv) {
+            const resultDiv = questionDiv.querySelector('.result-container');
+            const optionButtons = questionDiv.querySelectorAll('.option-btn');
+            const isCorrect = buttonElement.dataset.correct === 'true';
+
+            if (isCorrect) {
+                optionButtons.forEach(btn => btn.disabled = true);
+                buttonElement.classList.add('correct');
+                resultDiv.classList.add('correct-answer');
+                resultDiv.innerHTML = `✅ <strong>Correct Answer!</strong><br><br><em>Explanation:</em> ${explanation}`;
+                resultDiv.style.display = 'block';
+            } else {
+                buttonElement.classList.add('wrong');
+            }
+        }
+
+        generateQuiz();
+    </script>
+</body>
+</html>

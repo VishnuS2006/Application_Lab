@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LearnMate - Points Dashboard</title>
+  <style>
+    :root {
+      --primary: #0099ff;
+      --primary-dark: #0077cc;
+      --secondary: #ff3366;
+      --accent: #ffcc00;
+      --success: #33cc66;
+      --danger: #ff3333;
+      --dark: #333333;
+      --light: #f5f5f5;
+      --gray: #dddddd;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+    }
+    
+    header {
+      background: linear-gradient(90deg, #ff0000, var(--primary));
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    .logo span:first-child {
+      color: #ff0000;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav ul li {
+      margin-left: 1.5rem;
+    }
+    
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+    
+    .page-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .dashboard {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1.5rem;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+    
+    .card-header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem;
+      font-weight: bold;
+    }
+    
+    .card-body {
+      padding: 1.5rem;
+    }
+    
+    .points-summary {
+      text-align: center;
+      padding: 1.5rem;
+    }
+    
+    .total-points {
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin: 1rem 0;
+    }
+    
+    .point-label {
+      color: var(--dark);
+      opacity: 0.7;
+    }
+    
+    .rank {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+    
+    .rank-badge {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+    
+    .rank-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.25rem;
+    }
+    
+    .rank-info p {
+      font-size: 0.9rem;
+      color: var(--dark);
+      opacity: 0.7;
+    }
+    
+    .progress-section {
+      margin: 1.5rem 0;
+    }
+    
+    .progress-bar {
+      height: 10px;
+      background: var(--gray);
+      border-radius: 5px;
+      margin: 0.5rem 0 1rem;
+      overflow: hidden;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 5px;
+      width: 75%;
+    }
+    
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: var(--dark);
+      opacity: 0.7;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    
+    .stat-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .stat-value {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin: 0.5rem 0;
+    }
+    
+    .streak-calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    
+    .calendar-day {
+      aspect-ratio: 1;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+    }
+    
+    .day-active {
+      background: var(--success);
+      color: white;
+    }
+    
+    .day-inactive {
+      background: var(--gray);
+    }
+    
+    .day-today {
+      border: 2px solid var(--accent);
+    }
+    
+    .achievement-list {
+      margin-top: 1rem;
+    }
+    
+    .achievement {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--gray);
+    }
+    
+    .achievement:last-child {
+      border-bottom: none;
+    }
+    
+    .achievement-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      color: white;
+      font-size: 1.25rem;
+    }
+    
+    .achievement-locked {
+      background: var(--gray);
+      opacity: 0.5;
+    }
+    
+    .achievement-info h4 {
+      margin-bottom: 0.25rem;
+    }
+    
+    .achievement-info p {
+      font-size: 0.9rem;
+      color: var(--dark);
+      opacity: 0.7;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    
+    .badge-success {
+      background: var(--success);
+      color: white;
+    }
+    
+    .badge-warning {
+      background: var(--accent);
+      color: var(--dark);
+    }
+    
+    .badge-secondary {
+      background: var(--gray);
+      color: var(--dark);
+    }
+    
+    .history-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--gray);
+    }
+    
+    .history-item:last-child {
+      border-bottom: none;
+    }
+    
+    .points-earned {
+      font-weight: bold;
+      color: var(--success);
+    }
+    
+    .leaderboard-item {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--gray);
+    }
+    
+    .leaderboard-item:last-child {
+      border-bottom: none;
+    }
+    
+    .position {
+      width: 24px;
+      height: 24px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-right: 0.75rem;
+    }
+    
+    .user-position {
+      background: var(--secondary);
+    }
+    
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--gray);
+      margin-right: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark);
+      font-weight: bold;
+    }
+    
+    .user-name {
+      flex-grow: 1;
+    }
+    
+    .user-points {
+      font-weight: bold;
+    }
+    
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid var(--gray);
+      margin-bottom: 1rem;
+    }
+    
+    .tab {
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+    }
+    
+    .tab-active {
+      border-bottom: 3px solid var(--primary);
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+    
+    .btn-outline {
+      background: white;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background: var(--light);
+    }
+    
+    .recommendation-list {
+      margin-top: 1rem;
+    }
+    
+    .recommendation-item {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--gray);
+    }
+    
+    .recommendation-item:last-child {
+      border-bottom: none;
+    }
+    
+    .chart-container {
+      height: 200px;
+      position: relative;
+      margin-top: 1rem;
+    }
+    
+    .chart-bar {
+      position: absolute;
+      bottom: 0;
+      width: 10%;
+      background: linear-gradient(to top, var(--primary), var(--secondary));
+      border-radius: 4px 4px 0 0;
+    }
+    
+    .chart-label {
+      position: absolute;
+      bottom: -25px;
+      width: 10%;
+      text-align: center;
+      font-size: 0.8rem;
+    }
+    
+    .chart-grid {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .grid-line {
+      width: 100%;
+      height: 1px;
+      background: var(--gray);
+      opacity: 0.5;
+    }
+    
+    .grid-label {
+      position: absolute;
+      left: -35px;
+      font-size: 0.8rem;
+      color: var(--dark);
+      opacity: 0.7;
+    }
+
+    /* Points redeem shop section */
+    .shop-items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .shop-item {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+    
+    .shop-item-image {
+      height: 100px;
+      background: var(--gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark);
+    }
+    
+    .shop-item-body {
+      padding: 1rem;
+    }
+    
+    .shop-item-cost {
+      display: flex;
+      align-items: center;
+      margin-top: 0.5rem;
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    .shop-item-cost span {
+      margin-left: 0.25rem;
+    }
+    
+    /* Subject breakdown section */
+    .subject-progress {
+      margin: 0.75rem 0;
+    }
+    
+    .subject-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    
+    .subject-bar {
+      height: 8px;
+      background: var(--gray);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    /* Weekly goal tracker */
+    .goal-tracker {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    
+    .goal-progress {
+      flex-grow: 1;
+      margin: 0 1rem;
+    }
+    
+    .goal-bar {
+      height: 8px;
+      background: var(--gray);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+    
+    .goal-stats {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: var(--dark);
+      opacity: 0.7;
+    }
+    
+    /* Focus mode button */
+    .focus-button {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--secondary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .focus-button:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">LearnMate</div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="container">
+    <div class="page-title">
+      <h1>Your Points Dashboard</h1>
+      <span class="badge badge-success">Premium Member</span>
+    </div>
+    
+    <div class="dashboard">
+      <div class="left-column">
+        <!-- Points Summary Card -->
+        <div class="card">
+          <div class="points-summary">
+            <h3 class="point-label">TOTAL POINTS</h3>
+            <div class="total-points">3,425</div>
+            <div class="rank">
+              <div class="rank-badge">A+</div>
+              <div class="rank-info">
+                <h3>Advanced Scholar</h3>
+                <p>Top 12% of all users</p>
+              </div>
+            </div>
+            <div class="progress-section">
+              <div class="progress-info">
+                <span>Next Rank: Expert Scholar</span>
+                <span>4,000 pts</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+              <div class="progress-info">
+                <span>575 points to go</span>
+                <span>85%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Weekly Stats -->
+        <div class="card">
+          <div class="card-header">
+            This Week's Progress
+          </div>
+          <div class="card-body">
+            <div class="stats-grid">
+              <div class="stat-card">
+                <p>Points Earned</p>
+                <div class="stat-value">420</div>
+                <span class="badge badge-success">+15% vs last week</span>
+              </div>
+              <div class="stat-card">
+                <p>Questions Solved</p>
+                <div class="stat-value">78</div>
+                <span class="badge badge-warning">-5% vs last week</span>
+              </div>
+              <div class="stat-card">
+                <p>Study Time</p>
+                <div class="stat-value">14.5h</div>
+                <span class="badge badge-success">+2h vs last week</span>
+              </div>
+              <div class="stat-card">
+                <p>Accuracy</p>
+                <div class="stat-value">84%</div>
+                <span class="badge badge-success">+3% vs last week</span>
+              </div>
+            </div>
+            
+            <h4 style="margin-top: 1.5rem;">Daily Streak</h4>
+            <p style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 0.5rem;">You've studied for 12 days in a row! 🔥</p>
+            
+            <div class="streak-calendar">
+              <div class="calendar-day day-active">M</div>
+              <div class="calendar-day day-active">T</div>
+              <div class="calendar-day day-active">W</div>
+              <div class="calendar-day day-active">T</div>
+              <div class="calendar-day day-active">F</div>
+              <div class="calendar-day day-active">S</div>
+              <div class="calendar-day day-active today">S</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Subject Mastery -->
+        <div class="card">
+          <div class="card-header">
+            Subject Mastery
+          </div>
+          <div class="card-body">
+            <div class="subject-progress">
+              <div class="subject-header">
+                <strong>Mathematics</strong>
+                <span>85%</span>
+              </div>
+              <div class="subject-bar">
+                <div class="progress-fill" style="width: 85%"></div>
+              </div>
+            </div>
+            
+            <div class="subject-progress">
+              <div class="subject-header">
+                <strong>Logical Reasoning</strong>
+                <span>92%</span>
+              </div>
+              <div class="subject-bar">
+                <div class="progress-fill" style="width: 92%"></div>
+              </div>
+            </div>
+            
+            <div class="subject-progress">
+              <div class="subject-header">
+                <strong>Verbal Ability</strong>
+                <span>75%</span>
+              </div>
+              <div class="subject-bar">
+                <div class="progress-fill" style="width: 75%"></div>
+              </div>
+            </div>
+            
+            <div class="subject-progress">
+              <div class="subject-header">
+                <strong>Data Interpretation</strong>
+                <span>68%</span>
+              </div>
+              <div class="subject-bar">
+                <div class="progress-fill" style="width: 68%"></div>
+              </div>
+            </div>
+            
+            <div class="subject-progress">
+              <div class="subject-header">
+                <strong>General Knowledge</strong>
+                <span>79%</span>
+              </div>
+              <div class="subject-bar">
+                <div class="progress-fill" style="width: 79%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="right-column">
+        <!-- Performance Tab System -->
+        <div class="card">
+          <div class="tabs">
+            <div class="tab tab-active">Performance</div>
+            <div class="tab">Progress</div>
+            <div class="tab">Insights</div>
+            <div class="tab">Rewards</div>
+          </div>
+          
+          <div class="card-body">
+            <h3>Performance Trends</h3>
+            <p style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 1rem;">Your points earned over the last 7 days</p>
+            
+            <div class="chart-container">
+              <div class="chart-grid">
+                <div class="grid-line"><span class="grid-label">100</span></div>
+                <div class="grid-line"><span class="grid-label">75</span></div>
+                <div class="grid-line"><span class="grid-label">50</span></div>
+                <div class="grid-line"><span class="grid-label">25</span></div>
+                <div class="grid-line"><span class="grid-label">0</span></div>
+              </div>
+              
+              <div class="chart-bar" style="height: 40%; left: 0%;"></div>
+              <div class="chart-label" style="left: 0%;">Mon</div>
+              
+              <div class="chart-bar" style="height: 60%; left: 15%;"></div>
+              <div class="chart-label" style="left: 15%;">Tue</div>
+              
+              <div class="chart-bar" style="height: 45%; left: 30%;"></div>
+              <div class="chart-label" style="left: 30%;">Wed</div>
+              
+              <div class="chart-bar" style="height: 80%; left: 45%;"></div>
+              <div class="chart-label" style="left: 45%;">Thu</div>
+              
+              <div class="chart-bar" style="height: 70%; left: 60%;"></div>
+              <div class="chart-label" style="left: 60%;">Fri</div>
+              
+              <div class="chart-bar" style="height: 55%; left: 75%;"></div>
+              <div class="chart-label" style="left: 75%;">Sat</div>
+              
+              <div class="chart-bar" style="height: 85%; left: 90%;"></div>
+              <div class="chart-label" style="left: 90%;">Sun</div>
+            </div>
+            
+            <h3 style="margin-top: 2.5rem;">Weekly Goal</h3>
+            <div class="goal-tracker">
+              <span>500 pts</span>
+              <div class="goal-progress">
+                <div class="goal-bar">
+                  <div class="progress-fill" style="width: 84%"></div>
+                </div>
+                <div class="goal-stats">
+                  <span>420/500 points</span>
+                  <span>84%</span>
+                </div>
+              </div>
+              <span>+80 pts</span>
+            </div>
+            
+            <div class="action-buttons">
+              <button class="btn btn-primary">View Detailed Analysis</button>
+              <button class="btn btn-outline">Share Progress</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Achievements -->
+        <div class="card">
+          <div class="card-header">
+            Recent Achievements
+          </div>
+          <div class="card-body">
+            <div class="achievement-list">
+              <div class="achievement">
+                <div class="achievement-icon">🏆</div>
+                <div class="achievement-info">
+                  <h4>Math Maestro</h4>
+                  <p>Solve 100 math problems with 90%+ accuracy</p>
+                </div>
+                <span class="badge badge-success">+150 pts</span>
+              </div>
+              
+              <div class="achievement">
+                <div class="achievement-icon">🔥</div>
+                <div class="achievement-info">
+                  <h4>Unstoppable</h4>
+                  <p>10-day study streak achieved</p>
+                </div>
+                <span class="badge badge-success">+100 pts</span>
+              </div>
+              
+              <div class="achievement">
+                <div class="achievement-icon achievement-locked">🚀</div>
+                <div class="achievement-info">
+                  <h4>Speed Demon</h4>
+                  <p>Complete 50 timed quizzes under record time</p>
+                  <div style="margin-top: 0.25rem;">
+                    <div class="progress-bar" style="height: 6px;">
+                      <div class="progress-fill" style="width: 68%;"></div>
+                    </div>
+                    <div style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.25rem;">34/50 completed</div>
+                  </div>
+                </div>
+                <span class="badge badge-secondary">Locked</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Point History -->
+        <div class="card">
+          <div class="card-header">
+            Recent Activity
+          </div>
+          <div class="card-body">
+            <div class="history-item">
+              <div>
+                <strong>Completed Mock Test #12</strong>
+                <p style="font-size: 0.8rem; opacity: 0.7;">Today, 10:45 AM</p>
+              </div>
+              <div class="points-earned">+85 pts</div>
+            </div>
+            
+            <div class="history-item">
+              <div>
+                <strong>Daily Challenge Streak Bonus</strong>
+                <p style="font-size: 0.8rem; opacity: 0.7;">Today, 09:30 AM</p>
+              </div>
+              <div class="points-earned">+20 pts</div>
+            </div>
+            
+            <div class="history-item">
+              <div>
+                <strong>Completed Logical Reasoning Quiz</strong>
+                <p style="font-size: 0.8rem; opacity: 0.7;">Yesterday, 3:15 PM</p>
+              </div>
+              <div class="points-earned">+45 pts</div>
+            </div>
+            
+            <div class="history-item">
+              <div>
+                <strong>Achievement: Math Maestro</strong>
+                <p style="font-size: 0.8rem; opacity: 0.7;">Yesterday, 1:20 PM</p>
+              </div>
+              <div class="points-earned">+150 pts</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Leaderboard -->
+        <div class="card">
+          <div class="card-header">
+            Weekly Leaderboard
+          </div>
+          <div class="card-body">
+            <div class="leaderboard-item">
+              <div class="position">1</div>
+              <div class="avatar">JS</div>
+              <div class="user-name">John Smith</div>
+              <div class="user-points">587 pts</div>
+            </div>
+            
+            <div class="leaderboard-item">
+              <div class="position">2</div>
+              <div class="avatar">AK</div>
+              <div class="user-name">Amanda King</div>
+              <div class="user-points">542 pts</div>
+            </div>
+            
+            <div class="leaderboard-item">
+              <div class="position user-position">3</div>
+              <div class="avatar">YO</div>
+              <div class="user-name">You</div>
+              <div class="user-points">420 pts</div>
+            </div>
+            
+            <div class="leaderboard-item">
+              <div class="position">4</div>
+              <div class="avatar">RJ</div>
+              <div class="user-name">Robert Jones</div>
+              <div class="user-points">405 pts</div>
+            </div>
+            
+            <div class="leaderboard-item">
+              <div class="position">5</div>
+              <div class="avatar">LM</div>
+              <div class="user-name">Lisa Miller</div>
+              <div class="user-points">389 pts</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Points Shop -->
+        <div class="card">
+          <div class="card-header">
+            Redeem Your Points
+          </div>
+          <div class="card-body">
+            <p>Use your hard-earned points to unlock premium content and features</p>
+            
+            <div class="shop-items">
+              <div class="shop-item">
+                <div class="shop-item-image">
+                  <strong>📚</strong>
+                </div>
+                <div class="shop-item-body">
+                  <h4>Premium Question Bank</h4>
+                  <p style="font-size: 0.9rem; opacity: 0.7;">1000+ advanced aptitude questions</p>
+                  <div class="shop-item-cost">
+                    <strong>500</strong><span>points</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="shop-item">
+                <div class="shop-item-image">
+                  <strong>🎓</strong>
+                </div>
+                <div class="shop-item-body">
+                  <h4>Expert Session</h4>
+                  <p style="font-size: 0.9rem; opacity: 0.7;">30-min one-on-one coaching session</p>
+                  <div class="shop-item-cost">
+                    <strong>750</strong><span>points</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="shop-item">
+                <div class="shop-item-image">
+                  <strong>⏱️</strong>
+                </div>
+                <div class="shop-item-body">
+                  <h4>Time Extension</h4>
+                  <p style="font-size: 0.9rem; opacity: 0.7;">+5 minutes on timed tests (5 uses)</p>
+                  <div class="shop-item-cost">
+                    <strong>250</strong><span>points</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="shop-item">
+                <div class="shop-item-image">
+                  <strong>🛡️</strong>
+                </div>
+                <div class="shop-item-body">
+                  <h4>Mistake Shield</h4>
+                  <p style="font-size: 0.9rem; opacity: 0.7;">Prevents accuracy drops (3 uses)</p>
+                  <div class="shop-item-cost">
+                    <strong>300</strong><span>points</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="action-buttons" style="margin-top: 1.5rem;">
+              <button class="btn btn-primary">Visit Rewards Shop</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Personalized Recommendations -->
+        <div class="card">
+          <div class="card-header">
+            Personalized Recommendations
+          </div>
+          <div class="card-body">
+            <p>Based on your performance, here are some areas to focus on:</p>
+            
+            <div class="recommendation-list">
+              <div class="recommendation-item">
+                <h4>Data Interpretation</h4>
+                <p style="font-size: 0.9rem; opacity: 0.7;">Your weakest subject (68% mastery). Try our new practice sets.</p>
+                <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+                  <span class="badge badge-warning">Improvement needed</span>
+                  <a href="#" style="color: var(--primary); font-weight: bold;">Practice Now</a>
+                </div>
+              </div>
+              
+              <div class="recommendation-item">
+                <h4>Speed Improvement</h4>
+                <p style="font-size: 0.9rem; opacity: 0.7;">You're taking 15% longer than average on math problems.</p>
+                <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+                  <span class="badge badge-warning">Improvement needed</span>
+                  <a href="#" style="color: var(--primary); font-weight: bold;">Take Speed Quiz</a>
+                </div>
+              </div>
+              
+              <div class="recommendation-item">
+                <h4>Verbal Reasoning</h4>
+                <p style="font-size: 0.9rem; opacity: 0.7;">Complete 2 more quizzes to unlock next achievement.</p>
+                <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+                  <span class="badge badge-success">Almost there!</span>
+                  <a href="#" style="color: var(--primary); font-weight: bold;">Continue</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Points Forecast -->
+        <div class="card">
+          <div class="card-header">
+            Points Forecast
+          </div>
+          <div class="card-body">
+            <p>If you maintain your current pace, here's your projected growth:</p>
+            
+            <div style="display: flex; align-items: center; margin: 1.5rem 0; justify-content: space-between;">
+              <div style="text-align: center;">
+                <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">4,105</div>
+                <p style="font-size: 0.9rem; opacity: 0.7;">End of month</p>
+              </div>
+              
+              <div style="text-align: center;">
+                <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">5,250</div>
+                <p style="font-size: 0.9rem; opacity: 0.7;">In 3 months</p>
+              </div>
+              
+              <div style="text-align: center;">
+                <div style="font-size: 1.5rem; font-weight: bold; color: var(--primary);">7,800</div>
+                <p style="font-size: 0.9rem; opacity: 0.7;">In 6 months</p>
+              </div>
+            </div>
+            
+            <div style="font-size: 0.9rem; background: var(--light); padding: 1rem; border-radius: 8px;">
+              <strong>Pro Tip:</strong> Increasing your daily study time by just 15 minutes could help you reach Expert Scholar rank 2 weeks sooner!
+            </div>
+          </div>
+        </div>
+        
+        <!-- Points Breakdown -->
+        <div class="card">
+          <div class="card-header">
+            Points Breakdown
+          </div>
+          <div class="card-body">
+            <div style="display: flex; margin-bottom: 1.5rem;">
+              <div style="flex: 1; padding-right: 1rem;">
+                <h4>How You Earn Points</h4>
+                <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                  <li>Completing quizzes and tests</li>
+                  <li>Maintaining daily streaks</li>
+                  <li>Unlocking achievements</li>
+                  <li>Weekly challenge completion</li>
+                  <li>Accuracy bonuses</li>
+                </ul>
+              </div>
+              
+              <div style="flex: 1; padding-left: 1rem; border-left: 1px solid var(--gray);">
+                <h4>This Month's Breakdown</h4>
+                <div style="margin-top: 1rem;">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>Quizzes & Tests</span>
+                    <strong>645 pts (48%)</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>Achievements</span>
+                    <strong>350 pts (26%)</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>Daily Streaks</span>
+                    <strong>200 pts (15%)</strong>
+                  </div>
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>Challenges</span>
+                    <strong>150 pts (11%)</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Point Milestones -->
+        <div class="card">
+          <div class="card-header">
+            Point Milestones
+          </div>
+          <div class="card-body">
+            <div style="position: relative; padding: 20px 0;">
+              <div style="height: 6px; background: var(--gray); position: relative; margin: 0 40px;">
+                <div style="position: absolute; width: 20px; height: 20px; background: var(--success); border-radius: 50%; top: -7px; left: 0%; transform: translateX(-50%);"></div>
+                <div style="position: absolute; width: 20px; height: 20px; background: var(--success); border-radius: 50%; top: -7px; left: 25%; transform: translateX(-50%);"></div>
+                <div style="position: absolute; width: 20px; height: 20px; background: var(--success); border-radius: 50%; top: -7px; left: 50%; transform: translateX(-50%);"></div>
+                <div style="position: absolute; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; top: -7px; left: 75%; transform: translateX(-50%);"></div>
+                <div style="position: absolute; width: 20px; height: 20px; background: var(--gray); border-radius: 50%; top: -7px; left: 100%; transform: translateX(-50%);"></div>
+                <div style="position: absolute; height: 100%; width: 75%; background: var(--success);"></div>
+              </div>
+              
+              <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+                <div style="text-align: center; width: 20%;">
+                  <div style="font-weight: bold;">1,000</div>
+                  <div style="font-size: 0.8rem; opacity: 0.7;">Beginner</div>
+                </div>
+                <div style="text-align: center; width: 20%;">
+                  <div style="font-weight: bold;">2,000</div>
+                  <div style="font-size: 0.8rem; opacity: 0.7;">Intermediate</div>
+                </div>
+                <div style="text-align: center; width: 20%;">
+                  <div style="font-weight: bold;">3,000</div>
+                  <div style="font-size: 0.8rem; opacity: 0.7;">Advanced</div>
+                </div>
+                <div style="text-align: center; width: 20%;">
+                  <div style="font-weight: bold;">4,000</div>
+                  <div style="font-size: 0.8rem; opacity: 0.7;">Expert</div>
+                </div>
+                <div style="text-align: center; width: 20%;">
+                  <div style="font-weight: bold;">5,000</div>
+                  <div style="font-size: 0.8rem; opacity: 0.7;">Master</div>
+                </div>
+              </div>
+            </div>
+            
+            <div style="margin-top: 1.5rem; text-align: center;">
+              <div style="font-size: 0.9rem; opacity: 0.7;">You're 575 points away from Expert Scholar rank</div>
+              <div style="margin-top: 0.5rem;">
+                <span class="badge badge-success">On track to reach in 4 weeks</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="focus-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+    </svg>
+  </div>
+</body>
+</html>

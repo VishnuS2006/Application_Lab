@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Interpretation Quiz - LearnMate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="Style1.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">
+            <h1>Data Interpretation Quiz</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href = "Course.html">Courses</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="courses" id="quiz-container">
+        <h2>Data Interpretation</h2>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 LearnMate. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        
+        const quizData = [
+            {
+                question: "A bar graph shows fruit sales: Apples (120), Oranges (80), Bananas (60). What percentage were oranges?",
+                options: shuffleArray(["25%", "30.77%", "33.33%", "40%"]),
+                correctAnswer: "30.77%",
+                explanation: "Total sales = 120+80+60 = 260. Orange percentage = (80/260)×100 ≈ 30.77%"
+            },
+            {
+                question: "A bar graph shows quarterly profits: Q1: $50k, Q2: $70k, Q3: $60k, Q4: $90k. What's the average?",
+                options: shuffleArray(["$60k", "$67.5k", "$70k", "$72.5k"]),
+                correctAnswer: "$67.5k",
+                explanation: "Average = (50+70+60+90)/4 = 270/4 = $67.5k"
+            },
+            {
+                question: "A bar graph shows test scores: A:15, B:25, C:10, D:5. What percentage scored B or better?",
+                options: shuffleArray(["40%", "50%", "66.67%", "75%"]),
+                correctAnswer: "66.67%",
+                explanation: "B or better = A+B = 40. Total = 55. Percentage = (40/55)×100 ≈ 66.67%"
+            },
+            {
+                question: "A bar graph shows car colors: Red:12, Blue:18, Black:25. What's the probability a random car is black?",
+                options: shuffleArray(["1/3", "5/11", "1/2", "7/12"]),
+                correctAnswer: "5/11",
+                explanation: "Total cars = 12+18+25 = 55. Probability = 25/55 = 5/11"
+            },
+            {
+                question: "A bar graph shows monthly rainfall: Jan:20mm, Feb:30mm, Mar:40mm. What's the Jan:Mar ratio?",
+                options: shuffleArray(["1:2", "2:3", "3:4", "4:5"]),
+                correctAnswer: "1:2",
+                explanation: "January:March = 20:40 = 1:2"
+            },
+            {
+                question: "A bar graph shows smartphone users by age: 18-25:40%, 26-35:30%. If total users=5000, how many are 26-35?",
+                options: shuffleArray(["1000", "1500", "2000", "2500"]),
+                correctAnswer: "1500",
+                explanation: "26-35 users = 30% of 5000 = 1500"
+            },
+            {
+                question: "A bar graph shows quarterly revenue growth from $200k to $350k. What's the percentage increase?",
+                options: shuffleArray(["50%", "75%", "100%", "150%"]),
+                correctAnswer: "75%",
+                explanation: "Increase = 350-200 = 150k. Percentage = (150/200)×100 = 75%"
+            },
+            {
+                question: "A bar graph shows store visitors: Mon:150, Tue:200, Wed:250. What's the mean daily visitors?",
+                options: shuffleArray(["150", "200", "250", "300"]),
+                correctAnswer: "200",
+                explanation: "Mean = (150+200+250)/3 = 600/3 = 200"
+            },
+            {
+                question: "A bar graph shows energy sources: Coal:40%, Gas:30%, Nuclear:20%. If total=500MW, how much is non-renewable?",
+                options: shuffleArray(["350MW", "400MW", "450MW", "500MW"]),
+                correctAnswer: "450MW",
+                explanation: "Non-renewable = Coal+Gas+Nuclear = 90% of 500MW = 450MW"
+            },
+            {
+                question: "A bar graph shows app downloads: Jan:1000, Feb:1500, Mar:2000. If trend continues, what's April's projection?",
+                options: shuffleArray(["2250", "2500", "2750", "3000"]),
+                correctAnswer: "2500",
+                explanation: "Monthly increase of 500. March had 2000, so April would have 2500"
+            },
+            {
+                question: "A bar graph shows website traffic sources: Direct:35%, Social:25%, Email:20%, Referral:20%. What's the ratio of Social to Direct traffic?",
+                options: shuffleArray(["5:7", "3:5", "4:7", "2:5"]),
+                correctAnswer: "5:7",
+                explanation: "Social:Direct = 25:35 = 5:7 (simplified)"
+            },
+            {
+                question: "A bar graph shows monthly expenses: Rent:$1200, Food:$800, Utilities:$300, Transport:$400. What percentage is spent on rent?",
+                options: shuffleArray(["40%", "44.44%", "50%", "55.55%"]),
+                correctAnswer: "44.44%",
+                explanation: "Total expenses = 1200+800+300+400 = 2700. Rent percentage = (1200/2700)×100 ≈ 44.44%"
+            },
+            {
+                question: "A bar graph shows book sales by genre: Fiction:450, Non-fiction:300, Mystery:250. If total sales were 2000, what percentage were other genres?",
+                options: shuffleArray(["40%", "45%", "50%", "55%"]),
+                correctAnswer: "50%",
+                explanation: "Shown genres = 450+300+250 = 1000. Other genres = 2000-1000 = 1000. Percentage = (1000/2000)×100 = 50%"
+            },
+            {
+                question: "A bar graph shows company departments: Sales:45, HR:15, IT:30, Finance:20. What's the ratio of IT to HR employees?",
+                options: shuffleArray(["1:2", "2:1", "3:1", "4:1"]),
+                correctAnswer: "2:1",
+                explanation: "IT:HR = 30:15 = 2:1 (simplified)"
+            },
+            {
+                question: "A bar graph shows city populations: A:1.2m, B:0.9m, C:0.6m, D:0.3m. What's the combined population of cities B and D?",
+                options: shuffleArray(["1.0m", "1.1m", "1.2m", "1.3m"]),
+                correctAnswer: "1.2m",
+                explanation: "B + D = 0.9m + 0.3m = 1.2m"
+            },
+            {
+                question: "A bar graph shows monthly expenses vs income: Expenses:$3000, Income:$4500. What percentage of income is saved?",
+                options: shuffleArray(["25%", "33.33%", "40%", "50%"]),
+                correctAnswer: "33.33%",
+                explanation: "Savings = 4500-3000 = 1500. Percentage = (1500/4500)×100 ≈ 33.33%"
+            },
+            {
+                question: "A bar graph shows product ratings: 5★:120, 4★:80, 3★:40. What's the average rating?",
+                options: shuffleArray(["4.2", "4.3", "4.4", "4.5"]),
+                correctAnswer: "4.3",
+                explanation: "Total ratings = 120+80+40 = 240. Weighted sum = (5×120)+(4×80)+(3×40) = 600+320+120 = 1040. Average = 1040/240 ≈ 4.33 (rounded to 4.3)"
+            },
+            {
+                question: "A bar graph shows project hours: Planning:40, Coding:120, Testing:80. What's the ratio of Coding to total hours?",
+                options: shuffleArray(["1:2", "2:3", "3:5", "4:5"]),
+                correctAnswer: "1:2",
+                explanation: "Total hours = 40+120+80 = 240. Coding:Total = 120:240 = 1:2 (simplified)"
+            },
+            {
+                question: "A bar graph shows car sales by model: A:25, B:35, C:40. If total sales were 150, what percentage were other models?",
+                options: shuffleArray(["25%", "30%", "33.33%", "40%"]),
+                correctAnswer: "33.33%",
+                explanation: "Shown models = 25+35+40 = 100. Other models = 150-100 = 50. Percentage = (50/150)×100 ≈ 33.33%"
+            }
+        ];
+
+        const quizContainer = document.getElementById('quiz-container');
+
+        function generateQuiz() {
+            quizData.forEach((questionData, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('course-card');
+                questionDiv.id = `question-${index + 1}`;
+
+                const questionTitle = document.createElement('h4');
+                questionTitle.textContent = `${index + 1}. ${questionData.question}`;
+                questionDiv.appendChild(questionTitle);
+
+                const optionsContainer = document.createElement('div');
+                optionsContainer.classList.add('options-container');
+
+                questionData.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.style.color = "white";
+                    button.style.fontWeight = "bolder";
+                    button.classList.add('option-btn');
+                    button.textContent = option;
+                    button.dataset.correct = (option.trim() === questionData.correctAnswer.trim());
+                    button.addEventListener('click', function() {
+                        checkAnswer(this, questionData.explanation, questionDiv);
+                    });
+                    optionsContainer.appendChild(button);
+                });
+                questionDiv.appendChild(optionsContainer);
+
+                const resultContainer = document.createElement('div');
+                resultContainer.classList.add('result-container');
+                resultContainer.id = `explanation-${index + 1}`;
+                resultContainer.style.display = 'none';
+                questionDiv.appendChild(resultContainer);
+
+                quizContainer.appendChild(questionDiv);
+            });
+        }
+
+        function checkAnswer(buttonElement, explanation, questionDiv) {
+            const resultDiv = questionDiv.querySelector('.result-container');
+            const optionButtons = questionDiv.querySelectorAll('.option-btn');
+            const isCorrect = buttonElement.dataset.correct === 'true';
+
+            if (isCorrect) {
+                optionButtons.forEach(btn => btn.disabled = true);
+                buttonElement.classList.add('correct');
+                resultDiv.classList.add('correct-answer');
+                resultDiv.innerHTML = `✅ <strong>Correct Answer!</strong><br><br><em>Explanation:</em> ${explanation}`;
+                resultDiv.style.display = 'block';
+            } else {
+                buttonElement.classList.add('wrong');
+            }
+        }
+
+        // Generate the quiz when the page loads
+        window.onload = function() {
+            generateQuiz();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Probability Quiz - LearnMate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="Style1.css">
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="logo">
+            <h1> Probability</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href = "Course.html">Courses</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="courses" id="quiz-container">
+        <h2>Probability Questions</h2>
+    </section>
+
+    <div class="quick-links-container">
+        <h2>Quick Links</h2>
+        <div class="quick-links-grid">
+            <div class="quick-links-column">
+                <h3><i class="fas fa-calculator"></i><a href="/Courses/Maths.html">Maths</a></h3>
+                <ul>
+                    <li><a href="/Courses/Maths.html">Complex Numbers</a></li>
+                    <li><a href="">Mensuration</a></li>
+                    <li><a href="">Number Systems</a></li>
+                    <li><a href="">Simple Interest</a></li>
+                </ul>
+            </div> 
+            <div class="quick-links-column">
+                <h3><i class="fas fa-puzzle-piece"></i><a href="">Logical Reasoning</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Blood Relations</a></li>
+                    <li><a href="">Direction Sense Test</a></li>
+                    <li><a href="">Coding - Decoding</a></li>
+                    <li><a href="">Syllogism</a></li>
+                    <li><a href="">Seating Arrangement</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-book-open"></i><a href="">Verbal (English)</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Synonyms & Antonyms</a></li>
+                    <li><a href="">Reading Comprehension</a></li>
+                    <li><a href="">Error Spotting</a></li>
+                    <li><a href="">Sentence Correction</a></li>
+                    <li><a href="">Para Jumbles</a></li>
+                </ul>
+            </div>
+            
+            <div class="quick-links-column">
+                <h3><i class="fas fa-code"></i><a href="">Data Interpretation & Data Sufficiency</a></h3>
+                <ul class="quick_link">
+                    <li><a href="/Courses/DIDS.html">Data Interpretation</a></li>
+                    <li><a href="/Courses/DIDS.html">Data Sufficiency</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-microphone"></i><a href="">General Knowledge</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Geography</a></li>
+                    <li><a href="">Current Affairs</a></li>
+                    <li><a href="">Indian History</a></li>
+                    <li><a href="">World History</a></li>
+                    <li><a href="">Science and Technology</a></li>
+                </ul>
+            </div>
+            <div class="quick-links-column">
+                <h3><i class="fas fa-file-alt"></i><a href="">Technical Aptitude</a></h3>
+                <ul class="quick_link">
+                    <li><a href="">Quantitative Aptitude</a></li>
+                    <li><a href="">Logical Reasoning</a></li>
+                    <li><a href="">Verbal Reasoning</a></li>
+                    <li><a href="">Programming Languages</a></li>
+                    <li><a href="">Data Structures and Algorithms</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 LearnMate. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        
+        const quizData = [
+            {
+                question: "Tickets numbered 1 to 20 are mixed up and a ticket is drawn at random. What is the probability that the number drawn is a multiple of 3 or 5?",
+                options: shuffleArray(["1/2", "2/5", "8/15", "9/20"]),
+                correctAnswer: "9/20",
+                explanation: "Multiples of 3: {3, 6, 9, 12, 15, 18}<br>Multiples of 5: {5, 10, 15, 20}<br>Overlap: {15} counted once → 6 + 4 - 1 = 9 favorable outcomes<br>Total = 20 ⇒ Probability = 9/20"
+            },
+            {
+                question: "A bag contains 5 red balls, 3 blue balls, and 2 green balls. If one ball is drawn at random, what is the probability that it is blue?",
+                options: shuffleArray(["1/2", "4/2", "3/10", "8/15"]),
+                correctAnswer: "3/10",
+                explanation: "Total balls = 5 (red) + 3 (blue) + 2 (green) = 10 balls.<br>Number of blue balls = 3.<br>Probability of drawing a blue ball = (Number of blue balls) / (Total number of balls) = 3/10."
+            },
+            {
+                question: "A fair six-sided die is rolled. What is the probability of getting an even number?",
+                options: shuffleArray(["1/2", "4/16", "9/3", "7/8"]),
+                correctAnswer: "1/2",
+                explanation: "Step 1: Find the total number of possible outcomes. Possible outcomes = {1, 2, 3, 4, 5, 6} = 6 outcomes Step 2: Find the number of favorable outcomes (getting an even number). Even numbers = {2, 4, 6} = 3 outcomes Step 3: Calculate the probability. Probability (Even) = (Number of even outcomes) / (Total number of outcomes) = 3/6 = 1/2"
+            },
+            {
+                question: "Two fair coins are tossed. What is the probability of getting at least one head?",
+                options: shuffleArray(["5/2", "3/9", "3/4", "4/5"]),
+                correctAnswer: "3/4",
+                explanation: "Explanation: When two fair coins are tossed, the possible outcomes are {HH, HT, TH, TT}, where H represents a head and T represents a tail. There are 4 equally likely outcomes. At least one head means one or more heads, so the favorable outcomes are {HH, HT, TH}, which are 3 outcomes. The probability is 3/4"
+            },
+            {
+                question: "A card is drawn at random from a standard deck of 52 cards. What is the probability that it is a king?",
+                options: shuffleArray(["5/4", "1/13", "5/8", "6/4"]),
+                correctAnswer: "1/13",
+                explanation: "A standard deck of 52 cards contains 4 suits (hearts, diamonds, clubs, spades), and each suit has one king. Therefore, there are 4 kings in the deck. When one card is drawn at random, there are 52 possible outcomes. The probability of drawing a king is the number of kings divided by the total number of cards,4/52=1/13"
+            },
+            {
+                question: "What is the probability that a randomly chosen month of the year has 31 days?",
+                options: shuffleArray(["1/3", "5/12", "7/12", "2/3"]),
+                correctAnswer: "7/12",
+                explanation: "7 months have 31 days out of 12 total months."
+            },
+            {
+                question: "In a class of 30 students, 12 play football and 15 play cricket. If 5 students play both, what is the probability that a randomly chosen student plays at least one of the games?",
+                options: shuffleArray(["1/2", "2/5", "11/15", "7/10"]),
+                correctAnswer: "11/15",
+                explanation: "Number playing at least one = 12 + 15 - 5 = 22. Probability = 22/30 = 11/15."
+            },
+            {
+                question: "A letter is chosen at random from the word 'PROBABILITY'. What is the probability that the letter is a vowel?",
+                options: shuffleArray(["2/11", "3/11", "4/11", "5/11"]),
+                correctAnswer: "4/11",
+                explanation: "The word has 11 letters, and there are 4 vowels (O, A, I, I)."
+            },
+            {
+                question: "A spinner with 4 equal sections labeled 1, 2, 3, and 4 is spun. What is the probability of landing on an odd number?",
+                options: shuffleArray(["1/4", "1/3", "1/2", "2/3"]),
+                correctAnswer: "1/2",
+                explanation: "2 odd numbers (1, 3) out of 4 total sections."
+            },
+            {
+                question: "If two dice are rolled, what is the probability that the sum of the numbers rolled is 7?",
+                options: shuffleArray(["1/9", "1/6", "1/4", "1/3"]),
+                correctAnswer: "1/6",
+                explanation: "6 combinations sum to 7 out of 36 total combinations."
+            },
+            {
+                question: "A box contains 10 light bulbs, of which 3 are defective. If two bulbs are chosen at random without replacement, what is the probability that both are defective?",
+                options: shuffleArray(["3/10", "1/3", "1/15", "2/9"]),
+                correctAnswer: "1/15",
+                explanation: "P(1st defective) = 3/10, P(2nd defective | 1st defective) = 2/9. Product is 1/15."
+            },
+            {
+                question: "What is the probability that a leap year chosen at random will have 53 Sundays?",
+                options: shuffleArray(["1/7", "2/7", "3/7", "4/7"]),
+                correctAnswer: "2/7",
+                explanation: "2 extra days in a leap year have 7 possible combinations, 2 of which include a Sunday."
+            },
+            {
+                question: "A committee of 3 people is to be chosen at random from a group of 5 men and 4 women. What is the probability that the committee consists of 2 men and 1 woman?",
+                options: shuffleArray(["1/3", "10/21", "1/2", "2/3"]),
+                correctAnswer: "10/21",
+                explanation: "C(5, 2) * C(4, 1) / C(9, 3) = 10 * 4 / 84 = 40/84 = 10/21."
+            },
+            {
+                question: "The probability that event A occurs is 0.6, and the probability that event B occurs is 0.5. If A and B are independent events, what is the probability that both A and B occur?",
+                options: shuffleArray(["0.1", "0.2", "0.3", "0.4"]),
+                correctAnswer: "0.3",
+                explanation: "P(A and B) = P(A) * P(B) = 0.6 * 0.5 = 0.3."
+            },
+            {
+                question: "If a fair coin is tossed 3 times, what is the probability of getting exactly two tails?",
+                options: shuffleArray(["1/8", "1/4", "3/8", "1/2"]),
+                correctAnswer: "3/8",
+                explanation: "3 outcomes with exactly two tails (HTT, THT, TTH) out of 8 total."
+            },
+            {
+                question: "A number is chosen at random from the integers 1 to 50. What is the probability that the number is a prime number?",
+                options: shuffleArray(["1/4", "3/10", "7/25", "8/25"]),
+                correctAnswer: "3/10",
+                explanation: "15 prime numbers between 1 and 50. Probability = 15/50 = 3/10."
+            },
+            {
+                question: "A bag contains 7 white marbles and 4 black marbles. Two marbles are drawn at random with replacement. What is the probability that the first is white and the second is black?",
+                options: shuffleArray(["7/11", "4/11", "28/121", "11/28"]),
+                correctAnswer: "28/121",
+                explanation: "P(1st white) = 7/11, P(2nd black) = 4/11. Product is 28/121."
+            },
+            {
+                question: "The probability that it rains on any given day in Tenkasi during the monsoon season is 0.7. What is the probability that it does not rain on a particular day?",
+                options: shuffleArray(["0.1", "0.2", "0.3", "0.4"]),
+                correctAnswer: "0.3",
+                explanation: "P(No rain) = 1 - P(Rain) = 1 - 0.7 = 0.3."
+            },
+            {
+                question: "From the letters of the word 'STATISTICS', if a letter is chosen at random, what is the probability that it is 'S'?",
+                options: shuffleArray(["1/5", "3/10", "2/5", "1/2"]),
+                correctAnswer: "3/10",
+                explanation: "3 'S' letters out of 10 total letters."
+            },
+            {
+                question: "Two cards are drawn without replacement from the first four cards (Ace, 2, 3, 4) of a standard deck. What is the probability that the first card is an Ace and the second card is a 4?",
+                options: shuffleArray(["1/4", "1/3", "1/12", "1/6"]),
+                correctAnswer: "1/12",
+                explanation: "P(Ace first) = 1/4, P(4 second | Ace first) = 1/3. Product is 1/12."
+            },
+            {
+                question: "In a survey, it was found that 60% of people like coffee, 50% like tea, and 30% like both. What is the probability that a randomly selected person likes either coffee or tea?",
+                options: shuffleArray(["0.2", "0.5", "0.8", "1.1"]),
+                correctAnswer: "0.8",
+                explanation: "P(Coffee or Tea) = P(Coffee) + P(Tea) - P(Coffee and Tea) = 0.6 + 0.5 - 0.3 = 0.8."
+            },
+        ];
+
+        const quizContainer = document.getElementById('quiz-container');
+
+        function generateQuiz() {
+            quizData.forEach((questionData, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('course-card');
+                questionDiv.id = `question-${index + 1}`;
+
+                const questionTitle = document.createElement('h4');
+                questionTitle.textContent = `${index + 1}. ${questionData.question}`;
+                questionDiv.appendChild(questionTitle);
+
+                const optionsContainer = document.createElement('div');
+                optionsContainer.classList.add('options-container');
+
+                questionData.options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.style.color = "white";
+                    button.style.fontWeight = "bolder";
+                    button.classList.add('option-btn');
+                    button.textContent = option;
+                    button.dataset.correct = (option.trim() === questionData.correctAnswer.trim());
+                    button.addEventListener('click', function() {
+                        checkAnswer(this, questionData.explanation, questionDiv);
+                    });
+                    optionsContainer.appendChild(button);
+                });
+                questionDiv.appendChild(optionsContainer);
+
+                const resultContainer = document.createElement('div');
+                resultContainer.classList.add('result-container');
+                resultContainer.id = `explanation-${index + 1}`;
+                resultContainer.style.display = 'none';
+                questionDiv.appendChild(resultContainer);
+
+                quizContainer.appendChild(questionDiv);
+            });
+        }
+
+        function checkAnswer(buttonElement, explanation, questionDiv) {
+            const resultDiv = questionDiv.querySelector('.result-container');
+            const optionButtons = questionDiv.querySelectorAll('.option-btn');
+            const isCorrect = buttonElement.dataset.correct === 'true';
+
+            if (isCorrect) {
+                optionButtons.forEach(btn => btn.disabled = true);
+                buttonElement.classList.add('correct');
+                resultDiv.classList.add('correct-answer');
+                resultDiv.innerHTML = `✅ <strong>Correct Answer!</strong><br><br><em><strong>Explanation:</strong></em> ${explanation}`;
+                resultDiv.style.display = 'block';
+            } else {
+                buttonElement.classList.add('wrong');
+            }
+        }
+
+        generateQuiz();
+    </script>
+</body>
+</html>

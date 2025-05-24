@@ -1,208 +1,233 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Contact Us - LearnMate</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
-    <style>
-       
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f8f8;
-            margin: 0;
-            padding: 0;
-            transition: background-color 0.3s ease;
-            opacity: 0;
-            animation: fadeIn 2.5s forwards; 
-            background: linear-gradient(90deg, #004e92, #ffffff);
-        }
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    </head>
+    <body class="bg-gradient-to-br from-blue-100 via-white to-blue-200 min-h-screen">
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        nav {
-            background:linear-gradient(to right, #00c6ff, #0072ff, #004e92);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s ease;
-        }
-
-        nav .logo h1 {
-            color: rgb(4, 4, 4);
-            font-size: 2rem;
-            margin: 0;
-            animation:pulseGlow 3s infinite ease-in-out ;
-        }
-        @keyframes pulseGlow {
-            0% { transform: scale(1); text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
-            50% { transform: scale(1.05); text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); }
-            100% { transform: scale(1); text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
-    }
-
-        nav .nav-links {
-            list-style: none;
-            display: flex;
-        }
-
-        nav .nav-links li {
-            margin-left: 25px;
-        }
-
-        nav .nav-links li a {
-            text-decoration: none;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        nav .nav-links li a:hover {
-            color: #ff7f50;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 30px;
-            background: rgb(255, 255, 255);
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .contact-form:hover {
-            transform: scale(1.05);
-        }
-
-        .contact-form h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 24px;
-            transition: font-size 0.3s ease;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .contact-form input:focus, .contact-form textarea:focus {
-            border-color: #0072ff;
-            box-shadow: 0 0 5px rgba(0, 114, 255, 0.5);
-        }
-
-        .contact-form button {
-            width: 100%;
-            padding: 12px;
-            background-color: #0072ff;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .contact-form button:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #2b3e50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            transition: background-color 0.3s ease;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: #ff7f50;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="logo">
-            <h1>LearnMate</h1>
+    <nav class="bg-gradient-to-r from-cyan-400 via-blue-500 to-blue-900 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            
+            <div class="flex-shrink-0 flex items-center">
+            <span class="text-2xl font-extrabold text-white drop-shadow-lg tracking-wide animate-pulse">LearnMate</span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+            <a href="home.html" class="text-white text-lg font-medium hover:text-yellow-300 transition">Home</a>
+            <a href="About.html" class="text-white text-lg font-medium hover:text-yellow-300 transition">About</a>
+            <a href="Contact.html" class="text-white text-lg font-medium hover:text-yellow-300 transition">Contact</a>
+            </div>
+           
+            <div class="md:hidden flex items-center">
+            <button id="mobile-menu-button" class="text-white focus:outline-none text-2xl">
+                <i class="fa fa-bars"></i>
+            </button>
+            </div>
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+        </div>
+      
+       
     </nav>
 
-    <!-- Contact Form Section -->
-    <div class="contact-form">
-        <h2>Contact Us</h2>
-        <form id="contactForm" method="POST" action="http://localhost:3000/send-email">
-            <input type="text" name="name" id="name" placeholder="Your Name" required>
-            <input type="email" name="email" id="email" placeholder="Your Email" required>
-            <input type="text" name="subject" id="subject" placeholder="Subject" required>
-            <textarea name="message" id="message" rows="4" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        
-    </div>
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-10">
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+        <!-- Contact Form -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 animate-fade-in">
+            <h2 class="text-3xl font-bold text-blue-800 mb-2">Contact Us</h2>
+            <p class="text-gray-500 mb-6">We'd love to hear from you! Fill out the form and we'll get back to you soon.</p>
+            <form id="contactForm" class="space-y-5" autocomplete="off">
+            <div>
+                <label class="block text-gray-700 font-medium mb-1" for="name">Name</label>
+                <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-blue-400">
+                    <i class="fa fa-user"></i>
+                </span>
+                <input id="name" name="name" type="text" class="pl-10 pr-4 py-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition" placeholder="Your Name"/>
+                </div>
+                <span id="nameError" class="text-red-500 text-sm hidden">Please enter your name</span>
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1" for="email">Email</label>
+                <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-blue-400">
+                    <i class="fa fa-envelope"></i>
+                </span>
+                <input id="email" name="email" type="email" class="pl-10 pr-4 py-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition" placeholder="you@example.com"/>
+                </div>
+                <span id="emailError" class="text-red-500 text-sm hidden">Please enter a valid email</span>
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1" for="subject">Subject</label>
+                <div class="relative">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-blue-400">
+                    <i class="fa fa-tag"></i>
+                </span>
+                <input id="subject" name="subject" type="text" class="pl-10 pr-4 py-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition" placeholder="Subject"/>
+                </div>
+                <span id="subjectError" class="text-red-500 text-sm hidden">Please enter a subject</span>
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1" for="message">Message</label>
+                <div class="relative">
+                <span class="absolute left-3 top-4 text-blue-400">
+                    <i class="fa fa-comment"></i>
+                </span>
+                <textarea id="message" name="message" rows="4" class="pl-10 pr-4 py-3 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent transition" placeholder="Type your message..."></textarea>
+                </div>
+                <span id="messageError" class="text-red-500 text-sm hidden">Please enter your message</span>
+            </div>
+            <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white py-3 rounded-lg font-semibold text-lg hover:from-cyan-400 hover:to-blue-700 transition flex items-center justify-center gap-2">
+                <i class="fa fa-paper-plane"></i> Send Message
+            </button>
+            <div id="formStatus" class="text-center text-green-600 font-medium mt-2"></div>
+            </form>
+        </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 LearnMate. All rights reserved. <a href="#">Privacy Policy</a></p>
+        <!-- Contact Info & Map -->
+        <div class="space-y-8">
+            <!-- PSG College Info -->
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+            <h3 class="text-2xl font-bold text-blue-800 mb-4">PSG College of Technology, Coimbatore</h3>
+            <div class="flex items-start mb-3">
+                <span class="text-blue-500 text-2xl mr-3"><i class="fa fa-location-dot"></i></span>
+                <div>
+                <span class="font-medium text-gray-700">Address:</span>
+                <p class="text-gray-600">
+                    Post Box No. 1611, Peelamedu,<br>
+                    Coimbatore - 641004, Tamil Nadu, India
+                </p>
+                </div>
+            </div>
+            <div class="flex items-center mb-3">
+                <span class="text-blue-500 text-xl mr-3"><i class="fa fa-phone"></i></span>
+                <span class="text-gray-600">+91 9952606897</span>
+            </div>
+            <div class="flex items-center mb-3">
+                <span class="text-blue-500 text-xl mr-3"><i class="fa fa-globe"></i></span>
+                <a href="https://www.psgtech.edu" target="_blank" class="text-blue-600 hover:underline">www.psgtech.edu</a>
+            </div>
+            <div class="flex space-x-4 mt-4">
+                <a href="https://facebook.com/psgtechofficial" target="_blank" class="text-blue-600 hover:text-blue-800 text-2xl"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com/psgtechofficial" target="_blank" class="text-blue-400 hover:text-blue-600 text-2xl"><i class="fab fa-twitter"></i></a>
+                <a href="https://linkedin.com/school/psg-college-of-technology" target="_blank" class="text-blue-700 hover:text-blue-900 text-2xl"><i class="fab fa-linkedin"></i></a>
+                <a href="https://instagram.com/psgtechofficial" target="_blank" class="text-pink-500 hover:text-pink-700 text-2xl"><i class="fab fa-instagram"></i></a>
+            </div>
+            </div>
+            <!-- Google Map -->
+            <div class="rounded-2xl overflow-hidden shadow-xl">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.205701672049!2d77.0002601748189!3d11.02908745404856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba857d3e1d3c4e1%3A0xf4b6d2a7a4c2e6e7!2sPSG%20College%20of%20Technology!5e0!3m2!1sen!2sin!4v1715479870000!5m2!1sen!2sin"
+                width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                title="PSG College of Technology Location"></iframe>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <footer class="bg-blue-900 text-white text-center py-6 mt-10 rounded-t-2xl shadow-inner">
+        &copy; 2025 LearnMate. All rights reserved.
     </footer>
 
-    <script>
-        // Client-side form submission using fetch
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+    <!-- Animations -->
+    <style>
+        .animate-fade-in {
+        animation: fadeInUp 1s cubic-bezier(.39,.575,.565,1) both;
+        }
+        @keyframes fadeInUp {
+        0% { opacity: 0; transform: translateY(40px);}
+        100% { opacity: 1; transform: translateY(0);}
+        }
+    </style>
 
-            const formData = new FormData(this);
-            fetch('/send-email', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Your message has been sent successfully!');
-                    document.getElementById('contactForm').reset();
-                } else {
-                    alert('Something went wrong. Please try again.');
+    <!-- JavaScript: Navbar Mobile Toggle & Form Validation -->
+    <script>
+        // Navbar mobile menu toggle
+        document.getElementById('mobile-menu-button').onclick = function() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+        };
+
+        // Form validation & submission
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        let valid = true;
+
+        // Name
+        const name = form.name.value.trim();
+        if (!name) {
+            document.getElementById('nameError').classList.remove('hidden');
+            valid = false;
+        } else {
+            document.getElementById('nameError').classList.add('hidden');
+        }
+
+        // Email
+        const email = form.email.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            document.getElementById('emailError').classList.remove('hidden');
+            valid = false;
+        } else {
+            document.getElementById('emailError').classList.add('hidden');
+        }
+
+        // Subject
+        const subject = form.subject.value.trim();
+        if (!subject) {
+            document.getElementById('subjectError').classList.remove('hidden');
+            valid = false;
+        } else {
+            document.getElementById('subjectError').classList.add('hidden');
+        }
+
+        // Message
+        const message = form.message.value.trim();
+        if (!message) {
+            document.getElementById('messageError').classList.remove('hidden');
+            valid = false;
+        } else {
+            document.getElementById('messageError').classList.add('hidden');
+        }
+
+        // If valid, submit (Formspree example)
+        if (valid) {
+            const formData = new FormData(form);
+            const status = document.getElementById('formStatus');
+            status.textContent = "Sending...";
+            
+           
+                status.textContent = "Thank you! Your message has been sent.";
+                const params = {
+                    name : name,
+                    email : email,
+                    subject: subject,
+                    message : message
                 }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Error sending message');
-            });
-        });
+                emailjs.send("service_vl65f02", "template_7sd8ieu", params)
+      
+      
+                form.reset();
+            } else {
+                status.textContent = "Error sending message. Please try again.";
+            }
+            } 
+        );
+    </script>
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init("2hJ4fuf-HZXojEIUF"); // Replace with your EmailJS public key
+    })();
     </script>
 
-</body>
-</html>
+    </body>
+    </html>

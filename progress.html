@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Learnmate - Progress Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6f8fb;
+    }
+    .navbar {
+      background: linear-gradient(90deg, #00c6fb 0%, #005bea 100%);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      height: 60px;
+      justify-content: space-between;
+    }
+    .navbar .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    .navbar .logo .red {
+      color: red;
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar ul li {
+      margin-left: 32px;
+    }
+    .navbar ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .navbar ul li a.active,
+    .navbar ul li a.notes {
+      color: red;
+    }
+    .navbar ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .progress-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+      padding: 32px 40px;
+    }
+    .progress-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 24px;
+      color: #005bea;
+    }
+    .progress-section {
+      margin-bottom: 32px;
+      border-bottom: 1px solid #e6e6e6;
+      padding-bottom: 24px;
+    }
+    .progress-section:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .progress-section h2 {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 12px;
+      margin-top: 0;
+    }
+    /* Progress Bar */
+    .progress-bar-bg {
+      width: 100%;
+      background: #e6e6e6;
+      border-radius: 8px;
+      height: 22px;
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #00c6fb 0%, #005bea 100%);
+      border-radius: 8px 0 0 8px;
+      transition: width 0.6s cubic-bezier(.4,2.3,.3,1);
+      color: #fff;
+      text-align: right;
+      font-weight: bold;
+      font-size: 1rem;
+      padding-right: 12px;
+      line-height: 22px;
+    }
+    /* Table Styles */
+    .progress-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+    }
+    .progress-table th, .progress-table td {
+      padding: 10px 12px;
+      text-align: left;
+      border-bottom: 1px solid #e6e6e6;
+    }
+    .progress-table th {
+      background: #f6f8fb;
+      color: #005bea;
+      font-weight: bold;
+    }
+    .progress-table td.status-completed {
+      color: #1db954;
+      font-weight: bold;
+    }
+    .progress-table td.status-inprogress {
+      color: #ff9800;
+      font-weight: bold;
+    }
+    .progress-table td.status-pending {
+      color: #e53935;
+      font-weight: bold;
+    }
+    /* Stepper */
+    .stepper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 24px 0;
+    }
+    .step {
+      text-align: center;
+      flex: 1;
+      position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 18px;
+      right: -50%;
+      width: 100%;
+      height: 4px;
+      background: #e6e6e6;
+      z-index: 0;
+    }
+    .step.completed:not(:last-child)::after {
+      background: linear-gradient(90deg, #00c6fb 0%, #005bea 100%);
+    }
+    .step-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #e6e6e6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 6px auto;
+      font-size: 1.2rem;
+      color: #005bea;
+      font-weight: bold;
+      z-index: 1;
+      position: relative;
+    }
+    .step.completed .step-circle {
+      background: linear-gradient(90deg, #00c6fb 0%, #005bea 100%);
+      color: #fff;
+    }
+    .step.active .step-circle {
+      border: 3px solid #00c6fb;
+      background: #fff;
+      color: #005bea;
+    }
+    .step-label {
+      font-size: 0.95rem;
+      color: #333;
+      margin-top: 2px;
+    }
+    /* Chart Section */
+    .chart-section {
+      display: flex;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .chart-box {
+      flex: 1 1 320px;
+      background: #f6f8fb;
+      border-radius: 10px;
+      padding: 18px 20px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+      min-width: 280px;
+      text-align: center;
+    }
+    .chart-box h3 {
+      margin-bottom: 12px;
+      color: #005bea;
+      font-size: 1.1rem;
+    }
+    /* Streaks & Goals */
+    .streak-goal-section {
+      display: flex;
+      gap: 36px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .streak-box, .goal-box, .personal-best-box {
+      flex: 1 1 260px;
+      background: #f6f8fb;
+      border-radius: 10px;
+      padding: 16px 18px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+      min-width: 220px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .streak-title, .goal-title, .personal-best-title {
+      font-size: 1.1rem;
+      color: #005bea;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    .streak-count {
+      font-size: 2.2rem;
+      color: #ff9800;
+      font-weight: bold;
+    }
+    .goal-input {
+      width: 60px;
+      padding: 3px 5px;
+      font-size: 1.1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+      margin-right: 8px;
+    }
+    .goal-set-btn {
+      background: #005bea;
+      color: #fff;
+      border: none;
+      padding: 5px 14px;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 4px;
+      transition: background 0.2s;
+    }
+    .goal-set-btn:hover {
+      background: #003e85;
+    }
+    /* Recent Activity */
+    .activity-feed {
+      background: #f6f8fb;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-top: 10px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+      max-height: 180px;
+      overflow-y: auto;
+    }
+    .activity-item {
+      font-size: 1rem;
+      color: #333;
+      border-left: 4px solid #00c6fb;
+      margin-bottom: 8px;
+      padding-left: 8px;
+    }
+    /* Recommendations */
+    .recommendation-box {
+      background: #f6f8fb;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-top: 10px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+    }
+    .recommendation-title {
+      color: #005bea;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .recommendation-list {
+      margin: 0;
+      padding-left: 18px;
+      color: #333;
+      font-size: 1rem;
+    }
+    /* Download Button */
+    .download-btn {
+      background: #00c6fb;
+      color: #fff;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      float: right;
+      transition: background 0.2s;
+    }
+    .download-btn:hover {
+      background: #005bea;
+    }
+    @media (max-width: 900px) {
+      .progress-container {
+        padding: 16px 6px;
+      }
+      .chart-section, .streak-goal-section {
+        flex-direction: column;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <span class="red">Learn</span>Mate
+    </div>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="About.html">About</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="progress-container">
+    <div class="progress-title">Your Study Progress</div>
+
+    <div class="streak-goal-section">
+      <div class="streak-box">
+        <div class="streak-title">Current Study Streak</div>
+        <div class="streak-count" id="streakCount">5</div>
+        <div>days in a row</div>
+      </div>
+      <div class="goal-box">
+        <div class="goal-title">Set Daily Study Goal (min)</div>
+        <input type="number" id="goalInput" class="goal-input" value="60" min="10" max="300">
+        <button class="goal-set-btn" onclick="setGoal()">Set</button>
+        <div id="goalStatus" style="margin-top:6px;color:#666;">Today's progress: <b>45</b> / <b id="goalValue">60</b> min</div>
+      </div>
+      <div class="personal-best-box">
+        <div class="personal-best-title">Personal Bests</div>
+        <div>Best Quiz Score: <b>98%</b></div>
+        <div>Longest Streak: <b>12 days</b></div>
+        <div>Most Active Day: <b>120 min</b></div>
+      </div>
+    </div>
+
+    <button class="download-btn" onclick="downloadReport()">Download Progress Report</button>
+
+    <div class="progress-section">
+      <h2>Overall Progress</h2>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="overallProgressBar" style="width: 72%;">72%</div>
+      </div>
+      <div style="color: #666; font-size: 1rem;">
+        You have completed <b>72%</b> of your current study plan. Keep going!
+      </div>
+    </div>
+
+    <div class="progress-section">
+      <h2>Milestone Tracker</h2>
+      <div class="stepper">
+        <div class="step completed">
+          <div class="step-circle">&#10003;</div>
+          <div class="step-label">Enrolled</div>
+        </div>
+        <div class="step completed">
+          <div class="step-circle">&#10003;</div>
+          <div class="step-label">Started</div>
+        </div>
+        <div class="step completed">
+          <div class="step-circle">&#10003;</div>
+          <div class="step-label">50% Complete</div>
+        </div>
+        <div class="step active">
+          <div class="step-circle">4</div>
+          <div class="step-label">Quiz 2</div>
+        </div>
+        <div class="step">
+          <div class="step-circle">5</div>
+          <div class="step-label">Final Test</div>
+        </div>
+        <div class="step">
+          <div class="step-circle">6</div>
+          <div class="step-label">Certificate</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="progress-section">
+      <h2>Module Progress</h2>
+      <table class="progress-table">
+        <thead>
+          <tr>
+            <th>Module</th>
+            <th>Completion</th>
+            <th>Status</th>
+            <th>Last Activity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Quantitative Aptitude</td>
+            <td>
+              <div class="progress-bar-bg" style="height:14px;">
+                <div class="progress-bar-fill" style="width: 91%; height:14px; font-size:0.9rem; padding-right:8px;">91%</div>
+              </div>
+            </td>
+            <td class="status-completed">Completed</td>
+            <td>May 8, 2025</td>
+          </tr>
+          <tr>
+            <td>Logical Reasoning</td>
+            <td>
+              <div class="progress-bar-bg" style="height:14px;">
+                <div class="progress-bar-fill" style="width: 68%; height:14px; font-size:0.9rem; padding-right:8px;">68%</div>
+              </div>
+            </td>
+            <td class="status-inprogress">In Progress</td>
+            <td>May 10, 2025</td>
+          </tr>
+          <tr>
+            <td>Verbal Ability</td>
+            <td>
+              <div class="progress-bar-bg" style="height:14px;">
+                <div class="progress-bar-fill" style="width: 55%; height:14px; font-size:0.9rem; padding-right:8px;">55%</div>
+              </div>
+            </td>
+            <td class="status-inprogress">In Progress</td>
+            <td>May 11, 2025</td>
+          </tr>
+          <tr>
+            <td>Data Interpretation</td>
+            <td>
+              <div class="progress-bar-bg" style="height:14px;">
+                <div class="progress-bar-fill" style="width: 32%; height:14px; font-size:0.9rem; padding-right:8px;">32%</div>
+              </div>
+            </td>
+            <td class="status-pending">Pending</td>
+            <td>May 5, 2025</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="progress-section">
+      <h2>Performance Analytics</h2>
+      <div class="chart-section">
+        <div class="chart-box">
+          <h3>Quiz Scores</h3>
+          <canvas id="quizChart" width="220" height="120"></canvas>
+        </div>
+        <div class="chart-box">
+          <h3>Time Spent (hrs)</h3>
+          <canvas id="timeChart" width="220" height="120"></canvas>
+        </div>
+        <div class="chart-box">
+          <h3>Attendance</h3>
+          <canvas id="attendanceChart" width="220" height="120"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="progress-section">
+      <h2>Recent Activity</h2>
+      <div class="activity-feed">
+        <div class="activity-item">[May 11, 2025] Completed "Verbal Ability" practice set.</div>
+        <div class="activity-item">[May 10, 2025] Scored 88% in "Quiz 2".</div>
+        <div class="activity-item">[May 10, 2025] Studied for 45 minutes.</div>
+        <div class="activity-item">[May 9, 2025] Achieved a 5-day streak!</div>
+        <div class="activity-item">[May 8, 2025] Completed "Quantitative Aptitude" module.</div>
+      </div>
+    </div>
+
+    <div class="progress-section">
+      <h2>Smart Recommendations</h2>
+      <div class="recommendation-box">
+        <div class="recommendation-title">Based on your progress, try:</div>
+        <ul class="recommendation-list">
+          <li>Focus on "Data Interpretation" to boost overall completion.</li>
+          <li>Review mistakes from "Quiz 2" for better retention.</li>
+          <li>Maintain your daily streak for bonus rewards.</li>
+          <li>Attempt a mock test this week for self-evaluation.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    
+    new Chart(document.getElementById('quizChart').getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: ['Quiz 1', 'Quiz 2', 'Quiz 3', 'Quiz 4'],
+        datasets: [{
+          label: 'Score',
+          data: [85, 78, 92, 88],
+          backgroundColor: ['#00c6fb', '#005bea', '#00c6fb', '#005bea']
+        }]
+      },
+      options: {
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true, max: 100 } }
+      }
+    });
+    new Chart(document.getElementById('timeChart').getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        datasets: [{
+          label: 'Hours',
+          data: [5, 7, 6, 8],
+          borderColor: '#005bea',
+          backgroundColor: 'rgba(0,198,251,0.2)',
+          fill: true,
+          tension: 0.3
+        }]
+      },
+      options: {
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+    new Chart(document.getElementById('attendanceChart').getContext('2d'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Present', 'Absent'],
+        datasets: [{
+          data: [24, 3],
+          backgroundColor: ['#00c6fb', '#e6e6e6']
+        }]
+      },
+      options: {
+        plugins: { legend: { display: false } },
+        cutout: '70%'
+      }
+    });
+
+    // Goal setting logic
+    function setGoal() {
+      var val = document.getElementById('goalInput').value;
+      document.getElementById('goalValue').innerText = val;
+      document.getElementById('goalStatus').innerHTML = "Today's progress: <b>45</b> / <b>" + val + "</b> min";
+      alert('Daily study goal set to ' + val + ' min!');
+    }
+
+    function downloadReport() {
+      const content = `
+        Learnmate Progress Report
+
+        Overall Progress: 72%
+        Current Streak: 5 days
+        Best Quiz Score: 98%
+        Longest Streak: 12 days
+
+        Module Progress:
+        - Quantitative Aptitude: 91% (Completed)
+        - Logical Reasoning: 68% (In Progress)
+        - Verbal Ability: 55% (In Progress)
+        - Data Interpretation: 32% (Pending)
+      `;
+      const blob = new Blob([content], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'Learnmate_Progress_Report.txt';
+      link.click();
+    }
+  </script>
+</body>
+</html>
