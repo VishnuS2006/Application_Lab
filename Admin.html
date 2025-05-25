@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - Registered Users</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(90deg, #ade4f3 0%, #ffffff 100%);
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            background:linear-gradient(to right, #00c6ff, #0072ff, #004e92);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .admin-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .admin-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.95);
+            padding: 32px 24px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            color: #222;
+        }
+        
+        .top-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .user-count {
+            font-size: 1.1em;
+            color: #4b5563;
+        }
+        
+        .search-box {
+            margin-bottom: 10px;
+            flex: 1 1 250px;
+            text-align: right;
+        }
+        
+        .search-input {
+            padding: 8px 12px;
+            width: 240px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1em;
+            transition: border-color 0.2s;
+        }
+        
+        .search-input:focus {
+            border-color: #2563eb;
+            outline: none;
+        }
+        
+        .refresh-btn {
+            padding: 8px 18px;
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-left: 8px;
+            transition: background 0.2s;
+        }
+        
+        .refresh-btn:hover {
+            background: #1e40af;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background: #fff;
+        }
+        
+        th, td {
+            padding: 13px 10px;
+            border-bottom: 1px solid #e5e7eb;
+            text-align: left;
+        }
+        
+        th {
+            background: #f1f5f9;
+            color: #374151;
+            font-weight: 600;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .delete-btn {
+            background: #ef4444;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 6px 14px;
+            font-size: 0.98em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .delete-btn:hover {
+            background: #b91c1c;
+        }
+        
+        .message {
+            margin-bottom: 16px;
+            padding: 11px 16px;
+            border-radius: 6px;
+            font-size: 1em;
+        }
+        
+        .message.success { background: #d1fae5; color: #065f46; }
+        .message.error { background: #fee2e2; color: #991b1b; }
+        .message.info { background: #dbeafe; color: #1e40af; }
+        
+        .no-users {
+            text-align: center;
+            color: #888;
+            padding: 24px 0;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .container { 
+                padding: 16px 4px; 
+                margin: 20px 10px;
+            }
+            
+            .search-input { 
+                width: 90%; 
+            }
+            
+            th, td { 
+                padding: 10px 4px; 
+                font-size: 0.97em; 
+            }
+        }
+
+        @media (max-width: 650px) {
+            .top-bar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+            }
+            
+            .search-box {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">LearnMate</a>
+            <ul class="nav-links">
+                <li><a href="Admin.html">Home</a></li>
+                <li class="admin-profile">
+                    <a><div class="admin-icon">👤</div> </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="container">
+            <h1>Admin Dashboard: Registered Users</h1>
+            <div class="top-bar">
+                <div class="user-count" id="userCount"></div>
+                <div class="search-box">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search by name or email..." onkeyup="filterUsers()">
+                    <button class="refresh-btn" onclick="loadUsers()">🔄 Refresh</button>
+                </div>
+            </div>
+            <div id="messageContainer"></div>
+            <table id="usersTable">
+                <thead>
+                    <tr>
+                        <th style="width:40px;">#</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th style="width:100px;">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="usersBody">
+                    <tr><td colspan="4" class="no-users">Loading users...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3000/api/users';
+        let users = [];
+        let filteredUsers = [];
+
+        function showMessage(msg, type='info') {
+            const msgDiv = document.getElementById('messageContainer');
+            msgDiv.innerHTML = `<div class="message ${type}">${msg}</div>`;
+            setTimeout(() => msgDiv.innerHTML = '', 3000);
+        }
+
+        function updateUserCount() {
+            document.getElementById('userCount').textContent = `Total Users: ${filteredUsers.length}`;
+        }
+
+        function renderUsers() {
+            const tbody = document.getElementById('usersBody');
+            if (filteredUsers.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="no-users">No users found.</td></tr>`;
+                updateUserCount();
+                return;
+            }
+            tbody.innerHTML = filteredUsers.map((user, idx) => `
+                <tr>
+                    <td>${idx + 1}</td>
+                    <td>${user.name}</td>
+                    <td>${user.email}</td>
+                    <td>
+                        <button class="delete-btn" onclick="deleteUser('${user._id}', '${user.name}')">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+            updateUserCount();
+        }
+
+        function filterUsers() {
+            const q = document.getElementById('searchInput').value.trim().toLowerCase();
+            filteredUsers = users.filter(user =>
+                user.name.toLowerCase().includes(q) ||
+                user.email.toLowerCase().includes(q)
+            );
+            renderUsers();
+        }
+
+        async function loadUsers() {
+            showMessage('Loading users...', 'info');
+            try {
+                const res = await fetch(API_URL);
+                if (!res.ok) throw new Error('Failed to fetch users');
+                users = await res.json();
+                filteredUsers = [...users];
+                renderUsers();
+                showMessage('Users loaded successfully!', 'success');
+            } catch (err) {
+                users = [];
+                filteredUsers = [];
+                renderUsers();
+                showMessage('Error loading users: ' + err.message, 'error');
+            }
+        }
+
+        async function deleteUser(id, name) {
+            if (!confirm(`Are you sure you want to delete user "${name}"?`)) return;
+            showMessage(`Deleting "${name}"...`, 'info');
+            try {
+                const res = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+                if (!res.ok) throw new Error('Failed to delete user');
+                showMessage(`User "${name}" deleted.`, 'success');
+                users = users.filter(user => user._id !== id);
+                filterUsers();
+            } catch (err) {
+                showMessage('Error deleting user: ' + err.message, 'error');
+            }
+        }
+
+        // Initial load
+        loadUsers();
+    </script>
+</body>
+</html>

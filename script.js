@@ -32,5 +32,5 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     .catch(error => {
         console.error('Error during login:', error);
         document.getElementById('error-message').innerText = "An error occurred. Please try again.";
-    });
+    });
 });

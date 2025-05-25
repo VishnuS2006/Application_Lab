@@ -61,5 +61,36 @@ app.post('/login', async (req, res) => {
     }
 });
 
+
+
+// Admin Managing 
+
+
+app.get('/api/users', async (req, res) => {
+    try {
+        const users = await User.find({}, 'name email _id');
+        res.json(users);
+    } catch (err) {
+        console.error('Error fetching users:', err);
+        res.status(500).json({ message: 'Failed to fetch users' });
+    }
+});
+
+
+app.delete('/api/users/:id', async (req, res) => {
+    try {
+        await User.findByIdAndDelete(req.params.id);
+        res.json({ message: 'User deleted' });
+    } catch (err) {
+        console.error('Error deleting user:', err);
+        res.status(500).json({ message: 'Failed to delete user' });
+    }
+});
+
+
+
+
+
+
 const PORT = 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

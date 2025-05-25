@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LearnMate - Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #002aff, #ffffff);
+    }
+
+    .container {
+      width: 80%;
+      height: 500px;
+      display: flex;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      overflow: hidden;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .left-panel {
+      flex: 1;
+      background: linear-gradient(to bottom right, #3b82f6, #60a5fa);
+      color: white;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: slideInLeft 1s ease;
+    }
+
+    .left-panel h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .left-panel h1 span {
+      color: #fcd34d;
+    }
+
+    .left-panel p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .right-panel {
+      flex: 1;
+      background: white;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: slideInRight 1s ease;
+    }
+
+    .login-form {
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .login-form h2 {
+      margin-bottom: 20px;
+      color: #1e40af;
+      font-size: 28px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: #374151;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #000000;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .input-group input:focus {
+      border-color: #6c5ce7;
+      outline: none;
+      box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #3b82f6;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+      transform: scale(1.03);
+    }
+
+    .signup-link {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .signup-link a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+
+    .error {
+      color: red;
+      font-size: 13px;
+      position: absolute;
+      top: 66px;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <h1>Welcome to <span>LearnMate</span></h1>
+      <p>Admin Login — Secure access to manage and enhance the learning journey.</p>
+    </div>
+    <div class="right-panel">
+      <form id="loginForm" class="login-form">
+        <h2>Login</h2>
+        <div class="input-group">
+          <label for="email">Email ID</label>
+          <input type="email" id="email" placeholder="Enter your email" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required />
+        </div>
+        <button type="submit">Login</button>
+        <p class="signup-link">Don't have an account? <a href="Signup.html">Sign up</a></p>
+        <div id="error-message" class="error"></div> 
+      </form>
+    </div>
+  </div>
+
+  <script src="Script.js"></script>
+</body>
+</html>

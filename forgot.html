@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgot Password | LearnMate</title>
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body { height: 100vh; display: flex; justify-content: center; align-items: center; background: linear-gradient(135deg, #002aff, #ffffff); }
+    .container { width: 80%; height: 500px; display: flex; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); border-radius: 15px; overflow: hidden; animation: fadeIn 1s ease-in; }
+    .left-panel { flex: 1; background: linear-gradient(to bottom right, #3b82f6, #60a5fa); color: white; padding: 40px; display: flex; flex-direction: column; justify-content: center; animation: slideInLeft 1s ease; }
+    .left-panel h1 { font-size: 36px; margin-bottom: 20px; }
+    .left-panel p { font-size: 18px; line-height: 1.5; }
+    .right-panel { flex: 1; background: white; padding: 40px; display: flex; justify-content: center; align-items: center; animation: slideInRight 1s ease; }
+    .login-form { width: 100%; max-width: 350px; }
+    .login-form h2 { margin-bottom: 20px; color: #1e40af; font-size: 28px; }
+    .input-group { margin-bottom: 20px; position: relative; }
+    .input-group i { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #888; }
+    .input-group input { width: 100%; padding: 10px 14px 10px 36px; border: 1px solid #000000; border-radius: 8px; font-size: 16px; transition: 0.3s; }
+    .input-group input:focus { border-color: #6c5ce7; outline: none; box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+    button { width: 100%; padding: 12px; background-color: #3b82f6; color: white; font-size: 16px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s ease; }
+    button:hover { background-color: #2563eb; transform: scale(1.03); }
+    .signup-link { text-align: center; margin-top: 16px; font-size: 14px; color: #6b7280; }
+    .signup-link a { color: #3b82f6; text-decoration: none; }
+    @keyframes slideInLeft { from { transform: translateX(-100px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes slideInRight { from { transform: translateX(100px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <h1>LearnMate</h1>
+      <p>"Your gateway to extraordinary events,<br>connecting the world and igniting<br>unforgettable experiences."</p>
+    </div>
+    <div class="right-panel">
+      <form class="login-form" id="forgot-password-form">
+        <h2>Forgot Password</h2>
+        <div class="input-group">
+          <i class='bx bx-envelope'></i>
+          <input type="email" id="email" placeholder="Enter your email" required />
+        </div>
+        <button type="submit">Send Reset Link</button>
+        <p class="signup-link">Remember your password? <a href="login.html">Login</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    
+    (function() {
+      emailjs.init("YOUR_USER_ID"); 
+    })();
+
+    document.getElementById("forgot-password-form").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+      const submitBtn = document.querySelector('#forgot-password-form button');
+
+      try {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        const response = await fetch('http://localhost:3000/forgot-password', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({ email })
+        });
+
+        const data = await response.json();
+        
+        if (!response.ok) {
+          throw new Error(data.message || 'Failed to process request');
+        }
+
+        console.log("Backend response:", data);
+
+        const resetUrl = `http://localhost:5501/reset.html?token=${data.token}&email=${encodeURIComponent(data.email)}`;
+        
+        const emailResult = await emailjs.send('service_5k3nu3v', 'template_1zpgdgq', {
+          to_email: data.email,
+          user_name: data.name || "User ",
+          reset_link: resetUrl
+        });
+
+        console.log("EmailJS result:", emailResult);
+        
+        if (emailResult.status !== 200) {
+          throw new Error("Email service failed to send");
+        }
+
+        alert("Password reset link sent to your email!");
+
+      } catch (err) {
+        console.error("Full error details:", {
+          message: err.message,
+          stack: err.stack
+        });
+        
+        let errorMessage = "Failed to send reset link";
+        if (err.message.includes('service_5k3nu3v')) {
+          errorMessage = "Email service configuration error";
+        } else if (err.message.includes('Failed to process request')) {
+          errorMessage = "Server error - please try again later";
+        }
+        
+        alert(`Error: ${errorMessage}`);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Reset Link';
+      }
+    });
+  </script>
+</body>
+</html>

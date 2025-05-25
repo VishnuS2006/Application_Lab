@@ -3,276 +3,538 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Quiz</title>
+    <title>LearnMate - Online Quiz</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-image: url(''); 
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        * {
             margin: 0;
-            color: #333;
-            background-attachment: fixed;
-            filter: brightness(0.8); 
-            background-color: rgba(149, 215, 241, 0.258);
+            padding: 0;
+            box-sizing: border-box;
         }
 
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #8addf1;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #4CAF50;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4CAF50;
+        }
+
+        /* Quiz Container */
         .quiz-container {
-            background-color: white ;
+            background-color: white;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            padding: 30px;
-            width: 600px;
-            max-width: 100%;
-            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            width: 700px;
+            max-width: 95%;
+            margin: 2rem auto;
+            flex-grow: 1;
         }
 
         .quiz-container h1 {
-            font-size: 30px;
-            color: #0a460c;
-            margin-bottom: 20px;
-            font-weight: 600;
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .quiz-container h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #4CAF50;
         }
 
         .question {
-            margin-bottom: 30px;
-            text-align: left;
-            padding-left: 20px;
-        }
-
-        .question p {
-            font-size: 20px;
-            margin: 0;
-            color: #2a00e5;
-        }
-
-        .options {
-            margin-top: 20px;
-        }
-
-        .options label {
-            display: block;
-            margin-bottom: 12px;
-            font-size: 18px;
-            color: #000000;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-radius: 8px;
+            background-color: #f9f9f9;
             transition: all 0.3s ease;
         }
 
-        .options input {
-            margin-right: 10px;
-            accent-color: #4CAF50;
+        .question:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .options label:hover {
-            color: #4CAF50;
-            cursor: pointer;
+        .question p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 500;
         }
 
-        #next-btn, #prev-btn, #submit-btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 18px;
-            border: none;
+        .options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem;
             border-radius: 6px;
+            background-color: white;
+            border: 1px solid #ddd;
             cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
-        #next-btn:hover, #prev-btn:hover, #submit-btn:hover {
-            background-color: #45a049;
+        .option:hover {
+            border-color: #4CAF50;
+            background-color: #f0fff0;
+        }
+
+        .option input {
+            margin-right: 0.8rem;
+            accent-color: #4CAF50;
+            transform: scale(1.2);
+        }
+
+        .option.selected {
+            background-color: #e8f5e9;
+            border-color: #4CAF50;
         }
 
         .button-container {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
+            margin-top: 2rem;
         }
 
-        #result {
-            font-weight: bold;
-            margin-top: 30px;
-            font-size: 20px;
-            color: #4CAF50;
+        .quiz-btn {
+            background-color: #2c3e50;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-btn:hover {
+            background-color: #1a252f;
+            transform: translateY(-2px);
+        }
+
+        .quiz-btn:active {
+            transform: translateY(0);
+        }
+
+        .quiz-btn.green {
+            background-color: #4CAF50;
+        }
+
+        .quiz-btn.green:hover {
+            background-color: #3e8e41;
+        }
+
+        #submit-btn {
+            display: block;
+            margin: 2rem auto 0;
+            width: 200px;
+        }
+
+        .progress-container {
+            margin-bottom: 2rem;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #555;
         }
 
         .progress-bar-container {
             background-color: #e0e0e0;
             border-radius: 10px;
-            width: 100%;
-            height: 15px;
-            margin-bottom: 20px;
+            height: 10px;
+            overflow: hidden;
         }
 
         .progress-bar {
             background-color: #4CAF50;
             height: 100%;
             width: 0;
-            border-radius: 10px;
+            transition: width 0.3s ease;
         }
 
         .hidden {
             display: none;
         }
 
-        hr {
-            border-top: 2px solid #4CAF50;
-            width: 100%;
-            margin: 10px 0;
+        #result {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: #f9f9f9;
+        }
+
+        .score-percentage {
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+
+        .timer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #2c3e50;
+            color: white;
+            margin-top: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .options {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
+                gap: 1rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#" class="logo">Learn<span>Mate</span></a>
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Contact.html">Contact</a>
+        </div>
+    </nav>
 
     <div class="quiz-container">
-        <center><h1>ONLINE QUIZ</h1></center>
-        <hr>
-
-        <div class="progress-bar-container">
-            <div class="progress-bar" id="progress-bar"></div>
+        <h1>ONLINE QUIZ</h1>
+        
+        <div class="progress-container">
+            <div class="progress-info">
+                <span>Question <span id="current-q">1</span> of <span id="total-q">10</span></span>
+                <div class="timer">Time: <span id="time">10:00</span></div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
         </div>
 
         <div class="question" id="question-1">
             <p>1. What is the capital of France?</p>
             <div class="options">
-                <label><input type="radio" name="q1" value="London"> London</label>
-                <label><input type="radio" name="q1" value="Paris"> Paris</label>
-                <label><input type="radio" name="q1" value="Berlin"> Berlin</label>
-                <label><input type="radio" name="q1" value="Rome"> Rome</label>
+                <label class="option">
+                    <input type="radio" name="q1" value="London"> London
+                </label>
+                <label class="option">
+                    <input type="radio" name="q1" value="Paris"> Paris
+                </label>
+                <label class="option">
+                    <input type="radio" name="q1" value="Berlin"> Berlin
+                </label>
+                <label class="option">
+                    <input type="radio" name="q1" value="Rome"> Rome
+                </label>
             </div>
         </div>
 
         <div class="question hidden" id="question-2">
             <p>2. Which planet is known as the Red Planet?</p>
             <div class="options">
-                <label><input type="radio" name="q2" value="Venus"> Venus</label>
-                <label><input type="radio" name="q2" value="Mars"> Mars</label>
-                <label><input type="radio" name="q2" value="Jupiter"> Jupiter</label>
-                <label><input type="radio" name="q2" value="Saturn"> Saturn</label>
+                <label class="option">
+                    <input type="radio" name="q2" value="Venus"> Venus
+                </label>
+                <label class="option">
+                    <input type="radio" name="q2" value="Mars"> Mars
+                </label>
+                <label class="option">
+                    <input type="radio" name="q2" value="Jupiter"> Jupiter
+                </label>
+                <label class="option">
+                    <input type="radio" name="q2" value="Saturn"> Saturn
+                </label>
             </div>
         </div>
 
         <div class="question hidden" id="question-3">
             <p>3. What is 2 + 2?</p>
             <div class="options">
-                <label><input type="radio" name="q3" value="3"> 3</label>
-                <label><input type="radio" name="q3" value="4"> 4</label>
-                <label><input type="radio" name="q3" value="5"> 5</label>
-                <label><input type="radio" name="q3" value="6"> 6</label>
+                <label class="option">
+                    <input type="radio" name="q3" value="3"> 3
+                </label>
+                <label class="option">
+                    <input type="radio" name="q3" value="4"> 4
+                </label>
+                <label class="option">
+                    <input type="radio" name="q3" value="5"> 5
+                </label>
+                <label class="option">
+                    <input type="radio" name="q3" value="6"> 6
+                </label>
             </div>
         </div>
 
         <div class="question hidden" id="question-4">
             <p>4. What is the largest ocean on Earth?</p>
             <div class="options">
-                <label><input type="radio" name="q4" value="Atlantic"> Atlantic</label>
-                <label><input type="radio" name="q4" value="Pacific"> Pacific</label>
-                <label><input type="radio" name="q4" value="Indian"> Indian</label>
-                <label><input type="radio" name="q4" value="Arctic"> Arctic</label>
+                <label class="option">
+                    <input type="radio" name="q4" value="Atlantic"> Atlantic
+                </label>
+                <label class="option">
+                    <input type="radio" name="q4" value="Pacific"> Pacific
+                </label>
+                <label class="option">
+                    <input type="radio" name="q4" value="Indian"> Indian
+                </label>
+                <label class="option">
+                    <input type="radio" name="q4" value="Arctic"> Arctic
+                </label>
             </div>
         </div>
 
         <div class="question hidden" id="question-5">
             <p>5. What is the chemical symbol for gold?</p>
             <div class="options">
-                <label><input type="radio" name="q5" value="Au"> Au</label>
-                <label><input type="radio" name="q5" value="Ag"> Ag</label>
-                <label><input type="radio" name="q5" value="Pb"> Pb</label>
-                <label><input type="radio" name="q5" value="Fe"> Fe</label>
+                <label class="option">
+                    <input type="radio" name="q5" value="Au"> Au
+                </label>
+                <label class="option">
+                    <input type="radio" name="q5" value="Ag"> Ag
+                </label>
+                <label class="option">
+                    <input type="radio" name="q5" value="Pb"> Pb
+                </label>
+                <label class="option">
+                    <input type="radio" name="q5" value="Fe"> Fe
+                </label>
             </div>
         </div>
 
         <div class="question hidden" id="question-6">
             <p>6. Who developed the theory of relativity?</p>
             <div class="options">
-                <label><input type="radio" name="q6" value="Isaac Newton"> Isaac Newton</label>
-                <label><input type="radio" name="q6" value="Albert Einstein"> Albert Einstein</label>
-                <label><input type="radio" name="q6" value="Nikola Tesla"> Nikola Tesla</label>
-                <label><input type="radio" name="q6" value="Galileo Galilei"> Galileo Galilei</label>
+                <label class="option">
+                    <input type="radio" name="q6" value="Isaac Newton"> Isaac Newton
+                </label>
+                <label class="option">
+                    <input type="radio" name="q6" value="Albert Einstein"> Albert Einstein
+                </label>
+                <label class="option">
+                    <input type="radio" name="q6" value="Nikola Tesla"> Nikola Tesla
+                </label>
+                <label class="option">
+                    <input type="radio" name="q6" value="Galileo Galilei"> Galileo Galilei
+                </label>
             </div>
         </div>
 
         <div class="question hidden" id="question-7">
             <p>7. What is the smallest continent?</p>
             <div class="options">
-                <label><input type="radio" name="q7" value="Asia"> Asia</label>
-                <label><input type="radio" name="q7" value="Australia"> Australia</label>
-                <label><input type="radio" name="q7" value="Antarctica"> Antarctica</label>
-                <label><input type="radio" name="q7" value="Europe"> Europe</label>
+                <label class="option">
+                    <input type="radio" name="q7" value="Asia"> Asia
+                </label>
+                <label class="option">
+                    <input type="radio" name="q7" value="Australia"> Australia
+                </label>
+                <label class="option">
+                    <input type="radio" name="q7" value="Antarctica"> Antarctica
+                </label>
+                <label class="option">
+                    <input type="radio" name="q7" value="Europe"> Europe
+                </label>
             </div>
         </div>
 
         <div class="question hidden" id="question-8">
             <p>8. Who was the first President of the United States?</p>
             <div class="options">
-                <label><input type="radio" name="q8" value="Abraham Lincoln"> Abraham Lincoln</label>
-                <label><input type="radio" name="q8" value="George Washington"> George Washington</label>
-                <label><input type="radio" name="q8" value="Thomas Jefferson"> Thomas Jefferson</label>
-                <label><input type="radio" name="q8" value="John Adams"> John Adams</label>
+                <label class="option">
+                    <input type="radio" name="q8" value="Abraham Lincoln"> Abraham Lincoln
+                </label>
+                <label class="option">
+                    <input type="radio" name="q8" value="George Washington"> George Washington
+                </label>
+                <label class="option">
+                    <input type="radio" name="q8" value="Thomas Jefferson"> Thomas Jefferson
+                </label>
+                <label class="option">
+                    <input type="radio" name="q8" value="John Adams"> John Adams
+                </label>
             </div>
         </div>
 
         <div class="question hidden" id="question-9">
             <p>9. Which gas do plants absorb from the atmosphere?</p>
             <div class="options">
-                <label><input type="radio" name="q9" value="Oxygen"> Oxygen</label>
-                <label><input type="radio" name="q9" value="Carbon Dioxide"> Carbon Dioxide</label>
-                <label><input type="radio" name="q9" value="Nitrogen"> Nitrogen</label>
-                <label><input type="radio" name="q9" value="Hydrogen"> Hydrogen</label>
+                <label class="option">
+                    <input type="radio" name="q9" value="Oxygen"> Oxygen
+                </label>
+                <label class="option">
+                    <input type="radio" name="q9" value="Carbon Dioxide"> Carbon Dioxide
+                </label>
+                <label class="option">
+                    <input type="radio" name="q9" value="Nitrogen"> Nitrogen
+                </label>
+                <label class="option">
+                    <input type="radio" name="q9" value="Hydrogen"> Hydrogen
+                </label>
             </div>
         </div>
 
         <div class="question hidden" id="question-10">
             <p>10. What is the largest planet in our Solar System?</p>
             <div class="options">
-                <label><input type="radio" name="q10" value="Earth"> Earth</label>
-                <label><input type="radio" name="q10" value="Jupiter"> Jupiter</label>
-                <label><input type="radio" name="q10" value="Saturn"> Saturn</label>
-                <label><input type="radio" name="q10" value="Mars"> Mars</label>
+                <label class="option">
+                    <input type="radio" name="q10" value="Earth"> Earth
+                </label>
+                <label class="option">
+                    <input type="radio" name="q10" value="Jupiter"> Jupiter
+                </label>
+                <label class="option">
+                    <input type="radio" name="q10" value="Saturn"> Saturn
+                </label>
+                <label class="option">
+                    <input type="radio" name="q10" value="Mars"> Mars
+                </label>
             </div>
         </div>
 
         <div class="button-container">
-            <button id="prev-btn" class="hidden">Previous</button>
-            <button id="next-btn">Next</button>
+            <button id="prev-btn" class="quiz-btn hidden">Previous</button>
+            <button id="next-btn" class="quiz-btn green">Next</button>
         </div>
 
-        <center><button id="submit-btn" class="hidden">Submit Quiz</button></center>
-        <div id="result"></div>
+        <button id="submit-btn" class="quiz-btn green hidden">Submit Quiz</button>
+        <div id="result" class="hidden"></div>
     </div>
+
+    <footer class="footer">
+        &copy; 2023 LearnMate. All rights reserved.
+    </footer>
 
     <script>
         let currentQuestion = 1;
         const totalQuestions = 10;
+        let timeLeft = 600; // 10 minutes in seconds
+        let timerInterval;
+        const userAnswers = Array(totalQuestions).fill(null);
 
         const prevBtn = document.getElementById("prev-btn");
         const nextBtn = document.getElementById("next-btn");
         const submitBtn = document.getElementById("submit-btn");
         const progressBar = document.getElementById("progress-bar");
+        const currentQElement = document.getElementById("current-q");
+        const totalQElement = document.getElementById("total-q");
+        const timeElement = document.getElementById("time");
+        const resultElement = document.getElementById("result");
 
         const correctAnswers = [
             "Paris", "Mars", "4", "Pacific", "Au", "Albert Einstein", "Australia", 
             "George Washington", "Carbon Dioxide", "Jupiter"
         ];
 
+        // Initialize quiz
+        document.addEventListener('DOMContentLoaded', () => {
+            totalQElement.textContent = totalQuestions;
+            startTimer();
+            showQuestion(currentQuestion);
+            setupOptionSelection();
+        });
+
         function showQuestion(questionNumber) {
-            for (let i = 1; i <= totalQuestions; i++) {
-                document.getElementById(`question-${i}`).classList.add("hidden");
-            }
+            // Hide all questions
+            document.querySelectorAll('.question').forEach(q => {
+                q.classList.add("hidden");
+            });
+            
+            // Show current question
             document.getElementById(`question-${questionNumber}`).classList.remove("hidden");
+            
+            // Update progress
             updateProgressBar();
+            updateQuestionCounter();
             toggleNavigationButtons();
+            
+            // Restore selected answer if exists
+            restoreSelectedAnswer(questionNumber);
         }
 
         function updateProgressBar() {
             const progress = (currentQuestion / totalQuestions) * 100;
             progressBar.style.width = `${progress}%`;
+        }
+
+        function updateQuestionCounter() {
+            currentQElement.textContent = currentQuestion;
         }
 
         function toggleNavigationButtons() {
@@ -281,18 +543,110 @@
             submitBtn.classList.toggle("hidden", currentQuestion !== totalQuestions);
         }
 
+        function setupOptionSelection() {
+            document.querySelectorAll('.option').forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options in this question
+                    const questionId = this.closest('.question').id;
+                    document.querySelectorAll(`#${questionId} .option`).forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    
+                    // Get the radio input and check it
+                    const radioInput = this.querySelector('input[type="radio"]');
+                    radioInput.checked = true;
+                    
+                    // Save the answer
+                    const qNumber = parseInt(questionId.split('-')[1]);
+                    userAnswers[qNumber - 1] = radioInput.value;
+                });
+            });
+        }
+
+        function restoreSelectedAnswer(questionNumber) {
+            const answer = userAnswers[questionNumber - 1];
+            if (answer) {
+                const radioInput = document.querySelector(`#question-${questionNumber} input[value="${answer}"]`);
+                if (radioInput) {
+                    radioInput.checked = true;
+                    radioInput.closest('.option').classList.add('selected');
+                }
+            }
+        }
+
         function calculateScore() {
             let score = 0;
-            for (let i = 1; i <= totalQuestions; i++) {
-                const question = document.getElementById(`question-${i}`);
-                const selectedAnswer = question.querySelector('input[type="radio"]:checked');
-                if (selectedAnswer && selectedAnswer.value === correctAnswers[i - 1]) {
+            for (let i = 0; i < totalQuestions; i++) {
+                if (userAnswers[i] === correctAnswers[i]) {
                     score++;
                 }
             }
             return score;
         }
 
+        function showResult(score) {
+            const percentage = Math.round((score / totalQuestions) * 100);
+            let message = '';
+            
+            if (percentage >= 90) {
+                message = 'Excellent! You have a great knowledge!';
+            } else if (percentage >= 70) {
+                message = 'Good job! You did well.';
+            } else if (percentage >= 50) {
+                message = 'Not bad! Keep learning.';
+            } else {
+                message = 'Keep practicing! You can do better.';
+            }
+            
+            resultElement.innerHTML = `
+                <h3>Quiz Completed!</h3>
+                <div class="score-percentage">${percentage}%</div>
+                <p>Your score: ${score} out of ${totalQuestions}</p>
+                <p>${message}</p>
+            `;
+            resultElement.classList.remove('hidden');
+            
+            // Scroll to result
+            resultElement.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    submitQuiz();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timeElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            
+            // Change color when time is running out
+            if (timeLeft <= 60) {
+                timeElement.style.color = '#ff5252';
+            }
+        }
+
+        function submitQuiz() {
+            clearInterval(timerInterval);
+            const score = calculateScore();
+            showResult(score);
+            submitBtn.classList.add('hidden');
+            nextBtn.classList.add('hidden');
+            prevBtn.classList.add('hidden');
+        }
+
+        // Event Listeners
         nextBtn.addEventListener("click", () => {
             if (currentQuestion < totalQuestions) {
                 currentQuestion++;
@@ -307,14 +661,7 @@
             }
         });
 
-        submitBtn.addEventListener("click", () => {
-            const score = calculateScore();
-            const result = document.getElementById("result");
-            result.textContent = `Your score is: ${score} out of ${totalQuestions}`;
-            result.style.color = score === totalQuestions ? "green" : "red";
-        });
-
-        showQuestion(currentQuestion);
+        submitBtn.addEventListener("click", submitQuiz);
     </script>
 </body>
 </html>

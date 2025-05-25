@@ -74,7 +74,7 @@
     }
 
     .inputgrp {
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       position: relative;
     }
 
@@ -131,8 +131,9 @@
     .error {
       color: red;
       font-size: 13px;
-      position: absolute;
-      top: 66px;
+      margin-top: 4px;
+      min-height: 16px;
+      display: block;
     }
 
     .inputgrp.success input {
@@ -299,7 +300,7 @@
       function setError(element, message) {
         const inputGroup = element.parentElement;
         const errorElement = inputGroup.querySelector(".error");
-        if (errorElement) errorElement.innerText = message;
+        errorElement.innerText = message;
         inputGroup.classList.add("error");
         inputGroup.classList.remove("success");
       }
@@ -307,7 +308,7 @@
       function setSuccess(element) {
         const inputGroup = element.parentElement;
         const errorElement = inputGroup.querySelector(".error");
-        if (errorElement) errorElement.innerText = "";
+        errorElement.innerText = "";
         inputGroup.classList.add("success");
         inputGroup.classList.remove("error");
       }

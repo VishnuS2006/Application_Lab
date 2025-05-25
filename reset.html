@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reset Password | LearnMate</title>
+  <link rel="icon" href="image/logo.jpg">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #002aff, #ffffff);
+    }
+
+    .container {
+      width: 80%;
+      height: 500px;
+      display: flex;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      overflow: hidden;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .left-panel {
+      flex: 1;
+      background: linear-gradient(to bottom right, #3b82f6, #60a5fa);
+      color: white;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: slideInLeft 1s ease;
+    }
+
+    .left-panel h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .left-panel p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .right-panel {
+      flex: 1;
+      background: white;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: slideInRight 1s ease;
+    }
+
+    .login-form {
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .login-form h2 {
+      margin-bottom: 20px;
+      color: #1e40af;
+      font-size: 28px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 6px;
+      color: #374151;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #000000;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .input-group input:focus {
+      border-color: #6c5ce7;
+      outline: none;
+      box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #3b82f6;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+      transform: scale(1.03);
+    }
+
+    .signup-link {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 14px;
+      color: #6b7280;
+    }
+
+    .signup-link a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+
+    @keyframes slideInLeft {
+      from { transform: translateX(-100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideInRight {
+      from { transform: translateX(100px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+</style>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <h1>LearnMate</h1>
+      <p>
+        "Your gateway to Learn Aptitude,<br>
+        connecting the world and Learning with your friends<br>
+        and make new learning experiences."
+      </p>
+    </div>
+
+    <div class="right-panel">
+      <h2 style="color: #4d6bfe;">Reset Your Password</h2>
+      <p style="margin-bottom: 20px; color: #555;">Please enter your new password below. Make sure it is strong and secure.</p>
+      <form id="reset-form">
+        <input type="hidden" id="token">
+        <input type="hidden" id="email">
+        
+        <div class="input-group">
+          <i class='bx bx-lock'></i>
+          <input type="password" id="password" placeholder="New password" required>
+        </div>
+        <div class="input-group">
+          <i class='bx bx-lock-alt'></i>
+          <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+        </div>
+        <button type="submit">Reset Password</button>
+      </form>
+      <p class="signup-link">Remembered your password? <a href="login.html">Login</a></p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const params = new URLSearchParams(window.location.search);
+      const token = params.get('token');
+      const email = params.get('email');
+      
+      if (!token || !email) {
+        alert("Invalid reset link. Please request a new one.");
+        window.location.href = "forgot.html";
+        return;
+      }
+      
+      document.getElementById('token').value = token;
+      document.getElementById('email').value = decodeURIComponent(email);
+    });
+
+    document.getElementById("reset-form").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      
+      const token = document.getElementById('token').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      
+      if (password !== confirmPassword) {
+        alert("Passwords don't match!");
+        return;
+      }
+
+      try {
+      
+        const submitBtn = document.querySelector('#reset-form button');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Processing...';
+
+        const response = await fetch('http://localhost:3000/reset-password', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            token, 
+            email, 
+            newPassword: password 
+          }),
+        });
+
+        const data = await response.json();
+        
+        if (data.success) {
+          alert("Password reset successfully!");
+          window.location.href = "login.html";
+        } else {
+          alert(data.message || "Password reset failed");
+        }
+      } catch (err) {
+        console.error("Error:", err);
+        alert("Error resetting password. Please try again.");
+      } finally {
+        // Reset button state
+        const submitBtn = document.querySelector('#reset-form button');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Reset Password';
+      }
+    });
+  </script>
+</body>
+</html>
